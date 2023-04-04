@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  KwiksSandboxx
 //
-//  Created by Charlie Arcodia on 2/27/23.
+//  Created by Charlie Arcodia on 2/21/23.
 //
 
 import UIKit
@@ -14,6 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let fontFamilyNames = UIFont.familyNames
+        for familyName in fontFamilyNames {
+            print("------------------------------")
+            print("Font Family Name = [\(familyName)]")
+            let names = UIFont.fontNames(forFamilyName: familyName)
+            print("Font Names = [\(names)]")
+        }
+
+
         return true
     }
 

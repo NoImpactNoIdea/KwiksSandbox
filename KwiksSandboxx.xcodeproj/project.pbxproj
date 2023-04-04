@@ -7,23 +7,67 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E15BE397BB4EAC00908FA1B /* Pods_KwiksSandboxx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857AA6706AF600D75B996DC5 /* Pods_KwiksSandboxx.framework */; };
+		E347447329DB610700E64B68 /* MessagesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E347447229DB610700E64B68 /* MessagesHeader.swift */; };
+		E347447629DB641B00E64B68 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E347447529DB641B00E64B68 /* Extensions.swift */; };
+		E347447929DB736A00E64B68 /* MessagesTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E347447829DB736A00E64B68 /* MessagesTable.swift */; };
+		E347447C29DB7E6000E64B68 /* woman_stock.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E347447B29DB7E6000E64B68 /* woman_stock.jpg */; };
+		E347448029DB8E0500E64B68 /* Group 1000007151@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E347447D29DB8E0500E64B68 /* Group 1000007151@2x.png */; };
+		E347448129DB8E0500E64B68 /* Group 1000007151@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = E347447E29DB8E0500E64B68 /* Group 1000007151@1x.png */; };
+		E347448229DB8E0500E64B68 /* Group 1000007151@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E347447F29DB8E0500E64B68 /* Group 1000007151@3x.png */; };
+		E347448529DB9BDF00E64B68 /* ChatMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E347448429DB9BDF00E64B68 /* ChatMain.swift */; };
+		E347448729DB9EA500E64B68 /* ChatHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E347448629DB9EA500E64B68 /* ChatHeader.swift */; };
+		E347448929DBA70B00E64B68 /* ChatCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E347448829DBA70B00E64B68 /* ChatCollection.swift */; };
+		E347448B29DBAA4000E64B68 /* RequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E347448A29DBAA4000E64B68 /* RequestView.swift */; };
 		E35676D529AD182F003B5E9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35676D429AD182F003B5E9A /* AppDelegate.swift */; };
 		E35676D729AD182F003B5E9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35676D629AD182F003B5E9A /* SceneDelegate.swift */; };
-		E35676D929AD182F003B5E9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35676D829AD182F003B5E9A /* ViewController.swift */; };
-		E35676DC29AD182F003B5E9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E35676DA29AD182F003B5E9A /* Main.storyboard */; };
+		E35676D929AD182F003B5E9A /* MessagesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35676D829AD182F003B5E9A /* MessagesContainer.swift */; };
 		E35676DE29AD1831003B5E9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E35676DD29AD1831003B5E9A /* Assets.xcassets */; };
 		E35676E129AD1831003B5E9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E35676DF29AD1831003B5E9A /* LaunchScreen.storyboard */; };
+		E365516529C7A79B00F3D37E /* FadingCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E365516429C7A79B00F3D37E /* FadingCollection.swift */; };
+		E365516829C7A7D000F3D37E /* FadeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E365516729C7A7D000F3D37E /* FadeController.swift */; };
+		E365516A29C7B16F00F3D37E /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E365516929C7B16F00F3D37E /* Layout.swift */; };
+		E365516D29CB6D0500F3D37E /* KwiksAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E365516C29CB6D0500F3D37E /* KwiksAlert.swift */; };
+		E3D0831929D72ADB00CE82D9 /* ColorSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */; };
+		E3D0832729D734A200CE82D9 /* Segoe UI Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */; };
+		E3D0832829D734A200CE82D9 /* Segoe UI Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832429D734A200CE82D9 /* Segoe UI Bold Italic.ttf */; };
+		E3D0832929D734A200CE82D9 /* Segoe UI Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832529D734A200CE82D9 /* Segoe UI Bold.ttf */; };
+		E3D0832A29D734A200CE82D9 /* Segoe UI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832629D734A200CE82D9 /* Segoe UI.ttf */; };
+		E3D0832C29D73F5900CE82D9 /* segoeui-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832B29D73F5900CE82D9 /* segoeui-semibold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C41B1830F67B1F20B44BD5C /* Pods-KwiksSandboxx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KwiksSandboxx.release.xcconfig"; path = "Target Support Files/Pods-KwiksSandboxx/Pods-KwiksSandboxx.release.xcconfig"; sourceTree = "<group>"; };
+		35C8784C83C9B8DCE945FC54 /* Pods-KwiksSandboxx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KwiksSandboxx.debug.xcconfig"; path = "Target Support Files/Pods-KwiksSandboxx/Pods-KwiksSandboxx.debug.xcconfig"; sourceTree = "<group>"; };
+		857AA6706AF600D75B996DC5 /* Pods_KwiksSandboxx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KwiksSandboxx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E347447229DB610700E64B68 /* MessagesHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesHeader.swift; sourceTree = "<group>"; };
+		E347447529DB641B00E64B68 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E347447829DB736A00E64B68 /* MessagesTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTable.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		E347447B29DB7E6000E64B68 /* woman_stock.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = woman_stock.jpg; sourceTree = "<group>"; };
+		E347447D29DB8E0500E64B68 /* Group 1000007151@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group 1000007151@2x.png"; sourceTree = "<group>"; };
+		E347447E29DB8E0500E64B68 /* Group 1000007151@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group 1000007151@1x.png"; sourceTree = "<group>"; };
+		E347447F29DB8E0500E64B68 /* Group 1000007151@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group 1000007151@3x.png"; sourceTree = "<group>"; };
+		E347448429DB9BDF00E64B68 /* ChatMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMain.swift; sourceTree = "<group>"; };
+		E347448629DB9EA500E64B68 /* ChatHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeader.swift; sourceTree = "<group>"; };
+		E347448829DBA70B00E64B68 /* ChatCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCollection.swift; sourceTree = "<group>"; };
+		E347448A29DBAA4000E64B68 /* RequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestView.swift; sourceTree = "<group>"; };
 		E35676D129AD182F003B5E9A /* KwiksSandboxx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KwiksSandboxx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E35676D429AD182F003B5E9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E35676D629AD182F003B5E9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E35676D829AD182F003B5E9A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E35676DB29AD182F003B5E9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E35676D829AD182F003B5E9A /* MessagesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesContainer.swift; sourceTree = "<group>"; };
 		E35676DD29AD1831003B5E9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E35676E029AD1831003B5E9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E35676E229AD1831003B5E9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E365516429C7A79B00F3D37E /* FadingCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadingCollection.swift; sourceTree = "<group>"; };
+		E365516729C7A7D000F3D37E /* FadeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeController.swift; sourceTree = "<group>"; };
+		E365516929C7B16F00F3D37E /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		E365516C29CB6D0500F3D37E /* KwiksAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KwiksAlert.swift; sourceTree = "<group>"; };
+		E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSheet.swift; sourceTree = "<group>"; };
+		E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI Italic.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI Italic.ttf"; sourceTree = "<group>"; };
+		E3D0832429D734A200CE82D9 /* Segoe UI Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI Bold Italic.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI Bold Italic.ttf"; sourceTree = "<group>"; };
+		E3D0832529D734A200CE82D9 /* Segoe UI Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI Bold.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI Bold.ttf"; sourceTree = "<group>"; };
+		E3D0832629D734A200CE82D9 /* Segoe UI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI.ttf"; sourceTree = "<group>"; };
+		E3D0832B29D73F5900CE82D9 /* segoeui-semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "segoeui-semibold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +75,60 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E15BE397BB4EAC00908FA1B /* Pods_KwiksSandboxx.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		059D93620D8CDFD4B89EDD8C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				857AA6706AF600D75B996DC5 /* Pods_KwiksSandboxx.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E347447429DB610A00E64B68 /* MessagesGroup */ = {
+			isa = PBXGroup;
+			children = (
+				E347447229DB610700E64B68 /* MessagesHeader.swift */,
+				E35676D829AD182F003B5E9A /* MessagesContainer.swift */,
+				E347447829DB736A00E64B68 /* MessagesTable.swift */,
+			);
+			path = MessagesGroup;
+			sourceTree = "<group>";
+		};
+		E347447A29DB7E5900E64B68 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				E347447B29DB7E6000E64B68 /* woman_stock.jpg */,
+				E347447E29DB8E0500E64B68 /* Group 1000007151@1x.png */,
+				E347447D29DB8E0500E64B68 /* Group 1000007151@2x.png */,
+				E347447F29DB8E0500E64B68 /* Group 1000007151@3x.png */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
+		E347448329DB9BCF00E64B68 /* ChatGroup */ = {
+			isa = PBXGroup;
+			children = (
+				E347448429DB9BDF00E64B68 /* ChatMain.swift */,
+				E347448629DB9EA500E64B68 /* ChatHeader.swift */,
+				E347448829DBA70B00E64B68 /* ChatCollection.swift */,
+				E347448A29DBAA4000E64B68 /* RequestView.swift */,
+			);
+			path = ChatGroup;
+			sourceTree = "<group>";
+		};
 		E35676C829AD182F003B5E9A = {
 			isa = PBXGroup;
 			children = (
 				E35676D329AD182F003B5E9A /* KwiksSandboxx */,
 				E35676D229AD182F003B5E9A /* Products */,
+				ED9CD20F0A4E944641598103 /* Pods */,
+				059D93620D8CDFD4B89EDD8C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +143,68 @@
 		E35676D329AD182F003B5E9A /* KwiksSandboxx */ = {
 			isa = PBXGroup;
 			children = (
+				E3D0831A29D72D5100CE82D9 /* assets */,
+				E3D0831729D72ACB00CE82D9 /* Extensions */,
+				E3D0831629D729AD00CE82D9 /* ChatGroup */,
+				E365516B29CB6CED00F3D37E /* ErrorSuccessHandling */,
 				E35676D429AD182F003B5E9A /* AppDelegate.swift */,
 				E35676D629AD182F003B5E9A /* SceneDelegate.swift */,
-				E35676D829AD182F003B5E9A /* ViewController.swift */,
-				E35676DA29AD182F003B5E9A /* Main.storyboard */,
 				E35676DD29AD1831003B5E9A /* Assets.xcassets */,
 				E35676DF29AD1831003B5E9A /* LaunchScreen.storyboard */,
 				E35676E229AD1831003B5E9A /* Info.plist */,
+				E365516429C7A79B00F3D37E /* FadingCollection.swift */,
+				E365516729C7A7D000F3D37E /* FadeController.swift */,
+				E365516929C7B16F00F3D37E /* Layout.swift */,
 			);
 			path = KwiksSandboxx;
+			sourceTree = "<group>";
+		};
+		E365516B29CB6CED00F3D37E /* ErrorSuccessHandling */ = {
+			isa = PBXGroup;
+			children = (
+				E365516C29CB6D0500F3D37E /* KwiksAlert.swift */,
+			);
+			path = ErrorSuccessHandling;
+			sourceTree = "<group>";
+		};
+		E3D0831629D729AD00CE82D9 /* ChatGroup */ = {
+			isa = PBXGroup;
+			children = (
+				E347447529DB641B00E64B68 /* Extensions.swift */,
+				E347448329DB9BCF00E64B68 /* ChatGroup */,
+				E347447429DB610A00E64B68 /* MessagesGroup */,
+			);
+			path = ChatGroup;
+			sourceTree = "<group>";
+		};
+		E3D0831729D72ACB00CE82D9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E3D0831A29D72D5100CE82D9 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				E347447A29DB7E5900E64B68 /* icons */,
+				E3D0832B29D73F5900CE82D9 /* segoeui-semibold.ttf */,
+				E3D0832429D734A200CE82D9 /* Segoe UI Bold Italic.ttf */,
+				E3D0832529D734A200CE82D9 /* Segoe UI Bold.ttf */,
+				E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */,
+				E3D0832629D734A200CE82D9 /* Segoe UI.ttf */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		ED9CD20F0A4E944641598103 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				35C8784C83C9B8DCE945FC54 /* Pods-KwiksSandboxx.debug.xcconfig */,
+				1C41B1830F67B1F20B44BD5C /* Pods-KwiksSandboxx.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E35676E529AD1831003B5E9A /* Build configuration list for PBXNativeTarget "KwiksSandboxx" */;
 			buildPhases = (
+				1D9B4E2FA0B1874C10E05206 /* [CP] Check Pods Manifest.lock */,
 				E35676CD29AD182F003B5E9A /* Sources */,
 				E35676CE29AD182F003B5E9A /* Frameworks */,
 				E35676CF29AD182F003B5E9A /* Resources */,
+				0DB42F669EB282B316E38B91 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,36 +267,90 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3D0832729D734A200CE82D9 /* Segoe UI Italic.ttf in Resources */,
+				E3D0832C29D73F5900CE82D9 /* segoeui-semibold.ttf in Resources */,
 				E35676E129AD1831003B5E9A /* LaunchScreen.storyboard in Resources */,
+				E347448029DB8E0500E64B68 /* Group 1000007151@2x.png in Resources */,
+				E347447C29DB7E6000E64B68 /* woman_stock.jpg in Resources */,
+				E3D0832929D734A200CE82D9 /* Segoe UI Bold.ttf in Resources */,
+				E3D0832829D734A200CE82D9 /* Segoe UI Bold Italic.ttf in Resources */,
+				E3D0832A29D734A200CE82D9 /* Segoe UI.ttf in Resources */,
 				E35676DE29AD1831003B5E9A /* Assets.xcassets in Resources */,
-				E35676DC29AD182F003B5E9A /* Main.storyboard in Resources */,
+				E347448229DB8E0500E64B68 /* Group 1000007151@3x.png in Resources */,
+				E347448129DB8E0500E64B68 /* Group 1000007151@1x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0DB42F669EB282B316E38B91 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KwiksSandboxx/Pods-KwiksSandboxx-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KwiksSandboxx/Pods-KwiksSandboxx-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KwiksSandboxx/Pods-KwiksSandboxx-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1D9B4E2FA0B1874C10E05206 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KwiksSandboxx-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E35676CD29AD182F003B5E9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E35676D929AD182F003B5E9A /* ViewController.swift in Sources */,
+				E35676D929AD182F003B5E9A /* MessagesContainer.swift in Sources */,
+				E347448929DBA70B00E64B68 /* ChatCollection.swift in Sources */,
+				E347447629DB641B00E64B68 /* Extensions.swift in Sources */,
+				E347448529DB9BDF00E64B68 /* ChatMain.swift in Sources */,
+				E365516D29CB6D0500F3D37E /* KwiksAlert.swift in Sources */,
+				E347448B29DBAA4000E64B68 /* RequestView.swift in Sources */,
 				E35676D529AD182F003B5E9A /* AppDelegate.swift in Sources */,
+				E3D0831929D72ADB00CE82D9 /* ColorSheet.swift in Sources */,
+				E365516829C7A7D000F3D37E /* FadeController.swift in Sources */,
+				E347447929DB736A00E64B68 /* MessagesTable.swift in Sources */,
+				E347448729DB9EA500E64B68 /* ChatHeader.swift in Sources */,
+				E365516529C7A79B00F3D37E /* FadingCollection.swift in Sources */,
 				E35676D729AD182F003B5E9A /* SceneDelegate.swift in Sources */,
+				E347447329DB610700E64B68 /* MessagesHeader.swift in Sources */,
+				E365516A29C7B16F00F3D37E /* Layout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E35676DA29AD182F003B5E9A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E35676DB29AD182F003B5E9A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E35676DF29AD1831003B5E9A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -282,6 +478,7 @@
 		};
 		E35676E629AD1831003B5E9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35C8784C83C9B8DCE945FC54 /* Pods-KwiksSandboxx.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -292,9 +489,10 @@
 				INFOPLIST_FILE = KwiksSandboxx/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,6 +508,7 @@
 		};
 		E35676E729AD1831003B5E9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C41B1830F67B1F20B44BD5C /* Pods-KwiksSandboxx.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -320,9 +519,10 @@
 				INFOPLIST_FILE = KwiksSandboxx/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

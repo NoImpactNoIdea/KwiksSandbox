@@ -1,0 +1,377 @@
+//
+//  ChatHeader.swift
+//  KwiksSandboxx
+//
+//  Created by Charlie Arcodia on 4/3/23.
+
+import Foundation
+import UIKit
+
+class MessagesHeader : UIView {
+    
+    //Selector that decides between bestie, family, archived and requests
+    public enum StateSelection {
+        case bestie
+        case family
+        case archived
+        case requests
+    }
+    
+    //Use this var as the main reference
+    public var stateSelector = StateSelection.bestie
+    
+    var messagesContainer : MessagesContainer?
+    
+    var headerContainer : UIView = {
+        
+        let hc = UIView()
+        hc.translatesAutoresizingMaskIntoConstraints = false
+        hc.backgroundColor = UIColor.kwiksGreen
+        
+        return hc
+    }()
+    
+    lazy var backButton : UIButton = {
+        
+        let cbf = UIButton(type: .system)
+        cbf.translatesAutoresizingMaskIntoConstraints = false
+        cbf.backgroundColor = .clear
+        let config = UIImage.SymbolConfiguration(pointSize: 16, weight: .regular)
+        let image = UIImage(systemName: S().backIcon, withConfiguration: config)
+        cbf.setImage(image, for: UIControl.State.normal)
+        cbf.tintColor = UIColor.kwiksBackgroundBlack
+        cbf.addTarget(self, action: #selector(self.handleBackButton), for: .touchUpInside)
+        
+        return cbf
+        
+    }()
+    
+    var timeCover : UIView = {
+        
+        let tc = UIView()
+        tc.translatesAutoresizingMaskIntoConstraints = false
+        tc.backgroundColor = UIColor.kwiksGreen
+        
+       return tc
+    }()
+    
+    var headerLabel : UILabel = {
+        
+        let hfl = UILabel()
+        hfl.translatesAutoresizingMaskIntoConstraints = false
+        hfl.backgroundColor = .clear
+        hfl.text = S().messages
+        hfl.textColor = UIColor.kwiksMatteBlack
+        hfl.textAlignment = .center
+        hfl.font = UIFont(name: FontKit().segoeSemiBold, size: 24)
+        
+        return hfl
+    }()
+    
+    lazy var newConversationButton : UIButton = {
+        
+        let cbf = UIButton(type: .system)
+        cbf.translatesAutoresizingMaskIntoConstraints = false
+        cbf.backgroundColor = .clear
+        let config = UIImage.SymbolConfiguration(pointSize: 16, weight: .regular)
+        let image = UIImage(systemName: S().plusSquare, withConfiguration: config)
+        cbf.setImage(image, for: UIControl.State.normal)
+        cbf.tintColor = UIColor .black
+        
+        return cbf
+        
+    }()
+    
+    lazy var searchButton : UIButton = {
+        
+        let cbf = UIButton(type: .system)
+        cbf.translatesAutoresizingMaskIntoConstraints = false
+        cbf.backgroundColor = .clear
+        let config = UIImage.SymbolConfiguration(pointSize: 16, weight: .regular)
+        let image = UIImage(systemName: S().magGlass, withConfiguration: config)
+        cbf.setImage(image, for: UIControl.State.normal)
+        cbf.tintColor = UIColor .black
+        
+        return cbf
+        
+    }()
+    
+    var headerStackSelection : UIStackView = {
+        
+        let sv = UIStackView()
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.axis = .horizontal
+        sv.distribution = .equalCentering
+        sv.alignment = .center
+        sv.spacing = 12
+        sv.contentMode = .scaleAspectFit
+        sv.layer.zPosition = 50
+        
+        return sv
+    }()
+    
+    lazy var bestiesButton : UIButton = {
+        
+        let cbf = UIButton(type: .system)
+        cbf.translatesAutoresizingMaskIntoConstraints = false
+        cbf.setTitle(S().bestiesLabel, for: UIControl.State.normal)
+        cbf.titleLabel?.font = UIFont.init(name: FontKit().segoeSemiBold, size: 15)
+        cbf.titleLabel?.adjustsFontSizeToFitWidth = true
+        cbf.titleLabel?.numberOfLines = 1
+        cbf.titleLabel?.adjustsFontForContentSizeCategory = true
+        cbf.backgroundColor = .clear
+        cbf.tintColor = UIColor.kwiksBackgroundBlack
+        cbf.backgroundColor = UIColor .white
+        cbf.layer.cornerRadius = 15
+        cbf.tag = 1
+        cbf.addTarget(self, action: #selector(self.handleCategorySelection(sender:)), for: .touchUpInside)
+        
+        return cbf
+        
+    }()
+    
+    lazy var familyButton : UIButton = {
+        
+        let cbf = UIButton(type: .system)
+        cbf.translatesAutoresizingMaskIntoConstraints = false
+        cbf.setTitle(S().familyLabel, for: UIControl.State.normal)
+        cbf.titleLabel?.font = UIFont.init(name: FontKit().segoeSemiBold, size: 15)
+        cbf.titleLabel?.adjustsFontSizeToFitWidth = true
+        cbf.titleLabel?.numberOfLines = 1
+        cbf.titleLabel?.adjustsFontForContentSizeCategory = true
+        cbf.backgroundColor = .clear
+        cbf.tintColor = UIColor.kwiksBackgroundBlack
+        cbf.backgroundColor = UIColor .white
+        cbf.layer.cornerRadius = 15
+        cbf.tag = 2
+        cbf.addTarget(self, action: #selector(self.handleCategorySelection(sender:)), for: .touchUpInside)
+        
+        return cbf
+        
+    }()
+    
+    lazy var archivedButton : UIButton = {
+        
+        let cbf = UIButton(type: .system)
+        cbf.translatesAutoresizingMaskIntoConstraints = false
+        cbf.setTitle(S().archivedLabel, for: UIControl.State.normal)
+        cbf.titleLabel?.font = UIFont.init(name: FontKit().segoeSemiBold, size: 15)
+        cbf.titleLabel?.adjustsFontSizeToFitWidth = true
+        cbf.titleLabel?.numberOfLines = 1
+        cbf.titleLabel?.adjustsFontForContentSizeCategory = true
+        cbf.backgroundColor = .clear
+        cbf.tintColor = UIColor.kwiksBackgroundBlack
+        cbf.backgroundColor = UIColor .white
+        cbf.layer.cornerRadius = 15
+        cbf.tag = 3
+        cbf.addTarget(self, action: #selector(self.handleCategorySelection(sender:)), for: .touchUpInside)
+        
+        return cbf
+        
+    }()
+    
+    lazy var requestsButton : UIButton = {
+        
+        let cbf = UIButton(type: .system)
+        cbf.translatesAutoresizingMaskIntoConstraints = false
+        cbf.setTitle(S().requestsLabel, for: UIControl.State.normal)
+        cbf.titleLabel?.font = UIFont.init(name: FontKit().segoeSemiBold, size: 15)
+        cbf.titleLabel?.adjustsFontSizeToFitWidth = true
+        cbf.titleLabel?.numberOfLines = 1
+        cbf.titleLabel?.adjustsFontForContentSizeCategory = true
+        cbf.backgroundColor = .clear
+        cbf.tintColor = UIColor.kwiksBackgroundBlack
+        cbf.backgroundColor = UIColor .white
+        cbf.layer.cornerRadius = 15
+        cbf.tag = 4
+        cbf.addTarget(self, action: #selector(self.handleCategorySelection(sender:)), for: .touchUpInside)
+        
+        return cbf
+        
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        self.backgroundColor = UIColor.kwiksGreen
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.addViews()
+        
+        self.buttonFormat(tag: 1)//manually setting besties first
+        let label = "\(S().messages) (\(32))"
+        self.headerLabel.colorFontString(text: label, coloredText: "(\(32))", color: UIColor .white, fontName: FontKit().segoeSemiBold, fontSize: 24)
+        
+    }
+    
+    func addViews() {
+        
+        let timeCoverHeight : CGFloat = CGFloat(0.0).statusBarHeight()
+        
+        self.addSubview(self.headerContainer)
+        self.addSubview(self.timeCover)
+
+        self.headerContainer.addSubview(self.backButton)
+        self.headerContainer.addSubview(self.headerLabel)
+        self.headerContainer.addSubview(self.newConversationButton)
+        self.headerContainer.addSubview(self.searchButton)
+
+        //subviews first
+        self.headerStackSelection.addArrangedSubview(self.bestiesButton)
+        self.headerStackSelection.addArrangedSubview(self.familyButton)
+        self.headerStackSelection.addArrangedSubview(self.archivedButton)
+        self.headerStackSelection.addArrangedSubview(self.requestsButton)
+
+        self.headerContainer.addSubview(self.headerStackSelection)
+
+        self.timeCover.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        self.timeCover.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        self.timeCover.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        self.timeCover.heightAnchor.constraint(equalToConstant: timeCoverHeight).isActive = true
+
+        self.headerContainer.topAnchor.constraint(equalTo: self.timeCover.bottomAnchor).isActive = true
+        self.headerContainer.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        self.headerContainer.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        self.headerContainer.heightAnchor.constraint(equalToConstant: 110).isActive = true
+        
+        self.backButton.centerYAnchor.constraint(equalTo: self.headerContainer.centerYAnchor, constant: -30).isActive = true
+        self.backButton.leftAnchor.constraint(equalTo: self.headerContainer.leftAnchor, constant: 15).isActive = true
+        self.backButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        self.backButton.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        
+        self.headerLabel.leftAnchor.constraint(equalTo: self.backButton.rightAnchor, constant: -7).isActive = true
+        self.headerLabel.centerYAnchor.constraint(equalTo: self.backButton.centerYAnchor, constant: -1).isActive = true
+        self.headerLabel.sizeToFit()
+        
+        self.newConversationButton.centerYAnchor.constraint(equalTo: self.backButton.centerYAnchor).isActive = true
+        self.newConversationButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15).isActive = true
+        self.newConversationButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        self.newConversationButton.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        
+        self.searchButton.centerYAnchor.constraint(equalTo: self.backButton.centerYAnchor).isActive = true
+        self.searchButton.rightAnchor.constraint(equalTo: self.newConversationButton.leftAnchor, constant: 0).isActive = true
+        self.searchButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        self.searchButton.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        
+        self.headerStackSelection.topAnchor.constraint(equalTo: self.headerLabel.bottomAnchor, constant: 15).isActive = true
+        self.headerStackSelection.leftAnchor.constraint(equalTo: self.headerContainer.leftAnchor, constant: 10).isActive = true
+        self.headerStackSelection.rightAnchor.constraint(equalTo: self.headerContainer.rightAnchor, constant: -10).isActive = true
+        self.headerStackSelection.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        self.bestiesButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        self.bestiesButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        self.bestiesButton.sizeToFit()
+        
+        self.familyButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        self.familyButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        self.familyButton.sizeToFit()
+        
+        self.archivedButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        self.archivedButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        self.archivedButton.sizeToFit()
+        
+        self.requestsButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        self.requestsButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        self.requestsButton.sizeToFit()
+        
+    }
+   
+    //each button has a tag 1-4
+    @objc func handleCategorySelection(sender:UIButton) {
+        
+        UIDevice.vibrateLight()
+        
+        switch sender.tag {
+            
+                case 1: stateSelector = .bestie
+                self.buttonFormat(tag: 1)
+                case 2: stateSelector = .family
+                self.buttonFormat(tag: 2)
+                case 3: stateSelector = .archived
+                self.buttonFormat(tag: 3)
+                case 4: stateSelector = .requests
+                self.buttonFormat(tag: 4)
+            
+                default:  stateSelector = .bestie
+        }
+    }
+    
+    func buttonFormat(tag : Int) {
+        
+        if tag == 3 { //this is the archived tag, give it a little space and animate it
+            self.messagesContainer?.messagesTable.adjustForArchived(shouldAdjust: true)
+        } else {
+            self.messagesContainer?.messagesTable.adjustForArchived(shouldAdjust: false)
+        }
+        
+        switch tag {
+            
+        case 1:
+            
+            self.bestiesButton.backgroundColor = UIColor .white
+            self.bestiesButton.tintColor = UIColor .black
+            
+            self.familyButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+            self.familyButton.tintColor = UIColor.unSelectedTextColor
+            
+            self.archivedButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+            self.archivedButton.tintColor = UIColor.unSelectedTextColor
+            
+            self.requestsButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+            self.requestsButton.tintColor = UIColor.unSelectedTextColor
+            
+        case 2:
+            
+            self.familyButton.backgroundColor = UIColor .white
+            self.familyButton.tintColor = UIColor .black
+            
+            self.bestiesButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+            self.bestiesButton.tintColor = UIColor.unSelectedTextColor
+            
+            self.archivedButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+            self.archivedButton.tintColor = UIColor.unSelectedTextColor
+            
+            self.requestsButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+            self.requestsButton.tintColor = UIColor.unSelectedTextColor
+            
+        case 3:
+            
+            self.archivedButton.backgroundColor = UIColor .white
+            self.archivedButton.tintColor = UIColor .black
+            
+            self.bestiesButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+            self.bestiesButton.tintColor = UIColor.unSelectedTextColor
+            
+            self.familyButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+            self.familyButton.tintColor = UIColor.unSelectedTextColor
+            
+            self.requestsButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+            self.requestsButton.tintColor = UIColor.unSelectedTextColor
+            
+            
+        case 4:
+            
+            self.requestsButton.backgroundColor = UIColor .white
+            self.requestsButton.tintColor = UIColor .black
+            
+            self.bestiesButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+            self.bestiesButton.tintColor = UIColor.unSelectedTextColor
+            
+            self.familyButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+            self.familyButton.tintColor = UIColor.unSelectedTextColor
+            
+            self.archivedButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+            self.archivedButton.tintColor = UIColor.unSelectedTextColor
+            
+        default: print("nothing")
+            
+        }
+    }
+    
+    @objc func handleBackButton() {
+        self.messagesContainer?.handleBackButton()
+    }
+   
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}

@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  KwiksSandboxx
 //
-//  Created by Charlie Arcodia on 2/27/23.
+//  Created by Charlie Arcodia on 2/22/23.
 //
 
 import UIKit
@@ -10,13 +10,22 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        //MARK: - INITIAL ENTRY INTO THE APPLICATION
+        guard let sceneWindow = (scene as? UIWindowScene) else { return }
+        let window = UIWindow(windowScene: sceneWindow)
+        window.makeKeyAndVisible()
+      
+        
+        let messagesController = ChatMain()
+        let navigationController = UINavigationController(rootViewController: messagesController)
+        navigationController.navigationBar.isHidden = true
+        navigationController.modalPresentationStyle = .fullScreen
+        
+        window.rootViewController = navigationController
+        self.window = window
+  
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
