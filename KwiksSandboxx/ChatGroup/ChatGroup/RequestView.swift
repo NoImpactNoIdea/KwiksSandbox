@@ -149,7 +149,38 @@ class RequestView : UIView {
         return hfl
     }()
     
+    var statsLabel : UILabel = {
+        
+        let hfl = UILabel()
+        hfl.translatesAutoresizingMaskIntoConstraints = false
+        hfl.backgroundColor = .clear
+        hfl.textColor = UIColor.chatTextGrey
+        hfl.textAlignment = .center
+        hfl.font = UIFont(name: FontKit().segoeRegular, size: 12)
+        hfl.isUserInteractionEnabled = true
+        hfl.numberOfLines = 1
+        
+        return hfl
+    }()
     
+    lazy var viewProfileButton : UIButton = {
+        
+        let cbf = UIButton(type: .system)
+        cbf.translatesAutoresizingMaskIntoConstraints = false
+        cbf.setTitle("View Profile", for: UIControl.State.normal)
+        cbf.titleLabel?.font = UIFont.init(name: FontKit().segoeRegular, size: 14)
+        cbf.titleLabel?.adjustsFontSizeToFitWidth = true
+        cbf.titleLabel?.numberOfLines = 1
+        cbf.titleLabel?.adjustsFontForContentSizeCategory = true
+        cbf.titleLabel?.textColor = UIColor .black
+        cbf.backgroundColor = UIColor.kwiksGreen
+        cbf.tintColor = UIColor.differentShadeBlack
+        cbf.tag = 1
+        cbf.addTarget(self, action: #selector(self.handleAcceptButtons(sender:)), for: .touchUpInside)
+        
+        return cbf
+        
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -164,6 +195,7 @@ class RequestView : UIView {
         let image = UIImage(named: "stock_photo_man")
         self.profilePhoto.image = image
         self.headerLabel.text = "Accept message request from Caleb Klein?"
+        self.statsLabel.text = "200 Videos   1.6M followers"
         self.headerLabel.colorFontString(text: "Accept message request from Caleb Klein?", coloredText: "Caleb Klein?", color: .black, fontName: FontKit().segoeBold, fontSize: 16)
     }
   
@@ -180,6 +212,9 @@ class RequestView : UIView {
         
         self.addSubview(self.requestDescription)
         self.addSubview(self.headerLabel)
+        self.addSubview(self.statsLabel)
+        self.addSubview(self.viewProfileButton)
+
 
         self.profilePhoto.topAnchor.constraint(equalTo: self.topAnchor, constant: 63).isActive = true
         self.profilePhoto.widthAnchor.constraint(equalToConstant: 70).isActive = true
@@ -220,6 +255,17 @@ class RequestView : UIView {
         self.headerLabel.leftAnchor.constraint(equalTo: self.bottomContainer.leftAnchor, constant: 40).isActive = true
         self.headerLabel.rightAnchor.constraint(equalTo: self.bottomContainer.rightAnchor, constant: -40).isActive = true
         self.headerLabel.sizeToFit()
+        
+        self.statsLabel.topAnchor.constraint(equalTo: self.nameLabel.bottomAnchor, constant: 10).isActive = true
+        self.statsLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 30).isActive = true
+        self.statsLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -30).isActive = true
+        self.statsLabel.sizeToFit()
+        
+        self.viewProfileButton.topAnchor.constraint(equalTo: self.statsLabel.bottomAnchor, constant: 20).isActive = true
+        self.viewProfileButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        self.viewProfileButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        self.viewProfileButton.widthAnchor.constraint(equalToConstant: 108).isActive = true
+        self.viewProfileButton.layer.cornerRadius = 15
         
     }
     

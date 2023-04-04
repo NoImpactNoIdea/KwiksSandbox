@@ -62,6 +62,12 @@ extension UIColor {
 
   ///2D2D2D
   static let headerBlack = UIColor(hex: 0x2D2D2D)
+    
+  ///E5F4DB
+  static let pinLightGreen = UIColor(hex: 0xE5F4DB)
+
+  ///060D05
+  static let differentShadeBlack = UIColor(hex: 0x060D05)
 
     
 }

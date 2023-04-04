@@ -36,10 +36,9 @@ class MessagesHeader : UIView {
         let cbf = UIButton(type: .system)
         cbf.translatesAutoresizingMaskIntoConstraints = false
         cbf.backgroundColor = .clear
-        let config = UIImage.SymbolConfiguration(pointSize: 16, weight: .regular)
-        let image = UIImage(systemName: S().backIcon, withConfiguration: config)
+        let image = UIImage(named: S().backIcon)?.withRenderingMode(.alwaysOriginal)
         cbf.setImage(image, for: UIControl.State.normal)
-        cbf.tintColor = UIColor.kwiksBackgroundBlack
+        cbf.tintColor = UIColor.kwiksMatteBlack
         cbf.addTarget(self, action: #selector(self.handleBackButton), for: .touchUpInside)
         
         return cbf
@@ -73,8 +72,7 @@ class MessagesHeader : UIView {
         let cbf = UIButton(type: .system)
         cbf.translatesAutoresizingMaskIntoConstraints = false
         cbf.backgroundColor = .clear
-        let config = UIImage.SymbolConfiguration(pointSize: 16, weight: .regular)
-        let image = UIImage(systemName: S().plusSquare, withConfiguration: config)
+        let image = UIImage(named: S().newConvoIcon)?.withRenderingMode(.alwaysOriginal)
         cbf.setImage(image, for: UIControl.State.normal)
         cbf.tintColor = UIColor .black
         
@@ -87,8 +85,7 @@ class MessagesHeader : UIView {
         let cbf = UIButton(type: .system)
         cbf.translatesAutoresizingMaskIntoConstraints = false
         cbf.backgroundColor = .clear
-        let config = UIImage.SymbolConfiguration(pointSize: 16, weight: .regular)
-        let image = UIImage(systemName: S().magGlass, withConfiguration: config)
+        let image = UIImage(named: S().magGlass)?.withRenderingMode(.alwaysOriginal)
         cbf.setImage(image, for: UIControl.State.normal)
         cbf.tintColor = UIColor .black
         
@@ -103,9 +100,7 @@ class MessagesHeader : UIView {
         sv.axis = .horizontal
         sv.distribution = .equalCentering
         sv.alignment = .center
-        sv.spacing = 12
         sv.contentMode = .scaleAspectFit
-        sv.layer.zPosition = 50
         
         return sv
     }()
@@ -239,7 +234,7 @@ class MessagesHeader : UIView {
         self.backButton.widthAnchor.constraint(equalToConstant: 44).isActive = true
         
         self.headerLabel.leftAnchor.constraint(equalTo: self.backButton.rightAnchor, constant: -7).isActive = true
-        self.headerLabel.centerYAnchor.constraint(equalTo: self.backButton.centerYAnchor, constant: -1).isActive = true
+        self.headerLabel.centerYAnchor.constraint(equalTo: self.backButton.centerYAnchor, constant: -2).isActive = true
         self.headerLabel.sizeToFit()
         
         self.newConversationButton.centerYAnchor.constraint(equalTo: self.backButton.centerYAnchor).isActive = true
@@ -253,24 +248,24 @@ class MessagesHeader : UIView {
         self.searchButton.widthAnchor.constraint(equalToConstant: 44).isActive = true
         
         self.headerStackSelection.topAnchor.constraint(equalTo: self.headerLabel.bottomAnchor, constant: 15).isActive = true
-        self.headerStackSelection.leftAnchor.constraint(equalTo: self.headerContainer.leftAnchor, constant: 10).isActive = true
-        self.headerStackSelection.rightAnchor.constraint(equalTo: self.headerContainer.rightAnchor, constant: -10).isActive = true
+        self.headerStackSelection.leftAnchor.constraint(equalTo: self.headerContainer.leftAnchor, constant: 15).isActive = true
+        self.headerStackSelection.rightAnchor.constraint(equalTo: self.headerContainer.rightAnchor, constant: -15).isActive = true
         self.headerStackSelection.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         self.bestiesButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        self.bestiesButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        self.bestiesButton.widthAnchor.constraint(equalToConstant: 75).isActive = true
         self.bestiesButton.sizeToFit()
         
         self.familyButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        self.familyButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        self.familyButton.widthAnchor.constraint(equalToConstant: 75).isActive = true
         self.familyButton.sizeToFit()
         
         self.archivedButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        self.archivedButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        self.archivedButton.widthAnchor.constraint(equalToConstant: 78).isActive = true
         self.archivedButton.sizeToFit()
         
         self.requestsButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        self.requestsButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        self.requestsButton.widthAnchor.constraint(equalToConstant: 78).isActive = true
         self.requestsButton.sizeToFit()
         
     }

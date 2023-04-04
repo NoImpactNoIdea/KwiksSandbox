@@ -24,8 +24,7 @@ class ChatHeader : UIView {
         let cbf = UIButton(type: .system)
         cbf.translatesAutoresizingMaskIntoConstraints = false
         cbf.backgroundColor = .clear
-        let config = UIImage.SymbolConfiguration(pointSize: 16, weight: .regular)
-        let image = UIImage(systemName: S().backIcon, withConfiguration: config)
+        let image = UIImage(named: S().backIcon)?.withRenderingMode(.alwaysOriginal)
         cbf.setImage(image, for: UIControl.State.normal)
         cbf.tintColor = UIColor.fontBrown
         cbf.addTarget(self, action: #selector(self.handleBackButton), for: .touchUpInside)
@@ -65,9 +64,9 @@ class ChatHeader : UIView {
         let hfl = UILabel()
         hfl.translatesAutoresizingMaskIntoConstraints = false
         hfl.backgroundColor = .clear
-        hfl.textColor = UIColor.black
+        hfl.textColor = UIColor.kwiksMatteBlack
         hfl.textAlignment = .left
-        hfl.font = UIFont(name: FontKit().segoeSemiBold, size: 15)
+        hfl.font = UIFont(name: FontKit().segoeSemiBold, size: 20)
         hfl.isUserInteractionEnabled = true
         hfl.numberOfLines = 1
         
@@ -167,9 +166,9 @@ class ChatHeader : UIView {
         
         self.notificationCircle.rightAnchor.constraint(equalTo: self.profilePhoto.rightAnchor, constant: -3.5).isActive = true
         self.notificationCircle.centerYAnchor.constraint(equalTo: self.profilePhoto.topAnchor, constant: 3.5).isActive = true
-        self.notificationCircle.heightAnchor.constraint(equalToConstant: 10).isActive = true
-        self.notificationCircle.widthAnchor.constraint(equalToConstant: 10).isActive = true
-        self.notificationCircle.layer.cornerRadius = 5
+        self.notificationCircle.heightAnchor.constraint(equalToConstant: 12).isActive = true
+        self.notificationCircle.widthAnchor.constraint(equalToConstant: 12).isActive = true
+        self.notificationCircle.layer.cornerRadius = 6
         
         self.nameLabel.centerYAnchor.constraint(equalTo: self.profilePhoto.centerYAnchor, constant: -10).isActive = true
         self.nameLabel.leftAnchor.constraint(equalTo: self.profilePhoto.rightAnchor, constant: 10).isActive = true

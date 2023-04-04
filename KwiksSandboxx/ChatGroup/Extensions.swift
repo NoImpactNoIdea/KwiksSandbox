@@ -26,9 +26,16 @@ extension UIDevice { //haptics and vibrations
 
 struct S { //S for string
     var messages = "Messages"
-    var backIcon = "chevron.left"
-    var plusSquare = "plus.square"
-    var magGlass = "magnifyingglass"
+    var backIcon = "back_icon_final"
+    var newConvoIcon = "new_convo_icon"
+    var magGlass = "mag_icon_header"
+    var trashIcon = "trash_icon_white"
+    var whitePinLargeTable = "white_pin_large_table"
+    var messagePinIcon = "message_pin_icon"
+    var threeDotsVertical = "three_dots_horizontal_icon"
+
+    
+
     var bestiesLabel = "Besties"
     var familyLabel = "Family"
     var requestsLabel = "Requests"
@@ -36,6 +43,7 @@ struct S { //S for string
     var phone = "phone.fill"
     var video = "video"
     var ellipsis = "ellipsis"
+    
 
 }
 

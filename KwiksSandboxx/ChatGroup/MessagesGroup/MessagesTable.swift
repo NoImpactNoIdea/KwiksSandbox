@@ -87,8 +87,7 @@ class MessagesTable : UITableView, UIScrollViewDelegate, UITableViewDelegate, UI
         
         threeDotMenu.backgroundColor = UIColor .kwiksGreen
         
-        let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .light)
-        let threeDotImage = UIImage(systemName: "ellipsis", withConfiguration: config)?.withTintColor(UIColor .white)
+        let threeDotImage = UIImage(named: S().threeDotsVertical)?.withRenderingMode(.alwaysOriginal)
         threeDotMenu.image = threeDotImage
         
         //pinned functionality
@@ -98,8 +97,7 @@ class MessagesTable : UITableView, UIScrollViewDelegate, UITableViewDelegate, UI
         
         pinMenu.backgroundColor = UIColor .kwiksDeepGreen
         
-        let configPin = UIImage.SymbolConfiguration(pointSize: 20, weight: .light)
-        let pinImage = UIImage(systemName: "pin", withConfiguration: configPin)?.withTintColor(UIColor .white)
+        let pinImage = UIImage(named: S().whitePinLargeTable)?.withRenderingMode(.alwaysOriginal)
         pinMenu.image = pinImage
         
         
@@ -110,8 +108,7 @@ class MessagesTable : UITableView, UIScrollViewDelegate, UITableViewDelegate, UI
         
         trashMenu.backgroundColor = UIColor .red
         
-        let configTrash = UIImage.SymbolConfiguration(pointSize: 20, weight: .light)
-        let trashImage = UIImage(systemName: "trash.fill", withConfiguration: configTrash)?.withTintColor(UIColor .white)
+        let trashImage = UIImage(named: S().trashIcon)?.withRenderingMode(.alwaysOriginal)
         trashMenu.image = trashImage
         
         let swipeActions = UISwipeActionsConfiguration(actions: [trashMenu, threeDotMenu, pinMenu])
@@ -211,7 +208,7 @@ class MessagesFeeder : UITableViewCell {
         
         let ff = UIView()
         ff.translatesAutoresizingMaskIntoConstraints = false
-        ff.backgroundColor = UIColor.dividerLineGrey
+        ff.backgroundColor = UIColor.dividerLineGrey.withAlphaComponent(0.4)
         ff.isUserInteractionEnabled = true
         
         return ff
@@ -247,6 +244,19 @@ class MessagesFeeder : UITableViewCell {
         return hfl
     }()
     
+    lazy var pinIcon : UIImageView = {
+        
+        let cbf = UIImageView()
+        cbf.translatesAutoresizingMaskIntoConstraints = false
+        let image = UIImage(named: S().messagePinIcon)?.withRenderingMode(.alwaysOriginal)
+        cbf.image = image
+        cbf.contentMode = .scaleAspectFit
+        cbf.backgroundColor = UIColor.pinLightGreen
+        cbf.tintColor = UIColor.kwiksDeepGreen
+        
+        return cbf
+    }()
+    
    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -270,6 +280,7 @@ class MessagesFeeder : UITableViewCell {
         self.addSubview(self.commentLabel)
         self.addSubview(self.dividerLine)
         self.addSubview(self.notificationCircle)
+        self.addSubview(self.pinIcon)
         self.addSubview(self.dateTimeLabel)
         
         self.containerView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
@@ -299,7 +310,7 @@ class MessagesFeeder : UITableViewCell {
         self.commentLabel.sizeToFit()
         
         self.dividerLine.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        self.dividerLine.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        self.dividerLine.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
         self.dividerLine.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
         self.dividerLine.heightAnchor.constraint(equalToConstant: 1).isActive = true
         
@@ -308,6 +319,12 @@ class MessagesFeeder : UITableViewCell {
         self.notificationCircle.heightAnchor.constraint(equalToConstant: 20).isActive = true
         self.notificationCircle.widthAnchor.constraint(equalToConstant: 20).isActive = true
         self.notificationCircle.layer.cornerRadius = 10
+        
+        self.pinIcon.rightAnchor.constraint(equalTo: self.notificationCircle.leftAnchor, constant: -5).isActive = true
+        self.pinIcon.centerYAnchor.constraint(equalTo: self.notificationCircle.centerYAnchor, constant: 0).isActive = true
+        self.pinIcon.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        self.pinIcon.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        self.pinIcon.layer.cornerRadius = 10
         
         self.dateTimeLabel.rightAnchor.constraint(equalTo: self.notificationCircle.rightAnchor).isActive = true
         self.dateTimeLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 10).isActive = true
