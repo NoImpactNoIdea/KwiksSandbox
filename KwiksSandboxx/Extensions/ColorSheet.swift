@@ -50,6 +50,18 @@ extension UIColor {
 
   /// #565656
   static let iconBrown = UIColor(hex: 0x565656)
+    
+  /// #FAFAFA
+  static let requestGrey = UIColor(hex: 0xFAFAFA)
+    
+  /// #FC9F9F
+  static let blockRed = UIColor(hex: 0xFC9F9F)
+
+  ///DADADA
+  static let deleteGrey = UIColor(hex: 0xDADADA)
+
+  ///2D2D2D
+  static let headerBlack = UIColor(hex: 0x2D2D2D)
 
     
 }
