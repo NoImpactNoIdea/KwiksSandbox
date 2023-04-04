@@ -23,7 +23,6 @@ extension UIDevice { //haptics and vibrations
     }
 }
 
-
 struct S { //S for string
     var messages = "Messages"
     var backIcon = "back_icon_final"
@@ -34,8 +33,6 @@ struct S { //S for string
     var messagePinIcon = "message_pin_icon"
     var threeDotsVertical = "three_dots_horizontal_icon"
 
-    
-
     var bestiesLabel = "Besties"
     var familyLabel = "Family"
     var requestsLabel = "Requests"
@@ -43,8 +40,6 @@ struct S { //S for string
     var phone = "phone.fill"
     var video = "video"
     var ellipsis = "ellipsis"
-    
-
 }
 
 extension CGFloat { //grab the status bar height
@@ -58,7 +53,7 @@ extension CGFloat { //grab the status bar height
     }
 }
 
-extension UILabel {
+extension UILabel { //color parts of a string, set the default on the label then adjust the word/phrase with the parameters
     func colorFontString(text: String?, coloredText: String?, color: UIColor? = .red, fontName : String? = "Arial", fontSize : Double? = 13) {
         
         let attributedString = NSMutableAttributedString(string: text!)

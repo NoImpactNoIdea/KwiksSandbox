@@ -68,7 +68,6 @@ extension UIColor {
 
   ///060D05
   static let differentShadeBlack = UIColor(hex: 0x060D05)
-
     
 }
 
@@ -89,7 +88,6 @@ struct ColorKit {
     
     static let shared = ColorKit()
     static var kwiksGreen = UIColor(hex: 0x9AE769)
-    
     
 }
 

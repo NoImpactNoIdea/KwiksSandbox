@@ -75,7 +75,8 @@ class MessagesHeader : UIView {
         let image = UIImage(named: S().newConvoIcon)?.withRenderingMode(.alwaysOriginal)
         cbf.setImage(image, for: UIControl.State.normal)
         cbf.tintColor = UIColor .black
-        
+        cbf.addTarget(self, action: #selector(self.handleNewConvoIcon(sender:)), for: .touchUpInside)
+
         return cbf
         
     }()
@@ -88,6 +89,7 @@ class MessagesHeader : UIView {
         let image = UIImage(named: S().magGlass)?.withRenderingMode(.alwaysOriginal)
         cbf.setImage(image, for: UIControl.State.normal)
         cbf.tintColor = UIColor .black
+        cbf.addTarget(self, action: #selector(self.handleSearchIcon(sender:)), for: .touchUpInside)
         
         return cbf
         
@@ -300,7 +302,7 @@ class MessagesHeader : UIView {
         
         switch tag {
             
-        case 1:
+        case 1: print("🟢 STATE -> Besties")
             
             self.bestiesButton.backgroundColor = UIColor .white
             self.bestiesButton.tintColor = UIColor .black
@@ -314,7 +316,7 @@ class MessagesHeader : UIView {
             self.requestsButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
             self.requestsButton.tintColor = UIColor.unSelectedTextColor
             
-        case 2:
+        case 2: print("🟢 STATE -> Family")
             
             self.familyButton.backgroundColor = UIColor .white
             self.familyButton.tintColor = UIColor .black
@@ -328,7 +330,7 @@ class MessagesHeader : UIView {
             self.requestsButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
             self.requestsButton.tintColor = UIColor.unSelectedTextColor
             
-        case 3:
+        case 3: print("🟢 STATE -> Archived")
             
             self.archivedButton.backgroundColor = UIColor .white
             self.archivedButton.tintColor = UIColor .black
@@ -342,8 +344,7 @@ class MessagesHeader : UIView {
             self.requestsButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
             self.requestsButton.tintColor = UIColor.unSelectedTextColor
             
-            
-        case 4:
+        case 4: print("🟢 STATE -> Requests")
             
             self.requestsButton.backgroundColor = UIColor .white
             self.requestsButton.tintColor = UIColor .black
@@ -364,6 +365,13 @@ class MessagesHeader : UIView {
     
     @objc func handleBackButton() {
         self.messagesContainer?.handleBackButton()
+    }
+    
+    @objc func handleSearchIcon(sender:UIButton) {
+        print(#function)
+    }
+    @objc func handleNewConvoIcon(sender:UIButton) {
+        print(#function)
     }
    
     required init?(coder: NSCoder) {
