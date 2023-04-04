@@ -176,7 +176,7 @@ class RequestView : UIView {
         cbf.backgroundColor = UIColor.kwiksGreen
         cbf.tintColor = UIColor.differentShadeBlack
         cbf.tag = 1
-        cbf.addTarget(self, action: #selector(self.handleAcceptButtons(sender:)), for: .touchUpInside)
+        cbf.addTarget(self, action: #selector(self.handleViewProfileButton(sender:)), for: .touchUpInside)
         
         return cbf
         
@@ -191,12 +191,20 @@ class RequestView : UIView {
         self.layer.cornerRadius = 40
         self.addViews()
         
+        //pass data source
+        self.dummyValues()
+      
+    }
+    
+    func dummyValues() {
+        
         self.nameLabel.text = "Charlie Arcodia"
         let image = UIImage(named: "stock_photo_man")
         self.profilePhoto.image = image
         self.headerLabel.text = "Accept message request from Caleb Klein?"
         self.statsLabel.text = "200 Videos   1.6M followers"
         self.headerLabel.colorFontString(text: "Accept message request from Caleb Klein?", coloredText: "Caleb Klein?", color: .black, fontName: FontKit().segoeBold, fontSize: 16)
+        
     }
   
     func addViews() {
@@ -278,11 +286,15 @@ class RequestView : UIView {
     @objc func handleAcceptButtons(sender:UIButton) {
         
         switch sender.tag {
-        case 1: print("Accept button was tapped")
-        case 2: print("Block button was tapped")
-        case 3: print("Delete button was tapped")
+        case 1: print("Accept -> tapped")
+        case 2: print("Block -> tapped")
+        case 3: print("Delete -> tapped")
         default: print("nah")
         }
+    }
+    
+    @objc func handleViewProfileButton(sender:UIButton) {
+        print(#function)
     }
     
     required init?(coder: NSCoder) {

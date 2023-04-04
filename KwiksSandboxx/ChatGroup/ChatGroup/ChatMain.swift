@@ -32,6 +32,7 @@ class ChatMain : UIViewController {
         
         let ch = RequestView()
         ch.chatMain = self
+        ch.alpha = 0.0
         
         return ch
     }()
@@ -64,6 +65,9 @@ class ChatMain : UIViewController {
         self.requestView.leftAnchor.constraint(equalTo: self.chatCollection.leftAnchor).isActive = true
         self.requestView.rightAnchor.constraint(equalTo: self.chatCollection.rightAnchor).isActive = true
         self.requestView.bottomAnchor.constraint(equalTo: self.chatCollection.bottomAnchor).isActive = true
+        
+        ///show the request view here for testing, adjust alpha when appropriate
+        self.requestView.alpha = 1.0
         
     }
     
