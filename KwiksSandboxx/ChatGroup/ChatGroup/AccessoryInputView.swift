@@ -16,7 +16,7 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         buttonInset: NSLayoutConstraint?,
         micInset: NSLayoutConstraint?,
         commentLeftAnchor : NSLayoutConstraint?
-
+    
     lazy var commentTextView: UITextView = {
         let tf = UITextView()
         tf.translatesAutoresizingMaskIntoConstraints = false
@@ -109,13 +109,13 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         let rb = RecordBar()
         rb.accessoryInputView = self
         
-       return rb
+        return rb
     }()
     
     override var intrinsicContentSize: CGSize {
         return self.textViewContentSize()
     }
-   
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -149,7 +149,7 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         self.addSubview(self.cashButton)
         self.addSubview(self.sendButton)
         self.addSubview(self.recordBar)
-
+        
         self.micInset = self.microphoneRecordButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -22)
         self.micInset?.isActive = true
         self.microphoneRecordButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
@@ -166,7 +166,7 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         self.sendButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
         self.sendButton.widthAnchor.constraint(equalToConstant: 35).isActive = true
         self.sendButton.centerYAnchor.constraint(equalTo: self.cashButton.centerYAnchor).isActive = true
-
+        
         self.commentTextView.rightAnchor.constraint(equalTo: self.sendButton.leftAnchor, constant: -20).isActive = true
         self.textViewYConstraint = self.commentTextView.heightAnchor.constraint(equalToConstant: 35)
         self.textViewYConstraint?.isActive = true
@@ -242,9 +242,9 @@ class AccessoryInputView : UIView, UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-
+        
         if textView.text.count <= 0 {
-          
+            
             self.placeHolderLabel.isHidden = false
             if self.chatMain?.isKeyboardShowing == false {
                 self.microphoneRecordButton.isHidden = false
@@ -280,18 +280,18 @@ class AccessoryInputView : UIView, UITextViewDelegate {
     
     ///if in record mode, hide the ui and show the record bar
     func shouldBeRecording(hidden: Bool) {
- 
+        
         if hidden == true {
             UIView.animate(withDuration: 0.15) {
                 self.recordBar.alpha = 1.0
             } completion: { complete in
-                print("in record mode now")
+                print("🟢 in record mode now")
             }
         } else {
             UIView.animate(withDuration: 0.15) {
                 self.recordBar.alpha = 0.0
             } completion: { complete in
-                print("finished recording")
+                print("🟡 finished recording")
             }
         }
     }
@@ -301,31 +301,41 @@ class AccessoryInputView : UIView, UITextViewDelegate {
     }
     
     @objc func handleBeginAudioRecording(sender:UIButton) {
-      
+        
         self.shouldBeRecording(hidden: true) //adjusts the UI - needs a new name
         self.recordBar.beginAudioRecording() //this starts the recording, call this elsewhere if needed
+        
     }
     
-    @objc func handleSendIcon(sender:UIButton) {print(#function)}
+    //this send a normal text message
+    @objc func handleSendIcon(sender:UIButton) {
+        
+        guard let message = self.commentTextView.text else {return}
+        let cleanMessage = message.trimmingCharacters(in: .whitespacesAndNewlines)
+        let messageCount = cleanMessage.count
+        
+        if messageCount > 0 {
+            ///https call here with the clean message along with any other parameters required
+            print("🟢 Message to send: \(cleanMessage)")
+            self.resetAfterSend()
+            
+        }
+    }
     
+    //I have no idea what this does
     @objc func handleAddIcon(sender:UIButton) {
         self.chatMain?.handleAddIcon(sender:sender)
     }
     
+    //this uses the wallet and sends money as it's own cell
     @objc func handleCashIcon(sender:UIButton) {
         self.chatMain?.handleCashButton(sender:sender)
     }
     
-    
-    
-     
-     @objc func handleTrashCan(sender:UIButton) {
-         print("tapped me")
-         self.recordBar.finishRecording()
-         
-     }
-     
-    
+    //this is for the record bar trashcarn, scraps the recording
+    @objc func handleTrashCan(sender:UIButton) {
+        self.recordBar.finishRecording(fromTrashCan: true)
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

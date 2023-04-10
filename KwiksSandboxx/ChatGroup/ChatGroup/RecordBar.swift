@@ -20,12 +20,13 @@ class RecordBar : UIView, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         isAudioEnabled: Bool = false,
         recordingTimeInSeconds: Int = 0
 
-    var recordBar : UIView = {
+    lazy var recordBar : UIView = {
         
         let rb = UIView()
         rb.translatesAutoresizingMaskIntoConstraints = false
         rb.backgroundColor = UIColor.recordGreen
         rb.isUserInteractionEnabled = true
+        rb.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.handleSaveAndSend)))
         
         return rb
     }()
@@ -98,7 +99,6 @@ class RecordBar : UIView, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
                 self.initAudio()
                 self.audioTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.handleTimerCounter), userInfo: nil, repeats: true)
                 self.startRecording()
-            //no auth - to settings to enable
             } else {
                 guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
                     return
@@ -180,11 +180,12 @@ extension RecordBar {
             self.audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             self.audioRecorder.delegate = self
             self.audioRecorder.record()
+            print("🎙 Recording in progress...")
         } catch {
-            self.finishRecording()
+            self.finishRecording(fromTrashCan: true)
         }
     }
-    
+    //default protocol. n Not necessary
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag == false {
             print("Recording: Failed")
@@ -193,11 +194,16 @@ extension RecordBar {
         }
     }
     
-    func finishRecording() {
+    //call me to cancel and/or save
+    func finishRecording(fromTrashCan : Bool) {
         if self.audioRecorder != nil {
             self.recordingTimeInSeconds = 0
             self.recordingTimeInSeconds = Int(self.audioRecorder.currentTime)
             self.audioRecorder = nil
+            //only save if on purpose, if from trashcan route then negative
+            if !fromTrashCan {
+                self.storeDataForAudio()
+            }
         } else {
             self.recordingTimeInSeconds = 0
         }
@@ -213,7 +219,25 @@ extension RecordBar {
         self.audioTimer?.invalidate()
         self.recordingSession = AVAudioSession()
         self.isAudioEnabled = false
-        self.recordingTimeInSeconds = 0
+        self.recordingTimeInSeconds = 0 //do I ruin the save below? Maybe wrap me under the trashcan parameter
+    }
+    
+    //call me when you want to save the audio clip
+    func storeDataForAudio() {
+        
+        //after recording has finished, call this function to grab the recording and save it
+        let urlToUpload = getDocumentsDirectory().appendingPathComponent("recording.m4a")
+        let recordingDuration = self.recordingTimeInSeconds
+        print("Audio Recording: URL: \(urlToUpload) DURATION: \(recordingDuration)")
+                
+    }
+    
+    @objc func handleSaveAndSend() { //3 second minimum
+        if self.timeCounter > 2 {
+            self.finishRecording(fromTrashCan: false)
+        } else {
+            UIDevice.vibrateHeavy()
+        }
     }
 }
 
