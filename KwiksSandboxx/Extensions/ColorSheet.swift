@@ -69,6 +69,15 @@ extension UIColor {
   ///060D05
   static let differentShadeBlack = UIColor(hex: 0x060D05)
     
+  ///DFDFDF
+  static let commentBackgroundColor = UIColor(hex: 0xDFDFDF)
+   
+  ///FF1A1A
+  static let trashCanRed = UIColor(hex: 0xFF1A1A)
+    
+  ///8BD95A
+  static let recordGreen = UIColor(hex: 0x8BD95A)
+
 }
 
 //HEX Color value

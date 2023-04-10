@@ -200,6 +200,10 @@ class MessagesHeader : UIView {
         
     }
     
+    func dummyData() {
+        
+    }
+    
     func addViews() {
         
         let timeCoverHeight : CGFloat = CGFloat(0.0).statusBarHeight()

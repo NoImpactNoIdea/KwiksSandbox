@@ -19,8 +19,9 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
     
     private let chatID = "chatID"
     
-    var chatMain : ChatMain?
-    
+    var chatMain : ChatMain?,
+        counter : Int = 0
+
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         
@@ -63,6 +64,16 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
         let cell = self.dequeueReusableCell(withReuseIdentifier: self.chatID, for: indexPath) as! ChatFeeder
         cell.chatCollection = self
         return cell
+    }
+    
+    func bottomOffset() -> CGPoint {
+        
+        self.counter += 1
+        if self.counter == 1 {
+            return CGPoint(x: 0, y: max(-self.contentInset.top, self.contentSize.height - (self.bounds.size.height - self.contentInset.bottom)) + 38.0)
+        } else {
+            return CGPoint(x: 0, y: max(-self.contentInset.top, self.contentSize.height - (self.bounds.size.height - self.contentInset.bottom)))
+        }
     }
     
     required init?(coder: NSCoder) {
