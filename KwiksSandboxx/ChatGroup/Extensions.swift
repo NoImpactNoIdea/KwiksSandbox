@@ -66,4 +66,55 @@ extension UILabel { //color parts of a string, set the default on the label then
     }
 }
 
+//countdown string time adjuster
+class ConvertSecondsToHMS : NSObject {
+    
+    static func secondsToHoursMinutesSeconds(seconds : Int) -> String {
+        
+        let hours = seconds / 3600
+        let minutes = (seconds % 3600) / 60
+        let seconds = (seconds % 3600) % 60
+        
+        var secondsString : String = ""
+        var minutesString : String = ""
+        var hoursString : String = ""
+        
+        //SECONDS
+        if seconds < 10 {
+            secondsString = "0\(seconds)"
+        } else {
+            secondsString = "\(seconds)"
+        }
+        
+        //MINUTES
+        if hours < 10 {
+            hoursString = "0\(hours)"
+        } else {
+            hoursString = "\(hours)"
+        }
+        
+        //HOURS
+        if minutes < 10 {
+            minutesString = "0\(minutes)"
+        } else {
+            minutesString = "\(minutes)"
+        }
+        
+        if hours < 1 {
+            let timeString = "\(minutesString):\(secondsString)"
+            return timeString
+        } else {
+            let timeString = "\(hoursString):\(minutesString):\(secondsString)"
+            return timeString
+        }
+    }
+}
+
+//storing local audio files
+func getDocumentsDirectory() -> URL {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    let documentsDirectory = paths[0]
+    return documentsDirectory
+}
+
 

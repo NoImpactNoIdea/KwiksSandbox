@@ -14,7 +14,8 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         textViewYConstraint: NSLayoutConstraint?,
         textViewBottomConstraint: NSLayoutConstraint?,
         buttonInset: NSLayoutConstraint?,
-        micInset: NSLayoutConstraint?
+        micInset: NSLayoutConstraint?,
+        commentLeftAnchor : NSLayoutConstraint?
 
     lazy var commentTextView: UITextView = {
         let tf = UITextView()
@@ -171,7 +172,8 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         self.textViewYConstraint?.isActive = true
         self.textViewBottomConstraint = self.commentTextView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20)
         self.textViewBottomConstraint?.isActive = true
-        self.commentTextView.leftAnchor.constraint(equalTo: self.microphoneRecordButton.rightAnchor, constant: 5).isActive = true
+        self.commentLeftAnchor = self.commentTextView.leftAnchor.constraint(equalTo: self.microphoneRecordButton.rightAnchor, constant: 5)
+        self.commentLeftAnchor?.isActive = true
         self.commentTextView.layer.cornerRadius = 35/2
         
         self.commentTextView.textContainerInset = UIEdgeInsets(top: 11, left: 17, bottom: 5, right: 40)
@@ -244,7 +246,9 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         if textView.text.count <= 0 {
           
             self.placeHolderLabel.isHidden = false
-            self.microphoneRecordButton.isHidden = false
+            if self.chatMain?.isKeyboardShowing == false {
+                self.microphoneRecordButton.isHidden = false
+            }
             self.shouldInvertText(should: false)
             
         } else {
@@ -277,12 +281,6 @@ class AccessoryInputView : UIView, UITextViewDelegate {
     ///if in record mode, hide the ui and show the record bar
     func shouldBeRecording(hidden: Bool) {
  
-        self.commentTextView.isHidden = hidden
-        self.addIcon.isHidden = hidden
-        self.microphoneRecordButton.isHidden = hidden
-        self.cashButton.isHidden = hidden
-        self.sendButton.isHidden = hidden
-        
         if hidden == true {
             UIView.animate(withDuration: 0.15) {
                 self.recordBar.alpha = 1.0
@@ -303,8 +301,9 @@ class AccessoryInputView : UIView, UITextViewDelegate {
     }
     
     @objc func handleBeginAudioRecording(sender:UIButton) {
-        self.shouldBeRecording(hidden: true)
-        self.chatMain?.handleBeginAudioRecording(sender: sender)
+      
+        self.shouldBeRecording(hidden: true) //adjusts the UI - needs a new name
+        self.recordBar.beginAudioRecording() //this starts the recording, call this elsewhere if needed
     }
     
     @objc func handleSendIcon(sender:UIButton) {print(#function)}
@@ -316,6 +315,17 @@ class AccessoryInputView : UIView, UITextViewDelegate {
     @objc func handleCashIcon(sender:UIButton) {
         self.chatMain?.handleCashButton(sender:sender)
     }
+    
+    
+    
+     
+     @objc func handleTrashCan(sender:UIButton) {
+         print("tapped me")
+         self.recordBar.finishRecording()
+         
+     }
+     
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

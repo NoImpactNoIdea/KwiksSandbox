@@ -138,12 +138,7 @@ class ChatMain : UIViewController {
     }
     @objc func handleBeginAudioRecording(sender:UIButton) {
         UIDevice.vibrateLight()
-       
-        
-//        self.customInputAccessoryView.alpha = 0.0
-        //1. take down the keyboard step 1 then add the audio record overlay
-        
-        
+     
     }
     @objc func handleCashButton(sender:UIButton) {
         UIDevice.vibrateLight()
@@ -181,6 +176,8 @@ extension ChatMain {
                 self.customInputAccessoryView.textViewBottomConstraint?.constant = -12.5
                 self.customInputAccessoryView.buttonInset?.constant = -12.5
                 self.customInputAccessoryView.micInset?.constant = -12.5
+                self.customInputAccessoryView.commentLeftAnchor?.constant = -25
+                self.customInputAccessoryView.microphoneRecordButton.isHidden = true
                 self.customInputAccessoryView.updateHeight()
                 self.customInputAccessoryView.updateConstraints()
             } completion: { complete in
@@ -200,6 +197,8 @@ extension ChatMain {
             self.customInputAccessoryView.textViewBottomConstraint?.constant = -20
             self.customInputAccessoryView.buttonInset?.constant = -20
             self.customInputAccessoryView.micInset?.constant = -22
+            self.customInputAccessoryView.commentLeftAnchor?.constant = 5
+            self.customInputAccessoryView.microphoneRecordButton.isHidden = false
             self.customInputAccessoryView.updateHeight()
             self.customInputAccessoryView.updateConstraints()
         } completion: { complete in
