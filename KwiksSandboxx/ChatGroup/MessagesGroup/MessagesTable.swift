@@ -155,7 +155,7 @@ class MessagesFeeder : UITableViewCell {
         
         let dcl = UIImageView()
         dcl.translatesAutoresizingMaskIntoConstraints = false
-        dcl.backgroundColor = UIColor (white: 0.8, alpha: 0.4)
+        dcl.backgroundColor = UIColor.profilePhotoBackgroundColor
         dcl.contentMode = .scaleAspectFill
         dcl.isUserInteractionEnabled = false
         dcl.clipsToBounds = true

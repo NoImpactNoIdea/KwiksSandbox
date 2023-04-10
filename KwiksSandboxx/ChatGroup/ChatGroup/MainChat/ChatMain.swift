@@ -5,12 +5,6 @@
 //  Created by Charlie Arcodia on 4/3/23.
 //
 
-/*
- 1. For the request string, call self.toggleRequestView(yes/no) and pass in the datasource that you create
- 
- 
- */
-
 import Foundation
 import UIKit
 
@@ -20,6 +14,8 @@ class ChatMain : UIViewController {
         heightConstraint: NSLayoutConstraint?,
         isKeyboardShowing : Bool = false,
         shouldAdjustForKeyboard : Bool = false
+    
+    var chatDataSource = [ChatModel]()
     
     lazy var chatHeader : ChatHeader = {
         
@@ -71,6 +67,7 @@ class ChatMain : UIViewController {
         self.view.backgroundColor = UIColor .white
         self.addViews() //ui
         self.handleObservers() //listeners - keyboard
+        self.loadDummyData() //replace this with the datasource
         
     }
     
@@ -80,6 +77,41 @@ class ChatMain : UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
+    func loadDummyData() {
+        
+        //dummy info to delete and dynamically fill
+        let stock_image = UIImage(named: "stock_photo_man")?.withRenderingMode(.alwaysOriginal)
+        self.chatHeader.statusLabel.text = "Online"
+        self.chatHeader.nameLabel.text = "Charlie Arcodia"
+        self.chatHeader.profilePhoto.image = stock_image
+       
+        let dataOne : [String : Any] = ["message" : "Hello Bernice 😅",
+                                        "ownersProfilePhoto" : "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2FRectangle%2076%403x.png?alt=media&token=a2db3e30-1ab7-4226-aec9-f9e7f83d771f",
+                                        "ownersName" : "Charlie Arcodia",
+                                        "timeStamp" : Date().timeIntervalSince1970,
+                                        "audioClipUrl" : "url goes here",
+                                        "messageTypeForDecision" : "message"
+        ]
+        let dataTwo : [String : Any] = ["message" : "Hello Charlie 👋",
+                                        "ownersProfilePhoto" : "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2FRectangle%2076%403x.png?alt=media&token=a2db3e30-1ab7-4226-aec9-f9e7f83d771f",
+                                        "ownersName" : "Charlie Arcodia",
+                                        "timeStamp" : Date().timeIntervalSince1970,
+                                        "audioClipUrl" : "url goes here",
+                                        "messageTypeForDecision" : "message"
+        ]
+        
+        let modelOne = ChatModel(JSON: dataOne)
+        let modelTwo = ChatModel(JSON: dataTwo)
+
+        self.chatDataSource.append(modelOne)
+        self.chatDataSource.append(modelTwo)
+        
+        DispatchQueue.main.async {
+            self.chatCollection.reloadData()
+        }
+
+    }
+   
     func addViews() {
         
         self.view.addSubview(self.chatHeader)
@@ -108,14 +140,20 @@ class ChatMain : UIViewController {
         self.customInputAccessoryView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0).isActive = true
         self.customInputAccessoryView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0).isActive = true
         
+        
+        //toggle me to show the normal chat or the request view with accepts etc.
+        self.toggleRequestView(shouldShow: false)
+        
     }
     
     @objc func toggleRequestView(shouldShow : Bool) { //also pass in the datasrouce
         
         if shouldShow {
+            self.customInputAccessoryView.alpha = 0.0
             self.requestView.alpha = 1.0
         } else {
             self.requestView.alpha = 0.0
+            self.customInputAccessoryView.alpha = 1.0
         }
     }
  
@@ -151,6 +189,7 @@ class ChatMain : UIViewController {
     }
 }
 
+//accessory view manager
 extension ChatMain {
     
     //MARK: - KEYBOARD LISTENER

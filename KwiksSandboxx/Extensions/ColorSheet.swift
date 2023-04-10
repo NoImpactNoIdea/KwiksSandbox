@@ -77,6 +77,10 @@ extension UIColor {
     
   ///8BD95A
   static let recordGreen = UIColor(hex: 0x8BD95A)
+    
+  static let profilePhotoBackgroundColor = UIColor (white: 0.8, alpha: 0.4)
+    
+  static let timeChatGrey = UIColor (white: 0.8, alpha: 0.4)
 
 }
 

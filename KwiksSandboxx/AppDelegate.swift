@@ -6,22 +6,21 @@
 //
 
 import UIKit
+import SDWebImage
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        let fontFamilyNames = UIFont.familyNames
-        for familyName in fontFamilyNames {
-            print("------------------------------")
-            print("Font Family Name = [\(familyName)]")
-            let names = UIFont.fontNames(forFamilyName: familyName)
-            print("Font Names = [\(names)]")
-        }
+        
+        print("🚨 If you see this, copy this message and search/add the memory code to the app delegate")
 
+        SDImageCache.shared.config.maxDiskAge = 3600 * 24 * 7
+        SDImageCache.shared.config.maxMemoryCost = 1024 * 1024 * 4 * 20
+        SDImageCache.shared.config.shouldCacheImagesInMemory = false
+        SDImageCache.shared.config.shouldUseWeakMemoryCache = false
+        SDImageCache.shared.config.diskCacheReadingOptions = .mappedIfSafe
 
         return true
     }

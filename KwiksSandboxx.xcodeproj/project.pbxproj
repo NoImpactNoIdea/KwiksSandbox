@@ -75,6 +75,8 @@
 		E39F083929E49DD600C76016 /* trashcan_icon_group@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E39F083629E49DD600C76016 /* trashcan_icon_group@3x.png */; };
 		E39F083A29E49DD600C76016 /* trashcan_icon_group@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = E39F083729E49DD600C76016 /* trashcan_icon_group@1x.png */; };
 		E39F083B29E49DD600C76016 /* trashcan_icon_group@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E39F083829E49DD600C76016 /* trashcan_icon_group@2x.png */; };
+		E39F084129E4B38300C76016 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39F084029E4B38300C76016 /* MessageCell.swift */; };
+		E39F084429E4B60F00C76016 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39F084329E4B60F00C76016 /* ChatModel.swift */; };
 		E3D0831929D72ADB00CE82D9 /* ColorSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */; };
 		E3D0832729D734A200CE82D9 /* Segoe UI Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */; };
 		E3D0832829D734A200CE82D9 /* Segoe UI Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832429D734A200CE82D9 /* Segoe UI Bold Italic.ttf */; };
@@ -156,6 +158,8 @@
 		E39F083629E49DD600C76016 /* trashcan_icon_group@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trashcan_icon_group@3x.png"; sourceTree = "<group>"; };
 		E39F083729E49DD600C76016 /* trashcan_icon_group@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trashcan_icon_group@1x.png"; sourceTree = "<group>"; };
 		E39F083829E49DD600C76016 /* trashcan_icon_group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trashcan_icon_group@2x.png"; sourceTree = "<group>"; };
+		E39F084029E4B38300C76016 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		E39F084329E4B60F00C76016 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSheet.swift; sourceTree = "<group>"; };
 		E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI Italic.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI Italic.ttf"; sourceTree = "<group>"; };
 		E3D0832429D734A200CE82D9 /* Segoe UI Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI Bold Italic.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI Bold Italic.ttf"; sourceTree = "<group>"; };
@@ -253,12 +257,9 @@
 		E347448329DB9BCF00E64B68 /* ChatGroup */ = {
 			isa = PBXGroup;
 			children = (
-				E347448429DB9BDF00E64B68 /* ChatMain.swift */,
-				E347448629DB9EA500E64B68 /* ChatHeader.swift */,
-				E347448829DBA70B00E64B68 /* ChatCollection.swift */,
-				E347448A29DBAA4000E64B68 /* RequestView.swift */,
-				E39F080829E4755500C76016 /* AccessoryInputView.swift */,
-				E39F083429E496A000C76016 /* RecordBar.swift */,
+				E39F083E29E4B36900C76016 /* MainChat */,
+				E39F083D29E4B35D00C76016 /* RequestView */,
+				E39F083C29E4B34900C76016 /* AccessoryView */,
 			);
 			path = ChatGroup;
 			sourceTree = "<group>";
@@ -306,6 +307,51 @@
 				E365516C29CB6D0500F3D37E /* KwiksAlert.swift */,
 			);
 			path = ErrorSuccessHandling;
+			sourceTree = "<group>";
+		};
+		E39F083C29E4B34900C76016 /* AccessoryView */ = {
+			isa = PBXGroup;
+			children = (
+				E39F083429E496A000C76016 /* RecordBar.swift */,
+				E39F080829E4755500C76016 /* AccessoryInputView.swift */,
+			);
+			path = AccessoryView;
+			sourceTree = "<group>";
+		};
+		E39F083D29E4B35D00C76016 /* RequestView */ = {
+			isa = PBXGroup;
+			children = (
+				E347448A29DBAA4000E64B68 /* RequestView.swift */,
+			);
+			path = RequestView;
+			sourceTree = "<group>";
+		};
+		E39F083E29E4B36900C76016 /* MainChat */ = {
+			isa = PBXGroup;
+			children = (
+				E39F084229E4B60100C76016 /* Models */,
+				E39F083F29E4B37500C76016 /* Cells */,
+				E347448429DB9BDF00E64B68 /* ChatMain.swift */,
+				E347448629DB9EA500E64B68 /* ChatHeader.swift */,
+				E347448829DBA70B00E64B68 /* ChatCollection.swift */,
+			);
+			path = MainChat;
+			sourceTree = "<group>";
+		};
+		E39F083F29E4B37500C76016 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E39F084029E4B38300C76016 /* MessageCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E39F084229E4B60100C76016 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E39F084329E4B60F00C76016 /* ChatModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E3D0831629D729AD00CE82D9 /* ChatGroup */ = {
@@ -518,6 +564,7 @@
 			files = (
 				E35676D929AD182F003B5E9A /* MessagesContainer.swift in Sources */,
 				E347448929DBA70B00E64B68 /* ChatCollection.swift in Sources */,
+				E39F084429E4B60F00C76016 /* ChatModel.swift in Sources */,
 				E347447629DB641B00E64B68 /* Extensions.swift in Sources */,
 				E347448529DB9BDF00E64B68 /* ChatMain.swift in Sources */,
 				E365516D29CB6D0500F3D37E /* KwiksAlert.swift in Sources */,
@@ -533,6 +580,7 @@
 				E35676D729AD182F003B5E9A /* SceneDelegate.swift in Sources */,
 				E347447329DB610700E64B68 /* MessagesHeader.swift in Sources */,
 				E365516A29C7B16F00F3D37E /* Layout.swift in Sources */,
+				E39F084129E4B38300C76016 /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

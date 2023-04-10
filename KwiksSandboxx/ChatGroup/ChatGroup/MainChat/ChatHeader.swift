@@ -135,13 +135,7 @@ class ChatHeader : UIView {
         self.backgroundColor = UIColor.kwiksGreen
         self.translatesAutoresizingMaskIntoConstraints = false
         self.addViews()
-        
-        //dummy info to delete and dynamically fill
-        let stock_image = UIImage(named: "stock_photo_man")?.withRenderingMode(.alwaysOriginal)
-        self.statusLabel.text = "Online"
-        self.nameLabel.text = "Charlie Arcodia"
-        self.profilePhoto.image = stock_image
-        
+      
     }
    
     func addViews() {

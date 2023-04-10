@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SDWebImage
 
 extension UIDevice { //haptics and vibrations
     static func vibrateLight() {
@@ -117,4 +118,22 @@ func getDocumentsDirectory() -> URL {
     return documentsDirectory
 }
 
+extension UIImageView {
+    
+    func loadImageGeneralUse(_ urlString: String, completion : @escaping (_ isComplete : Bool)->()) {
+        
+        self.image = UIImage()
+        
+        guard let url = URL(string: urlString) else {return}
+        
+        self.sd_setImage(with: url, placeholderImage: nil, options: [.continueInBackground]) { (image, error, imageCacheType, imageUrl) in
+            
+            if error != nil {
+                completion(false)
+            } else {
+                completion(true)
+            }
+        }
+    }
+}
 
