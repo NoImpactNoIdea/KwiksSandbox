@@ -25,6 +25,14 @@ class ChatMain : UIViewController {
         return ch
     }()
     
+    lazy var interiorHeader : InteriorHeader = {
+        
+        let ch = InteriorHeader()
+        ch.chatMain = self
+        
+        return ch
+    }()
+    
     lazy var chatCollection : ChatCollection = {
         
         let layout = UICollectionViewFlowLayout()
@@ -86,14 +94,14 @@ class ChatMain : UIViewController {
         self.chatHeader.profilePhoto.image = stock_image
        
         let dataOne : [String : Any] = ["message" : "Hello Bernice 😅",
-                                        "ownersProfilePhoto" : "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2FRectangle%2076%403x.png?alt=media&token=a2db3e30-1ab7-4226-aec9-f9e7f83d771f",
+                                        "ownersProfilePhoto" : "\(S().stockPhotoURL)",
                                         "ownersName" : "Charlie Arcodia",
                                         "timeStamp" : Date().timeIntervalSince1970,
                                         "audioClipUrl" : "url goes here",
                                         "messageTypeForDecision" : "message"
         ]
         let dataTwo : [String : Any] = ["message" : "Hello Charlie 👋",
-                                        "ownersProfilePhoto" : "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2FRectangle%2076%403x.png?alt=media&token=a2db3e30-1ab7-4226-aec9-f9e7f83d771f",
+                                        "ownersProfilePhoto" : "\(S().stockPhotoURL)",
                                         "ownersName" : "Charlie Arcodia",
                                         "timeStamp" : Date().timeIntervalSince1970,
                                         "audioClipUrl" : "url goes here",
@@ -118,6 +126,13 @@ class ChatMain : UIViewController {
         self.view.addSubview(self.chatCollection)
         self.view.addSubview(self.customInputAccessoryView)
         self.view.addSubview(self.requestView)
+        
+        self.chatCollection.addSubview(self.interiorHeader)
+        
+        self.interiorHeader.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0).isActive = true
+        self.interiorHeader.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0).isActive = true
+        self.interiorHeader.bottomAnchor.constraint(equalTo: self.chatCollection.topAnchor, constant : -17).isActive = true
+        self.interiorHeader.heightAnchor.constraint(equalToConstant: 200).isActive = true
 
         self.chatHeader.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         self.chatHeader.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true

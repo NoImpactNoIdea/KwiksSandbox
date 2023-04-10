@@ -35,7 +35,7 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
         self.delaysContentTouches = true
         self.layer.cornerRadius = 40
         self.clipsToBounds = true
-        self.contentInset = UIEdgeInsets(top: 100, left: 0, bottom: 0, right: 0)
+        self.contentInset = UIEdgeInsets(top: 210, left: 0, bottom: 0, right: 0)
         
         self.register(ChatMainCell.self, forCellWithReuseIdentifier: self.chatID)
         

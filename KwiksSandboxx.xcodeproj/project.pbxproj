@@ -77,6 +77,7 @@
 		E39F083B29E49DD600C76016 /* trashcan_icon_group@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E39F083829E49DD600C76016 /* trashcan_icon_group@2x.png */; };
 		E39F084129E4B38300C76016 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39F084029E4B38300C76016 /* MessageCell.swift */; };
 		E39F084429E4B60F00C76016 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39F084329E4B60F00C76016 /* ChatModel.swift */; };
+		E39F084729E4D24400C76016 /* InteriorHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39F084629E4D24400C76016 /* InteriorHeader.swift */; };
 		E3D0831929D72ADB00CE82D9 /* ColorSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */; };
 		E3D0832729D734A200CE82D9 /* Segoe UI Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */; };
 		E3D0832829D734A200CE82D9 /* Segoe UI Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832429D734A200CE82D9 /* Segoe UI Bold Italic.ttf */; };
@@ -160,6 +161,7 @@
 		E39F083829E49DD600C76016 /* trashcan_icon_group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trashcan_icon_group@2x.png"; sourceTree = "<group>"; };
 		E39F084029E4B38300C76016 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		E39F084329E4B60F00C76016 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		E39F084629E4D24400C76016 /* InteriorHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteriorHeader.swift; sourceTree = "<group>"; };
 		E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSheet.swift; sourceTree = "<group>"; };
 		E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI Italic.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI Italic.ttf"; sourceTree = "<group>"; };
 		E3D0832429D734A200CE82D9 /* Segoe UI Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI Bold Italic.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI Bold Italic.ttf"; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 		E39F083E29E4B36900C76016 /* MainChat */ = {
 			isa = PBXGroup;
 			children = (
+				E39F084529E4D23000C76016 /* InterioirHeader */,
 				E39F084229E4B60100C76016 /* Models */,
 				E39F083F29E4B37500C76016 /* Cells */,
 				E347448429DB9BDF00E64B68 /* ChatMain.swift */,
@@ -352,6 +355,14 @@
 				E39F084329E4B60F00C76016 /* ChatModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E39F084529E4D23000C76016 /* InterioirHeader */ = {
+			isa = PBXGroup;
+			children = (
+				E39F084629E4D24400C76016 /* InteriorHeader.swift */,
+			);
+			path = InterioirHeader;
 			sourceTree = "<group>";
 		};
 		E3D0831629D729AD00CE82D9 /* ChatGroup */ = {
@@ -566,6 +577,7 @@
 				E347448929DBA70B00E64B68 /* ChatCollection.swift in Sources */,
 				E39F084429E4B60F00C76016 /* ChatModel.swift in Sources */,
 				E347447629DB641B00E64B68 /* Extensions.swift in Sources */,
+				E39F084729E4D24400C76016 /* InteriorHeader.swift in Sources */,
 				E347448529DB9BDF00E64B68 /* ChatMain.swift in Sources */,
 				E365516D29CB6D0500F3D37E /* KwiksAlert.swift in Sources */,
 				E347448B29DBAA4000E64B68 /* RequestView.swift in Sources */,

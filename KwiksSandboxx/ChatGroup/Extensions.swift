@@ -41,6 +41,8 @@ struct S { //S for string
     var phone = "phone.fill"
     var video = "video"
     var ellipsis = "ellipsis"
+    
+    var stockPhotoURL = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2FRectangle%2076%403x.png?alt=media&token=a2db3e30-1ab7-4226-aec9-f9e7f83d771f"
 }
 
 extension CGFloat { //grab the status bar height

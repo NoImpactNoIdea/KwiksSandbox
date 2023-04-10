@@ -68,7 +68,7 @@ class ChatMainCell : UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .green
+        self.backgroundColor = .white
         self.addViews()
     }
     
@@ -83,7 +83,6 @@ class ChatMainCell : UICollectionViewCell {
         self.timeLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 75).isActive = true
         self.timeLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -2).isActive = true
         self.timeLabel.sizeToFit()
-        self.timeLabel.backgroundColor = .red
         
         self.profilePhoto.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 30).isActive = true
         self.profilePhoto.bottomAnchor.constraint(equalTo: self.timeLabel.topAnchor, constant: -5).isActive = true

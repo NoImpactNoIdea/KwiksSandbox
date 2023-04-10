@@ -80,7 +80,7 @@ extension UIColor {
     
   static let profilePhotoBackgroundColor = UIColor (white: 0.8, alpha: 0.4)
     
-  static let timeChatGrey = UIColor (white: 0.8, alpha: 0.4)
+  static let timeChatGrey = UIColor(hex: 0xBBBBBB)
 
 }
 
