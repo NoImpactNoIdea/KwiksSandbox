@@ -56,7 +56,7 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: self.frame.width, height: 80)///roughly height
+        return CGSize(width: self.frame.width, height: 50)///50 is the base height for a one liner message
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
