@@ -55,12 +55,12 @@ class InteriorHeader : UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor .white
+        self.backgroundColor = UIColor .clear
         self.translatesAutoresizingMaskIntoConstraints = false
         self.addViews()
         
         self.nameLabel.text = "Charlie Arcodia"
-        self.profilePhoto.loadImageGeneralUse("\(S().stockPhotoURL)") { isComplete in
+        self.profilePhoto.loadImageGeneralUse("\(S().stockPhotoURLMusician)") { isComplete in
             print("stock image loaded")
         }
         self.statsLabel.text = "200 Videos   1.6M followers"

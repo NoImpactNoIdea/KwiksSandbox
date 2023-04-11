@@ -82,6 +82,11 @@
 		E3CAFA7C29E4EF9300AEFC74 /* record_anim_2.json in Resources */ = {isa = PBXBuildFile; fileRef = E3CAFA7B29E4EF9300AEFC74 /* record_anim_2.json */; };
 		E3CAFA7E29E4F13700AEFC74 /* AudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CAFA7D29E4F13700AEFC74 /* AudioCell.swift */; };
 		E3CAFA8029E4F77500AEFC74 /* ImageMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CAFA7F29E4F77500AEFC74 /* ImageMainCell.swift */; };
+		E3CAFA8429E5CBD700AEFC74 /* chat_backdrop_1@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3CAFA8129E5CBD700AEFC74 /* chat_backdrop_1@1x.png */; };
+		E3CAFA8529E5CBD700AEFC74 /* chat_backdrop_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3CAFA8229E5CBD700AEFC74 /* chat_backdrop_1@2x.png */; };
+		E3CAFA8629E5CBD700AEFC74 /* chat_backdrop_1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3CAFA8329E5CBD700AEFC74 /* chat_backdrop_1@3x.png */; };
+		E3CAFA8929E5CE4500AEFC74 /* stock_wall_paper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E3CAFA8729E5CE4500AEFC74 /* stock_wall_paper.jpg */; };
+		E3CAFA8A29E5CE4500AEFC74 /* stock_musician.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E3CAFA8829E5CE4500AEFC74 /* stock_musician.jpg */; };
 		E3D0831929D72ADB00CE82D9 /* ColorSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */; };
 		E3D0832729D734A200CE82D9 /* Segoe UI Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */; };
 		E3D0832829D734A200CE82D9 /* Segoe UI Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832429D734A200CE82D9 /* Segoe UI Bold Italic.ttf */; };
@@ -174,6 +179,11 @@
 		E3CAFA7B29E4EF9300AEFC74 /* record_anim_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = record_anim_2.json; sourceTree = "<group>"; };
 		E3CAFA7D29E4F13700AEFC74 /* AudioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCell.swift; sourceTree = "<group>"; };
 		E3CAFA7F29E4F77500AEFC74 /* ImageMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMainCell.swift; sourceTree = "<group>"; };
+		E3CAFA8129E5CBD700AEFC74 /* chat_backdrop_1@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_backdrop_1@1x.png"; sourceTree = "<group>"; };
+		E3CAFA8229E5CBD700AEFC74 /* chat_backdrop_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_backdrop_1@2x.png"; sourceTree = "<group>"; };
+		E3CAFA8329E5CBD700AEFC74 /* chat_backdrop_1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_backdrop_1@3x.png"; sourceTree = "<group>"; };
+		E3CAFA8729E5CE4500AEFC74 /* stock_wall_paper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stock_wall_paper.jpg; sourceTree = "<group>"; };
+		E3CAFA8829E5CE4500AEFC74 /* stock_musician.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stock_musician.jpg; sourceTree = "<group>"; };
 		E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSheet.swift; sourceTree = "<group>"; };
 		E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI Italic.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI Italic.ttf"; sourceTree = "<group>"; };
 		E3D0832429D734A200CE82D9 /* Segoe UI Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI Bold Italic.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI Bold Italic.ttf"; sourceTree = "<group>"; };
@@ -215,6 +225,11 @@
 		E347447A29DB7E5900E64B68 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				E3CAFA8829E5CE4500AEFC74 /* stock_musician.jpg */,
+				E3CAFA8729E5CE4500AEFC74 /* stock_wall_paper.jpg */,
+				E3CAFA8129E5CBD700AEFC74 /* chat_backdrop_1@1x.png */,
+				E3CAFA8229E5CBD700AEFC74 /* chat_backdrop_1@2x.png */,
+				E3CAFA8329E5CBD700AEFC74 /* chat_backdrop_1@3x.png */,
 				E39F083729E49DD600C76016 /* trashcan_icon_group@1x.png */,
 				E39F083829E49DD600C76016 /* trashcan_icon_group@2x.png */,
 				E39F083629E49DD600C76016 /* trashcan_icon_group@3x.png */,
@@ -509,6 +524,7 @@
 				E34744AE29DCB3D800E64B68 /* message_pin_icon@1x.png in Resources */,
 				E39F082229E47E9700C76016 /* kwiks_play_voice_note@1x.png in Resources */,
 				E39F083329E47E9700C76016 /* wallet_cash_button@1x.png in Resources */,
+				E3CAFA8529E5CBD700AEFC74 /* chat_backdrop_1@2x.png in Resources */,
 				E39F083B29E49DD600C76016 /* trashcan_icon_group@2x.png in Resources */,
 				E3D0832C29D73F5900CE82D9 /* segoeui-semibold.ttf in Resources */,
 				E39F082F29E47E9700C76016 /* mini_microphone@2x.png in Resources */,
@@ -539,18 +555,22 @@
 				E39F082129E47E9700C76016 /* kwiks_audio_pause_button@2x.png in Resources */,
 				E39F082329E47E9700C76016 /* wallet_cash_button@2x.png in Resources */,
 				E34744AF29DCB3D800E64B68 /* message_pin_icon@2x.png in Resources */,
+				E3CAFA8429E5CBD700AEFC74 /* chat_backdrop_1@1x.png in Resources */,
 				E39F083029E47E9700C76016 /* kwiks_audio_pause_button@1x.png in Resources */,
 				E39F082529E47E9700C76016 /* happyTypingFace@3x.png in Resources */,
 				E39F082C29E47E9700C76016 /* kwiks_play_voice_note@3x.png in Resources */,
 				E347448229DB8E0500E64B68 /* Group 1000007151@3x.png in Resources */,
 				E34744AD29DCB3D800E64B68 /* message_pin_icon@3x.png in Resources */,
 				E39F082629E47E9700C76016 /* happyTypingFace@2x.png in Resources */,
+				E3CAFA8629E5CBD700AEFC74 /* chat_backdrop_1@3x.png in Resources */,
 				E39F083929E49DD600C76016 /* trashcan_icon_group@3x.png in Resources */,
 				E39F082E29E47E9700C76016 /* chat_send_button@1x.png in Resources */,
+				E3CAFA8A29E5CE4500AEFC74 /* stock_musician.jpg in Resources */,
 				E3CAFA7C29E4EF9300AEFC74 /* record_anim_2.json in Resources */,
 				E34744A329DCB3CA00E64B68 /* white_pin_large_tableview@1x.png in Resources */,
 				E34744A129DCB3CA00E64B68 /* white_pin_large_tableview@3x.png in Resources */,
 				E39F083229E47E9700C76016 /* mini_microphone@3x.png in Resources */,
+				E3CAFA8929E5CE4500AEFC74 /* stock_wall_paper.jpg in Resources */,
 				E347448129DB8E0500E64B68 /* Group 1000007151@1x.png in Resources */,
 				E39F083A29E49DD600C76016 /* trashcan_icon_group@1x.png in Resources */,
 				E39F083129E47E9700C76016 /* happyTypingFace@1x.png in Resources */,

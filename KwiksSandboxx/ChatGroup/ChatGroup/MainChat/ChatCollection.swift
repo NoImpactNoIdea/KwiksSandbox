@@ -19,8 +19,16 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
+//
+//
+//        let backgroundImageView = UIImageView()
+//        backgroundImageView.contentMode = .scaleAspectFill
+//
+//        backgroundImageView.loadImageGeneralUse("\(S().stockPhotoUrlBasicPattern)") { isComplete in
+//            self.backgroundView = backgroundImageView
+//        }
         
-        self.backgroundColor = UIColor .white
+        self.backgroundColor = .clear
         self.translatesAutoresizingMaskIntoConstraints = false
         self.dataSource = self
         self.delegate = self

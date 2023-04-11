@@ -69,7 +69,7 @@ class ChatMainCell : UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .white
+        self.backgroundColor = .clear
         self.addViews()
     }
     
@@ -89,7 +89,7 @@ class ChatMainCell : UICollectionViewCell {
         self.profilePhoto.bottomAnchor.constraint(equalTo: self.timeLabel.topAnchor, constant: -5).isActive = true
         self.profilePhoto.heightAnchor.constraint(equalToConstant: 25).isActive = true
         self.profilePhoto.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        self.profilePhoto.layer.cornerRadius = 15
+        self.profilePhoto.layer.cornerRadius = 25/2
        
         self.chatBubble.leftAnchor.constraint(equalTo: self.profilePhoto.rightAnchor, constant: 20).isActive = true
         self.chatBubble.topAnchor.constraint(equalTo: self.profilePhoto.topAnchor, constant: -3).isActive = true

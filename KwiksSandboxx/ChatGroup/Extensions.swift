@@ -45,7 +45,11 @@ struct S { //S for string
     var video = "video"
     var ellipsis = "ellipsis"
     
-    var stockPhotoURL = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2FRectangle%2076%403x.png?alt=media&token=a2db3e30-1ab7-4226-aec9-f9e7f83d771f"
+    var chat_backround_1 = "chat_background_1"
+    var stockPhotoUrlBasicPattern = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2Fchat_backdrop_1%403x.png?alt=media&token=4299f7b8-ab38-4527-b29f-9ee03a728edd"
+    var stockPhotoURLPattern = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2Fstock_wall_paper.jpg?alt=media&token=31989698-163b-4892-b8f1-aee5be2b4c56"
+    var stockPhotoURLMusician = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2Fstock_musician.jpg?alt=media&token=d4894456-fd55-4896-99c9-5c6269f38f81"
+    var stockPhotoURLWoman = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2FRectangle%2076%403x.png?alt=media&token=a2db3e30-1ab7-4226-aec9-f9e7f83d771f"
 }
 
 extension CGFloat { //grab the status bar height
@@ -145,7 +149,7 @@ extension UIImageView {
 func loadDummyData(completion : @escaping (_ isComplete : Bool, _ returnedBlock : [ChatModel])->()) {
     
     let one : [String : Any] = ["message" : "Hello Bernice 😅",
-                                    "ownersProfilePhoto" : "\(S().stockPhotoURL)",
+                                    "ownersProfilePhoto" : "\(S().stockPhotoURLWoman)",
                                     "ownersName" : "Charlie Arcodia",
                                     "timeStamp" : Date().timeIntervalSince1970,
                                     "audioClipUrl" : "url goes here",
@@ -153,14 +157,14 @@ func loadDummyData(completion : @escaping (_ isComplete : Bool, _ returnedBlock 
     ]
   
     let two : [String : Any] = ["message" : "John and James",
-                                     "ownersProfilePhoto" : "\(S().stockPhotoURL)",
+                                     "ownersProfilePhoto" : "\(S().stockPhotoURLMusician)",
                                      "ownersName" : "Charlie Arcodia",
                                      "timeStamp" : Date().timeIntervalSince1970,
                                      "audioClipUrl" : "url goes here",
                                      "messageTypeForDecision" : "audio"
     ]
     let three : [String : Any] = ["message" : "John and James",
-                                     "ownersProfilePhoto" : "\(S().stockPhotoURL)",
+                                     "ownersProfilePhoto" : "\(S().stockPhotoURLWoman)",
                                      "ownersName" : "Charlie Arcodia",
                                      "timeStamp" : Date().timeIntervalSince1970,
                                      "audioClipUrl" : "url goes here",
@@ -168,7 +172,7 @@ func loadDummyData(completion : @escaping (_ isComplete : Bool, _ returnedBlock 
     ]
     
     let four : [String : Any] = ["message" : "Whoa 🚀 Let's go!",
-                                    "ownersProfilePhoto" : "\(S().stockPhotoURL)",
+                                    "ownersProfilePhoto" : "\(S().stockPhotoURLMusician)",
                                     "ownersName" : "Charlie Arcodia",
                                     "timeStamp" : Date().timeIntervalSince1970,
                                     "audioClipUrl" : "url goes here",
@@ -176,7 +180,7 @@ func loadDummyData(completion : @escaping (_ isComplete : Bool, _ returnedBlock 
     ]
     
     let five : [String : Any] = ["message" : "Whoa 🚀 Let's go!",
-                                    "ownersProfilePhoto" : "\(S().stockPhotoURL)",
+                                    "ownersProfilePhoto" : "\(S().stockPhotoURLWoman)",
                                     "ownersName" : "Charlie Arcodia",
                                     "timeStamp" : Date().timeIntervalSince1970,
                                     "audioClipUrl" : "url goes here",

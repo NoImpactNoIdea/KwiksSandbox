@@ -25,10 +25,25 @@ class ChatMain : UIViewController {
         return ch
     }()
     
+    var backdropView : UIImageView = {
+        
+        let bdv = UIImageView()
+        bdv.translatesAutoresizingMaskIntoConstraints = false
+        bdv.contentMode = .scaleAspectFill
+        bdv.layer.zPosition = 11
+        bdv.clipsToBounds = true
+        bdv.backgroundColor = .white
+        bdv.layer.masksToBounds = true
+        bdv.layer.cornerRadius = 40
+
+       return bdv
+    }()
+    
     lazy var interiorHeader : InteriorHeader = {
         
         let ch = InteriorHeader()
         ch.chatMain = self
+        ch.layer.zPosition = 10
         
         return ch
     }()
@@ -39,6 +54,7 @@ class ChatMain : UIViewController {
         layout.scrollDirection = .vertical
         let cm = ChatCollection(frame: .zero, collectionViewLayout: layout)
         cm.chatMain = self
+        cm.layer.zPosition = 50
         
        return cm
     }()
@@ -84,6 +100,10 @@ class ChatMain : UIViewController {
         self.chatDataSource = globalChatDataSource //global
         self.loadDummyData() //replace this with the datasource
         
+        self.backdropView.loadImageGeneralUse("\(S().stockPhotoUrlBasicPattern)") { isComplete in
+                 
+        }
+        
         DispatchQueue.main.async {
             self.resignFirstResponder() //weird issue, without this - the keyboard hides the first time the comment textview is tapped
         }
@@ -105,6 +125,8 @@ class ChatMain : UIViewController {
     func addViews() {
         
         self.view.addSubview(self.chatHeader)
+        self.view.addSubview(self.backdropView)
+
         self.view.addSubview(self.chatCollection)
         self.view.addSubview(self.customInputAccessoryView)
         self.view.addSubview(self.requestView)
@@ -120,6 +142,11 @@ class ChatMain : UIViewController {
         self.chatHeader.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         self.chatHeader.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
         self.chatHeader.heightAnchor.constraint(equalToConstant: 220).isActive = true
+        
+        self.backdropView.topAnchor.constraint(equalTo: self.chatHeader.bottomAnchor, constant: -105).isActive = true
+        self.backdropView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0).isActive = true
+        self.backdropView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0).isActive = true
+        self.backdropView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
         
         self.chatCollection.topAnchor.constraint(equalTo: self.chatHeader.bottomAnchor, constant: -105).isActive = true
         self.chatCollection.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0).isActive = true
@@ -191,6 +218,11 @@ class ChatMain : UIViewController {
     @objc func handleAddIcon(sender:UIButton) {
         UIDevice.vibrateLight()
         print(#function)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.backdropView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
 }
 

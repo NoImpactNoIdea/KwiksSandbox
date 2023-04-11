@@ -129,7 +129,7 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         super.init(frame: frame)
         
         //accessory view config
-        self.backgroundColor = .white
+        self.backgroundColor = UIColor .white.withAlphaComponent(0.75)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.autoresizingMask = .flexibleHeight
         self.sizeToFit()
