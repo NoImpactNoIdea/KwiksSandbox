@@ -16,6 +16,8 @@ class ChangeBackgroundCollection : UICollectionView, UICollectionViewDelegateFlo
     
     var changeBackgroundPopup : ChangeBackgroundPopup?
     
+    var indexpathArray = [IndexPath]()
+    
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         
@@ -34,7 +36,6 @@ class ChangeBackgroundCollection : UICollectionView, UICollectionViewDelegateFlo
         self.canCancelContentTouches = false
         self.contentInsetAdjustmentBehavior = .never
         self.delaysContentTouches = true
-        self.isUserInteractionEnabled = false
         
         self.register(ChangeBackgroundFeeder.self, forCellWithReuseIdentifier: self.changeBackgroundID)
         
@@ -66,6 +67,12 @@ class ChangeBackgroundCollection : UICollectionView, UICollectionViewDelegateFlo
             
             if dataSource.count > 0 {
                 
+                if self.indexpathArray.contains(indexPath) {
+                    cell.containerView.layer.borderWidth = 4
+                } else {
+                    cell.containerView.layer.borderWidth = 0
+                }
+                
                 let feeder = dataSource[indexPath.item] //get the first image in the loop
 //                cell.containerView.loadImageGeneralUse(feeder) { isComplete in
 //                    print("image loaded")
@@ -81,6 +88,21 @@ class ChangeBackgroundCollection : UICollectionView, UICollectionViewDelegateFlo
         } else {
             return UICollectionViewCell()
         }
+    }
+    
+    @objc func handleCellSelection(sender:UIButton) {
+
+        let selectedButtonCell = sender.superview as! UICollectionViewCell
+        guard let indexPath = self.indexPath(for: selectedButtonCell) else {return}
+        
+        UIDevice.vibrateLight()
+        self.indexpathArray.removeAll()
+        self.indexpathArray.append(indexPath)
+
+        DispatchQueue.main.async {
+            self.reloadData()
+        }
+        
     }
     
     required init?(coder: NSCoder) {
@@ -100,27 +122,49 @@ class ChangeBackgroundFeeder : UICollectionViewCell {
         cv.layer.cornerRadius = 10
         cv.clipsToBounds = true
         cv.layer.masksToBounds = true
+        cv.layer.borderWidth = 0
+        cv.layer.borderColor = UIColor.kwiksGreen.cgColor
         
         return cv
+    }()
+    
+    lazy var dummyButton : UIButton = {
+        
+        let db = UIButton(type: .system)
+        db.translatesAutoresizingMaskIntoConstraints = false
+        db.backgroundColor = .clear
+        db.addTarget(self, action: #selector(self.handleBackgroundSelection(sender:)), for: .touchUpInside)
+        
+        return db
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.backgroundColor = UIColor .white
+        self.contentView.isUserInteractionEnabled = false
         self.addViews()
-        
     }
     
     func addViews() {
         
         self.addSubview(self.containerView)
-        
+        self.addSubview(self.dummyButton)
+
         self.containerView.topAnchor.constraint(equalTo: self.topAnchor, constant: 2).isActive = true
         self.containerView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         self.containerView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         self.containerView.widthAnchor.constraint(equalToConstant: 84).isActive = true
         
+        self.dummyButton.topAnchor.constraint(equalTo: self.containerView.topAnchor).isActive = true
+        self.dummyButton.leftAnchor.constraint(equalTo: self.containerView.leftAnchor).isActive = true
+        self.dummyButton.rightAnchor.constraint(equalTo: self.containerView.rightAnchor).isActive = true
+        self.dummyButton.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor).isActive = true
+
+    }
+    
+    @objc func handleBackgroundSelection(sender: UIButton) {
+        self.changeBackgroundCollection?.handleCellSelection(sender:sender)
     }
     
     required init?(coder: NSCoder) {

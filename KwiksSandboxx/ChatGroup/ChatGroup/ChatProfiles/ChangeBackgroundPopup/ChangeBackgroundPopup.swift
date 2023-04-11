@@ -87,8 +87,6 @@ class ChangeBackgroundPopup : UIView {
         self.layer.zPosition = 100
         self.addViews()
         
-        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismiss)))
-        
         self.runDummyValues()
         
     }
