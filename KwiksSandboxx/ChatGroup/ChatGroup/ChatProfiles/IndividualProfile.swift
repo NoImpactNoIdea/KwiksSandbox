@@ -311,6 +311,9 @@ class IndividualProfileChatController : UIViewController {
         self.notificationToggle.transform = CGAffineTransform(scaleX: 0.65, y: 0.65)
 
         self.runDummyValues()
+        
+        let gest = UITapGestureRecognizer(target: self, action: #selector(self.handleSeeAllButton))
+        self.individualCollection.addGestureRecognizer(gest)
     }
     
     func runDummyValues() {
@@ -489,8 +492,11 @@ class IndividualProfileChatController : UIViewController {
         }
     }
     
+    //push the expanded image view over with the assets from this viewer? or maybe reload? Not sure, up to you
     @objc func handleSeeAllButton(sender:UIButton) {
-        print(#function)
+        let chatMediaViewer = ChatMediaViewer()
+        chatMediaViewer.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.pushViewController(chatMediaViewer, animated: true)
     }
     
     @objc func handleBackButton() {

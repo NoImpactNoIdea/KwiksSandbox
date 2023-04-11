@@ -1,19 +1,20 @@
 //
-//  IndividualCollection.swift
+//  ChatMediaCollection.swift
 //  KwiksSandboxx
 //
 //  Created by Charlie Arcodia on 4/11/23.
 //
 
+
 import Foundation
 import UIKit
 import SDWebImage
 
-class IndividualCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate, UIGestureRecognizerDelegate, PinterestLayoutDelegatePastMatches {
+class ChatMediaCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate, UIGestureRecognizerDelegate, PinterestLayoutBackgroundDelegate {
    
-    private let individualCollectionID = "individualCollectionID"
+    private let chatMediaCollectionID = "chatMediaCollectionID"
     
-    var individualProfileChatController : IndividualProfileChatController?
+    var chatMediaViewer : ChatMediaViewer?
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -33,36 +34,35 @@ class IndividualCollection : UICollectionView, UICollectionViewDelegateFlowLayou
         self.canCancelContentTouches = false
         self.contentInsetAdjustmentBehavior = .never
         self.delaysContentTouches = true
-        self.isUserInteractionEnabled = true
-        self.isScrollEnabled = false
+        self.isUserInteractionEnabled = false
         
-        self.register(IndividualFeeder.self, forCellWithReuseIdentifier: self.individualCollectionID)
+        self.register(ChatMediaFeeder.self, forCellWithReuseIdentifier: self.chatMediaCollectionID)
         
         //MARK: - PINTEREST STYLE LAYOUT ATTRIBUTE
-        if let layout = self.collectionViewLayout as? PinterestLayoutPastMatches {
+        if let layout = self.collectionViewLayout as? PinterestLayoutBackground {
             layout.delegate = self
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let individualController = self.individualProfileChatController {
-            return individualController.photoArray.count
+        if let chatViewer = self.chatMediaViewer {
+            return chatViewer.chatViewerImages.count
         } else {
             return 0
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-        return 84
+        return 115
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        
-        if let individualController = self.individualProfileChatController {
-            let cell = self.dequeueReusableCell(withReuseIdentifier: self.individualCollectionID, for: indexPath) as! IndividualFeeder
-            cell.individualCollection = self
+        if let chatViewer = self.chatMediaViewer {
+            let cell = self.dequeueReusableCell(withReuseIdentifier: self.chatMediaCollectionID, for: indexPath) as! ChatMediaFeeder
+            cell.chatMediaCollection = self
             
-            let dataSource = individualController.photoArray
+            let dataSource = chatViewer.chatViewerImages
             
             if dataSource.count > 0 {
                 
@@ -83,9 +83,9 @@ class IndividualCollection : UICollectionView, UICollectionViewDelegateFlowLayou
     }
 }
 
-class IndividualFeeder : UICollectionViewCell {
+class ChatMediaFeeder : UICollectionViewCell {
     
-    var individualCollection : IndividualCollection?
+    var chatMediaCollection : ChatMediaCollection?
     
     lazy var containerView : UIImageView = {
         
@@ -114,7 +114,7 @@ class IndividualFeeder : UICollectionViewCell {
         self.containerView.topAnchor.constraint(equalTo: self.topAnchor, constant: 2).isActive = true
         self.containerView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         self.containerView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        self.containerView.widthAnchor.constraint(equalToConstant: 84).isActive = true
+        self.containerView.widthAnchor.constraint(equalToConstant: 115).isActive = true
         
     }
     

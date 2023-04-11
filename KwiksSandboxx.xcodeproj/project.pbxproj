@@ -128,6 +128,8 @@
 		E3CAFADB29E5F9F000AEFC74 /* AdaptableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CAFADA29E5F9F000AEFC74 /* AdaptableLayout.swift */; };
 		E3CAFADD29E603E500AEFC74 /* ChangeBackgroundPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CAFADC29E603E500AEFC74 /* ChangeBackgroundPopup.swift */; };
 		E3CAFAE029E60D8A00AEFC74 /* ChangeBackgroundCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CAFADF29E60D8A00AEFC74 /* ChangeBackgroundCollection.swift */; };
+		E3CAFAE329E61E6300AEFC74 /* ChatMediaViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CAFAE229E61E6300AEFC74 /* ChatMediaViewer.swift */; };
+		E3CAFAE529E61F1900AEFC74 /* ChatMediaCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CAFAE429E61F1900AEFC74 /* ChatMediaCollection.swift */; };
 		E3D0831929D72ADB00CE82D9 /* ColorSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */; };
 		E3D0832729D734A200CE82D9 /* Segoe UI Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */; };
 		E3D0832829D734A200CE82D9 /* Segoe UI Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832429D734A200CE82D9 /* Segoe UI Bold Italic.ttf */; };
@@ -266,6 +268,8 @@
 		E3CAFADA29E5F9F000AEFC74 /* AdaptableLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptableLayout.swift; sourceTree = "<group>"; };
 		E3CAFADC29E603E500AEFC74 /* ChangeBackgroundPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeBackgroundPopup.swift; sourceTree = "<group>"; };
 		E3CAFADF29E60D8A00AEFC74 /* ChangeBackgroundCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeBackgroundCollection.swift; sourceTree = "<group>"; };
+		E3CAFAE229E61E6300AEFC74 /* ChatMediaViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMediaViewer.swift; sourceTree = "<group>"; };
+		E3CAFAE429E61F1900AEFC74 /* ChatMediaCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMediaCollection.swift; sourceTree = "<group>"; };
 		E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSheet.swift; sourceTree = "<group>"; };
 		E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI Italic.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI Italic.ttf"; sourceTree = "<group>"; };
 		E3D0832429D734A200CE82D9 /* Segoe UI Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI Bold Italic.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI Bold Italic.ttf"; sourceTree = "<group>"; };
@@ -553,6 +557,7 @@
 		E3CAFA8D29E5E82200AEFC74 /* ChatProfiles */ = {
 			isa = PBXGroup;
 			children = (
+				E3CAFAE129E61E3D00AEFC74 /* MediaViewer */,
 				E3CAFADE29E60D6B00AEFC74 /* ChangeBackgroundPopup */,
 				E3CAFA8E29E5E83800AEFC74 /* IndividualProfile.swift */,
 				E3CAFAD829E5F8ED00AEFC74 /* IndividualCollection.swift */,
@@ -567,6 +572,15 @@
 				E3CAFADF29E60D8A00AEFC74 /* ChangeBackgroundCollection.swift */,
 			);
 			path = ChangeBackgroundPopup;
+			sourceTree = "<group>";
+		};
+		E3CAFAE129E61E3D00AEFC74 /* MediaViewer */ = {
+			isa = PBXGroup;
+			children = (
+				E3CAFAE229E61E6300AEFC74 /* ChatMediaViewer.swift */,
+				E3CAFAE429E61F1900AEFC74 /* ChatMediaCollection.swift */,
+			);
+			path = MediaViewer;
 			sourceTree = "<group>";
 		};
 		E3D0831629D729AD00CE82D9 /* ChatGroup */ = {
@@ -828,6 +842,7 @@
 				E347447629DB641B00E64B68 /* Extensions+DummyData.swift in Sources */,
 				E39F084729E4D24400C76016 /* InteriorHeader.swift in Sources */,
 				E347448529DB9BDF00E64B68 /* ChatMain.swift in Sources */,
+				E3CAFAE329E61E6300AEFC74 /* ChatMediaViewer.swift in Sources */,
 				E365516D29CB6D0500F3D37E /* KwiksAlert.swift in Sources */,
 				E3CAFAE029E60D8A00AEFC74 /* ChangeBackgroundCollection.swift in Sources */,
 				E3CAFA8F29E5E83800AEFC74 /* IndividualProfile.swift in Sources */,
@@ -838,6 +853,7 @@
 				E3D0831929D72ADB00CE82D9 /* ColorSheet.swift in Sources */,
 				E365516829C7A7D000F3D37E /* FadeController.swift in Sources */,
 				E3CAFA7E29E4F13700AEFC74 /* AudioCell.swift in Sources */,
+				E3CAFAE529E61F1900AEFC74 /* ChatMediaCollection.swift in Sources */,
 				E347447929DB736A00E64B68 /* MessagesTable.swift in Sources */,
 				E39F083529E496A000C76016 /* RecordBar.swift in Sources */,
 				E39F080929E4755500C76016 /* AccessoryInputView.swift in Sources */,
