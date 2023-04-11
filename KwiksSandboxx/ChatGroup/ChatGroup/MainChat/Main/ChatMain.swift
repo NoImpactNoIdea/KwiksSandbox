@@ -5,6 +5,8 @@
 //  Created by Charlie Arcodia on 4/3/23.
 //
 
+//MARK: - MAIN CHAT CONTAINER FOR INITIAL ENTRY
+
 import Foundation
 import UIKit
 
@@ -21,7 +23,6 @@ class ChatMain : UIViewController {
         
         let ch = ChatHeader()
         ch.chatMain = self
-        
         return ch
     }()
     
@@ -40,31 +41,25 @@ class ChatMain : UIViewController {
     }()
     
     lazy var interiorHeader : InteriorHeader = {
-        
         let ch = InteriorHeader()
         ch.chatMain = self
         ch.layer.zPosition = 10
-        
         return ch
     }()
     
     lazy var chatCollection : ChatCollection = {
-        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let cm = ChatCollection(frame: .zero, collectionViewLayout: layout)
         cm.chatMain = self
         cm.layer.zPosition = 50
-        
        return cm
     }()
     
     lazy var requestView : RequestView = {
-        
         let ch = RequestView()
         ch.chatMain = self
         ch.alpha = 0.0
-        
         return ch
     }()
     
@@ -89,7 +84,7 @@ class ChatMain : UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor .white
-        self.addViews() //ui
+        self.addViews()
         
     }
     
@@ -97,15 +92,17 @@ class ChatMain : UIViewController {
         super.viewWillAppear(true)
         
         self.handleObservers() //listeners - keyboard
-        self.chatDataSource = globalChatDataSource //global
         self.loadDummyData() //replace this with the datasource
-        
-        self.backdropView.loadImageGeneralUse("\(S().stockPhotoUrlBasicPattern)") { isComplete in
-                 
-        }
-        
+       
         DispatchQueue.main.async {
             self.resignFirstResponder() //weird issue, without this - the keyboard hides the first time the comment textview is tapped
+        }
+    }
+    
+    @objc func loadDataSource() {
+        self.chatDataSource = globalChatDataSource //global
+        DispatchQueue.main.async {
+            self.chatCollection.reloadData()
         }
     }
     
@@ -119,7 +116,12 @@ class ChatMain : UIViewController {
         super.viewDidAppear(true)
         self.shouldAdjustForKeyboard = true //this happens with overviews on the same controller
         self.showFirstResponder()
-
+        self.loadDataSource()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.backdropView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     func addViews() {
@@ -171,11 +173,18 @@ class ChatMain : UIViewController {
     
     func loadDummyData() {
             
-        //dummy info to delete and dynamically fill
-        let stock_image = UIImage(named: "stock_photo_man")?.withRenderingMode(.alwaysOriginal)
-        self.chatHeader.statusLabel.text = "Online"
-        self.chatHeader.nameLabel.text = "Charlie Arcodia"
-        self.chatHeader.profilePhoto.image = stock_image
+        DispatchQueue.main.async {
+            
+            //dummy info to delete and dynamically fill
+            let stock_image = UIImage(named: "stock_photo_man")?.withRenderingMode(.alwaysOriginal)
+            self.chatHeader.statusLabel.text = "Online"
+            self.chatHeader.nameLabel.text = "Charlie Arcodia"
+            self.chatHeader.profilePhoto.image = stock_image
+            
+            self.backdropView.loadImageGeneralUse("\(S().stockPhotoUrlBasicPattern)") { isComplete in
+                print("backdrop loaded in")
+            }
+        }
     }
     
     @objc func toggleRequestView(shouldShow : Bool) { //also pass in the datasrouce
@@ -208,21 +217,16 @@ class ChatMain : UIViewController {
     }
     @objc func handleBeginAudioRecording(sender:UIButton) {
         UIDevice.vibrateLight()
-     
+        print(#function)
+
     }
     @objc func handleCashButton(sender:UIButton) {
         UIDevice.vibrateLight()
-
         print(#function)
     }
     @objc func handleAddIcon(sender:UIButton) {
         UIDevice.vibrateLight()
         print(#function)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.backdropView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
 }
 

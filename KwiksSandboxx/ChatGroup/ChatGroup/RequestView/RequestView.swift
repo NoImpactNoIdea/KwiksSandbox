@@ -13,19 +13,16 @@ class RequestView : UIView {
     var chatMain : ChatMain?
     
     lazy var profilePhoto : UIImageView = {
-        
         let dcl = UIImageView()
         dcl.translatesAutoresizingMaskIntoConstraints = false
         dcl.backgroundColor = UIColor (white: 0.8, alpha: 0.4)
         dcl.contentMode = .scaleAspectFill
         dcl.isUserInteractionEnabled = false
         dcl.clipsToBounds = true
-       
         return dcl
     }()
     
     var nameLabel : UILabel = {
-        
         let hfl = UILabel()
         hfl.translatesAutoresizingMaskIntoConstraints = false
         hfl.backgroundColor = .clear
@@ -34,22 +31,18 @@ class RequestView : UIView {
         hfl.font = UIFont(name: FontKit().segoeSemiBold, size: 15)
         hfl.isUserInteractionEnabled = true
         hfl.numberOfLines = 1
-        
         return hfl
     }()
     
     var bottomContainer : UIView = {
-        
         let bc = UIView()
         bc.translatesAutoresizingMaskIntoConstraints = false
         bc.backgroundColor = UIColor.requestGrey
         bc.layer.cornerRadius = 30
-        
        return bc
     }()
     
     var threeButtonStack : UIStackView = {
-        
         let sv = UIStackView()
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.axis = .horizontal
@@ -58,12 +51,10 @@ class RequestView : UIView {
         sv.spacing = 12
         sv.contentMode = .scaleAspectFit
         sv.layer.zPosition = 50
-        
         return sv
     }()
     
     lazy var acceptButton : UIButton = {
-        
         let cbf = UIButton(type: .system)
         cbf.translatesAutoresizingMaskIntoConstraints = false
         cbf.setTitle("Accept", for: UIControl.State.normal)
@@ -77,13 +68,10 @@ class RequestView : UIView {
         cbf.layer.cornerRadius = 9
         cbf.tag = 1
         cbf.addTarget(self, action: #selector(self.handleAcceptButtons(sender:)), for: .touchUpInside)
-        
         return cbf
-        
     }()
     
     lazy var blockButton : UIButton = {
-        
         let cbf = UIButton(type: .system)
         cbf.translatesAutoresizingMaskIntoConstraints = false
         cbf.setTitle("Block", for: UIControl.State.normal)
@@ -97,13 +85,10 @@ class RequestView : UIView {
         cbf.layer.cornerRadius = 9
         cbf.tag = 2
         cbf.addTarget(self, action: #selector(self.handleAcceptButtons(sender:)), for: .touchUpInside)
-
         return cbf
-        
     }()
     
     lazy var deleteButton : UIButton = {
-        
         let cbf = UIButton(type: .system)
         cbf.translatesAutoresizingMaskIntoConstraints = false
         cbf.setTitle("Delete", for: UIControl.State.normal)
@@ -117,13 +102,10 @@ class RequestView : UIView {
         cbf.layer.cornerRadius = 9
         cbf.tag = 3
         cbf.addTarget(self, action: #selector(self.handleAcceptButtons(sender:)), for: .touchUpInside)
-
         return cbf
-        
     }()
     
     var requestDescription : UILabel = {
-        
         let hfl = UILabel()
         hfl.translatesAutoresizingMaskIntoConstraints = false
         hfl.backgroundColor = .clear
@@ -132,12 +114,10 @@ class RequestView : UIView {
         hfl.textAlignment = .center
         hfl.font = UIFont(name: FontKit().segoeRegular, size: 12)
         hfl.numberOfLines = -1
-        
         return hfl
     }()
     
     var headerLabel : UILabel = {
-        
         let hfl = UILabel()
         hfl.translatesAutoresizingMaskIntoConstraints = false
         hfl.backgroundColor = .clear
@@ -145,12 +125,10 @@ class RequestView : UIView {
         hfl.textAlignment = .center
         hfl.font = UIFont(name: FontKit().segoeRegular, size: 16)
         hfl.numberOfLines = -1
-        
         return hfl
     }()
     
     var statsLabel : UILabel = {
-        
         let hfl = UILabel()
         hfl.translatesAutoresizingMaskIntoConstraints = false
         hfl.backgroundColor = .clear
@@ -159,7 +137,6 @@ class RequestView : UIView {
         hfl.font = UIFont(name: FontKit().segoeRegular, size: 12)
         hfl.isUserInteractionEnabled = true
         hfl.numberOfLines = 1
-        
         return hfl
     }()
     
@@ -177,9 +154,7 @@ class RequestView : UIView {
         cbf.tintColor = UIColor.differentShadeBlack
         cbf.tag = 1
         cbf.addTarget(self, action: #selector(self.handleViewProfileButton(sender:)), for: .touchUpInside)
-        
         return cbf
-        
     }()
     
     override init(frame: CGRect) {
@@ -189,6 +164,7 @@ class RequestView : UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 40
+        self.layer.zPosition = 100
         self.addViews()
         
         //pass data source
@@ -222,7 +198,6 @@ class RequestView : UIView {
         self.addSubview(self.headerLabel)
         self.addSubview(self.statsLabel)
         self.addSubview(self.viewProfileButton)
-
 
         self.profilePhoto.topAnchor.constraint(equalTo: self.topAnchor, constant: 63).isActive = true
         self.profilePhoto.widthAnchor.constraint(equalToConstant: 70).isActive = true

@@ -19,16 +19,8 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
-//
-//
-//        let backgroundImageView = UIImageView()
-//        backgroundImageView.contentMode = .scaleAspectFill
-//
-//        backgroundImageView.loadImageGeneralUse("\(S().stockPhotoUrlBasicPattern)") { isComplete in
-//            self.backgroundView = backgroundImageView
-//        }
-        
-        self.backgroundColor = .clear
+
+        self.backgroundColor = .clear //tried using this for the background with backgroundview, worked good but would move with the content offset so added a view to the chat main container
         self.translatesAutoresizingMaskIntoConstraints = false
         self.dataSource = self
         self.delegate = self
@@ -47,6 +39,7 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
         self.clipsToBounds = true
         self.contentInset = UIEdgeInsets(top: 210, left: 0, bottom: 0, right: 0)
         
+        ///add the remainder of the cells then switch the message type
         self.register(ChatMainCell.self, forCellWithReuseIdentifier: self.chatID)
         self.register(AudioMainCell.self, forCellWithReuseIdentifier: self.audioID)
         self.register(ImageMainCell.self, forCellWithReuseIdentifier: self.imageID)
@@ -55,10 +48,10 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] //40 radius to the top two corners
     }
     
-    func scrollToBottom(animated: Bool) {
+    func scrollToBottom(animated: Bool) { //auto scroll to bottom of the feed, ie mast message
         self.layoutIfNeeded()
         self.setContentOffset(bottomOffset(), animated: animated)
     }
@@ -86,10 +79,10 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
                 }
                 
             } else {
-                return CGSize(width: self.frame.width, height: 0)
+                return CGSize(width: self.frame.width, height: 0) //defaults for missed cases
             }
         } else {
-            return CGSize(width: self.frame.width, height: 0)
+            return CGSize(width: self.frame.width, height: 0) //defaults for missed cases
         }
     }
     
@@ -117,7 +110,6 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
     }
     
     func configureMessageCell(indexPath : IndexPath) -> UICollectionViewCell {
-        print("Hey hey!")
         
         let cell = self.dequeueReusableCell(withReuseIdentifier: self.chatID, for: indexPath) as! ChatMainCell
         cell.chatCollection = self
@@ -129,7 +121,7 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
         if let chatMain = self.chatMain {
             let feeder = chatMain.chatDataSource[indexPath.item]
 
-            //owners message
+            //owners text message
             if let ownersMessage = feeder.message {
                 cell.messageLabel.text = ownersMessage
             }
@@ -144,9 +136,11 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
                 }
             }
 
-            //owners time stamp
+            //owners time stamp - make this dynamic
             let _ = feeder.timeStamp //not optional because it is hardcoded in the model for testing
+            
             }
+        
         return cell
     }
     
@@ -172,10 +166,10 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
             }
 
             //owners time stamp
-            let ownersTimeStamp = feeder.timeStamp //not optional because it is hardcoded in the model for testing
-                print("ownersTimeStamp: \(ownersTimeStamp)")
+            let _ = feeder.timeStamp //not optional because it is hardcoded in the model for testing
             }
-            //pass the audio clip/url here on todo
+        
+            //pass the audio clip/url here on todo then call cell.audioCLip etc...
             
         return cell
     }
@@ -205,11 +199,12 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
             let _ = feeder.timeStamp //not optional because it is hardcoded in the model for testing
             }
         
-            //pass the audio clip/url here on todo
+            //pass the image here and add it to the framed image object
             
         return cell
     }
     
+    //convenience for calculating the offset from the bottom of the chat
     func bottomOffset() -> CGPoint {
         
         self.counter += 1

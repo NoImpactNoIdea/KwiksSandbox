@@ -20,7 +20,6 @@ class ChatHeader : UIView {
     var chatMain : ChatMain?
     
     lazy var backButton : UIButton = {
-        
         let cbf = UIButton(type: .system)
         cbf.translatesAutoresizingMaskIntoConstraints = false
         cbf.backgroundColor = .clear
@@ -28,13 +27,11 @@ class ChatHeader : UIView {
         cbf.setImage(image, for: UIControl.State.normal)
         cbf.tintColor = UIColor.fontBrown
         cbf.addTarget(self, action: #selector(self.handleBackButton), for: .touchUpInside)
-        
         return cbf
         
     }()
     
     lazy var profilePhoto : UIImageView = {
-        
         let dcl = UIImageView()
         dcl.translatesAutoresizingMaskIntoConstraints = false
         dcl.backgroundColor = UIColor (white: 0.8, alpha: 0.4)
@@ -43,24 +40,20 @@ class ChatHeader : UIView {
         dcl.clipsToBounds = true
         dcl.isUserInteractionEnabled = true
         dcl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.handleProfilePhotoTaps)))
-       
         return dcl
     }()
     
     var notificationCircle : UIView = {
-        
         let nc = UIView()
         nc.translatesAutoresizingMaskIntoConstraints = false
         nc.backgroundColor = UIColor .kwiksDeepGreen
         nc.layer.masksToBounds = true
         nc.layer.borderWidth = 2
         nc.layer.borderColor = UIColor .white.cgColor
-        
         return nc
     }()
     
     var nameLabel : UILabel = {
-        
         let hfl = UILabel()
         hfl.translatesAutoresizingMaskIntoConstraints = false
         hfl.backgroundColor = .clear
@@ -69,12 +62,10 @@ class ChatHeader : UIView {
         hfl.font = UIFont(name: FontKit().segoeSemiBold, size: 20)
         hfl.isUserInteractionEnabled = true
         hfl.numberOfLines = 1
-        
         return hfl
     }()
     
     var statusLabel : UILabel = {
-        
         let hfl = UILabel()
         hfl.translatesAutoresizingMaskIntoConstraints = false
         hfl.backgroundColor = .clear
@@ -83,12 +74,10 @@ class ChatHeader : UIView {
         hfl.font = UIFont(name: FontKit().segoeRegular, size: 15)
         hfl.isUserInteractionEnabled = true
         hfl.numberOfLines = 1
-        
         return hfl
     }()
     
     lazy var phoneButton : UIButton = {
-        
         let cbf = UIButton(type: .system)
         cbf.translatesAutoresizingMaskIntoConstraints = false
         cbf.backgroundColor = .clear
@@ -96,13 +85,11 @@ class ChatHeader : UIView {
         let image = UIImage(systemName: S().phone, withConfiguration: config)
         cbf.setImage(image, for: UIControl.State.normal)
         cbf.tintColor = UIColor .black
-        
         return cbf
         
     }()
     
     lazy var videoButton : UIButton = {
-        
         let cbf = UIButton(type: .system)
         cbf.translatesAutoresizingMaskIntoConstraints = false
         cbf.backgroundColor = .clear
@@ -110,13 +97,11 @@ class ChatHeader : UIView {
         let image = UIImage(systemName: S().video, withConfiguration: config)
         cbf.setImage(image, for: UIControl.State.normal)
         cbf.tintColor = UIColor .black
-        
         return cbf
         
     }()
     
     lazy var ellipsisButton : UIButton = {
-        
         let cbf = UIButton(type: .system)
         cbf.translatesAutoresizingMaskIntoConstraints = false
         cbf.backgroundColor = .clear
@@ -124,7 +109,6 @@ class ChatHeader : UIView {
         let image = UIImage(systemName: S().ellipsis, withConfiguration: config)
         cbf.setImage(image, for: UIControl.State.normal)
         cbf.tintColor = UIColor.iconBrown
-        
         return cbf
         
     }()

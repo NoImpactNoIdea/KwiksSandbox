@@ -215,9 +215,7 @@
 		E347447429DB610A00E64B68 /* MessagesGroup */ = {
 			isa = PBXGroup;
 			children = (
-				E347447229DB610700E64B68 /* MessagesHeader.swift */,
-				E35676D829AD182F003B5E9A /* MessagesContainer.swift */,
-				E347447829DB736A00E64B68 /* MessagesTable.swift */,
+				E3CAFA8C29E5E3E400AEFC74 /* Main */,
 			);
 			path = MessagesGroup;
 			sourceTree = "<group>";
@@ -358,12 +356,10 @@
 		E39F083E29E4B36900C76016 /* MainChat */ = {
 			isa = PBXGroup;
 			children = (
-				E39F084529E4D23000C76016 /* InterioirHeader */,
+				E3CAFA8B29E5E3CF00AEFC74 /* Main */,
+				E39F084529E4D23000C76016 /* InteriorHeader */,
 				E39F084229E4B60100C76016 /* Models */,
 				E39F083F29E4B37500C76016 /* Cells */,
-				E347448429DB9BDF00E64B68 /* ChatMain.swift */,
-				E347448629DB9EA500E64B68 /* ChatHeader.swift */,
-				E347448829DBA70B00E64B68 /* ChatCollection.swift */,
 			);
 			path = MainChat;
 			sourceTree = "<group>";
@@ -386,12 +382,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		E39F084529E4D23000C76016 /* InterioirHeader */ = {
+		E39F084529E4D23000C76016 /* InteriorHeader */ = {
 			isa = PBXGroup;
 			children = (
 				E39F084629E4D24400C76016 /* InteriorHeader.swift */,
 			);
-			path = InterioirHeader;
+			path = InteriorHeader;
 			sourceTree = "<group>";
 		};
 		E3CAFA7329E4E80900AEFC74 /* fonts */ = {
@@ -413,6 +409,26 @@
 				E3CAFA7929E4E81A00AEFC74 /* record_anim.json */,
 			);
 			path = animations;
+			sourceTree = "<group>";
+		};
+		E3CAFA8B29E5E3CF00AEFC74 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E347448429DB9BDF00E64B68 /* ChatMain.swift */,
+				E347448629DB9EA500E64B68 /* ChatHeader.swift */,
+				E347448829DBA70B00E64B68 /* ChatCollection.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E3CAFA8C29E5E3E400AEFC74 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E347447229DB610700E64B68 /* MessagesHeader.swift */,
+				E35676D829AD182F003B5E9A /* MessagesContainer.swift */,
+				E347447829DB736A00E64B68 /* MessagesTable.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		E3D0831629D729AD00CE82D9 /* ChatGroup */ = {

@@ -16,6 +16,12 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         buttonInset: NSLayoutConstraint?,
         micInset: NSLayoutConstraint?,
         commentLeftAnchor : NSLayoutConstraint?
+        
+    lazy var recordBar : RecordBar = {
+        let rb = RecordBar()
+        rb.accessoryInputView = self
+        return rb
+    }()
     
     lazy var commentTextView: UITextView = {
         let tf = UITextView()
@@ -39,7 +45,6 @@ class AccessoryInputView : UIView, UITextViewDelegate {
     }()
     
     lazy var addIcon : UIButton = {
-        
         let cbf = UIButton()
         cbf.translatesAutoresizingMaskIntoConstraints = false
         cbf.backgroundColor = .clear
@@ -48,11 +53,9 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         cbf.setImage(image, for: .normal)
         cbf.addTarget(self, action: #selector(self.handleAddIcon(sender:)), for: UIControl.Event.touchUpInside)
         return cbf
-        
     }()
     
     let placeHolderLabel : UILabel = {
-        
         let thl = UILabel()
         thl.translatesAutoresizingMaskIntoConstraints = false
         thl.textAlignment = .left
@@ -62,11 +65,9 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         thl.adjustsFontSizeToFitWidth = false
         thl.textColor = UIColor .white
         return thl
-        
     }()
     
     lazy var microphoneRecordButton : UIButton = {
-        
         let cbf = UIButton()
         cbf.translatesAutoresizingMaskIntoConstraints = false
         cbf.backgroundColor = .clear
@@ -74,21 +75,16 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         let image = UIImage(named: "chat_mini_mic_icon")?.withRenderingMode(.alwaysOriginal)
         cbf.setImage(image, for: .normal)
         return cbf
-        
     }()
     
     lazy var dummyMicrophoneRecordButton : UIButton = {
-        
         let cbf = UIButton()
         cbf.translatesAutoresizingMaskIntoConstraints = false
         cbf.backgroundColor = .clear
-        
         return cbf
-        
     }()
     
     lazy var cashButton : UIButton = {
-        
         let cbf = UIButton()
         cbf.translatesAutoresizingMaskIntoConstraints = false
         cbf.backgroundColor = .clear
@@ -97,11 +93,9 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         cbf.setImage(image, for: .normal)
         cbf.addTarget(self, action: #selector(self.handleCashIcon(sender:)), for: UIControl.Event.touchUpInside)
         return cbf
-        
     }()
     
     lazy var sendButton : UIButton = {
-        
         let cbf = UIButton()
         cbf.translatesAutoresizingMaskIntoConstraints = false
         cbf.backgroundColor = .clear
@@ -110,17 +104,8 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         cbf.setImage(image, for: .normal)
         cbf.addTarget(self, action: #selector(self.handleSendIcon(sender:)), for: UIControl.Event.touchUpInside)
         return cbf
-        
     }()
-    
-    lazy var recordBar : RecordBar = {
-        
-        let rb = RecordBar()
-        rb.accessoryInputView = self
-        
-        return rb
-    }()
-    
+
     override var intrinsicContentSize: CGSize {
         return self.textViewContentSize()
     }
@@ -129,14 +114,14 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         super.init(frame: frame)
         
         //accessory view config
-        self.backgroundColor = UIColor .white.withAlphaComponent(0.75)
+        self.backgroundColor = UIColor .white.withAlphaComponent(0.95) //smallest transparency, maybe a frosted look but memory says after the first draw was an issue from past chat controllers
         self.translatesAutoresizingMaskIntoConstraints = false
         self.autoresizingMask = .flexibleHeight
         self.sizeToFit()
         self.isUserInteractionEnabled = true
         self.autoresizingMask = UIView.AutoresizingMask.flexibleHeight
         
-        //add the shadow to the top
+        //add the shadow to the top of the accessory view
         self.clipsToBounds = false
         self.layer.masksToBounds = false
         self.layer.shadowColor = UIColor .black.withAlphaComponent(0.05).cgColor
@@ -164,7 +149,7 @@ class AccessoryInputView : UIView, UITextViewDelegate {
             self.handleTrashCan()
             UIDevice.vibrateLight()
 
-        case .changed: print("FT SWIPE CHANGE")
+        case .changed: print("FT SWIPE CHANGE")//most likely we will gauge how far they swipe up then auto send calling the save function in the record bar subview class
             print("capture the swipe up and send from here")
             
         default: print("FT - DEFAULT")
@@ -244,7 +229,6 @@ class AccessoryInputView : UIView, UITextViewDelegate {
             self.shouldInvertText(should: false)
             //snap the color back for the chat view
             
-            //not showing, mic comes back to life
             if let chatMain = self.chatMain {
                 if !chatMain.isKeyboardShowing {
                     self.microphoneRecordButton.isHidden = false
@@ -288,7 +272,7 @@ class AccessoryInputView : UIView, UITextViewDelegate {
             self.placeHolderLabel.isHidden = false
         }
     }
-    
+    //monitoring the user typing here and making changes as see fit
     func textViewDidChange(_ textView: UITextView) {
         
         if textView.text.count <= 0 {
@@ -351,11 +335,7 @@ class AccessoryInputView : UIView, UITextViewDelegate {
             }
         }
     }
-    
-    @objc func handleSendButton(sender:UIButton) {
-        self.chatMain?.handleSendButton(sender: sender)
-    }
-    
+ 
     @objc func handleBeginAudioRecording() {
         
         //needs to be faster
@@ -365,7 +345,7 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         }
     }
     
-    //this send a normal text message
+    //this sends a normal text message
     @objc func handleSendIcon(sender:UIButton) {
         
         UIDevice.vibrateLight()
@@ -374,11 +354,9 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         let cleanMessage = message.trimmingCharacters(in: .whitespacesAndNewlines)
         let messageCount = cleanMessage.count
         
-        if messageCount > 0 {
-            ///https call here with the clean message along with any other parameters required
+        if messageCount > 0 {///https call here with the clean message along with any other parameters required
             print("🟢 Message to send: \(cleanMessage)")
             self.resetAfterSend()
-            
         }
     }
     

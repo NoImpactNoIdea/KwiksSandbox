@@ -41,8 +41,6 @@ class RecordBar : UIView, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         rb.translatesAutoresizingMaskIntoConstraints = false
         rb.backgroundColor = UIColor.recordGreen
         rb.isUserInteractionEnabled = true
-//        rb.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.handleSaveAndSend)))
-        
         return rb
     }()
     
@@ -88,7 +86,6 @@ class RecordBar : UIView, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         self.addViews()
         
         self.dummyTrashCanButton.addTarget(self.accessoryInputView, action: #selector(self.accessoryInputView?.handleTrashCan), for: .touchUpInside)
-//        self.lottiAnimation.addGestureRecognizer(UITapGestureRecognizer(target: self.accessoryInputView, action: #selector(self.accessoryInputView?.handleTrashCan)))
         
     }
     
@@ -132,7 +129,6 @@ class RecordBar : UIView, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         if shouldBegin {
             self.lottiAnimation.isHidden = false
             self.lottiAnimation.play { complete in
-                print("anim loop complete")
             }
         } else {
             self.lottiAnimation.isHidden = true
@@ -155,7 +151,6 @@ class RecordBar : UIView, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
                 }
                 if UIApplication.shared.canOpenURL(settingsUrl) {
                     UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
-                        //send them to settings to enable audio here
                     })
                 }
             }
@@ -280,7 +275,7 @@ extension RecordBar {
         self.accessoryInputView?.dummyMicrophoneRecordButton.isHidden = false
     }
     
-    //call me when you want to save the audio clip
+    //call me when you want to save the audio clip - the url and the duration is the meat, then metadata like user id, name etc.
     func storeDataForAudio() {
         
         //after recording has finished, call this function to grab the recording and save it
