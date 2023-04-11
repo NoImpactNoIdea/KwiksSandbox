@@ -82,7 +82,7 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         let cbf = UIButton()
         cbf.translatesAutoresizingMaskIntoConstraints = false
         cbf.backgroundColor = .clear
-        cbf.addTarget(self, action: #selector(self.handleBeginAudioRecording(sender:)), for: UIControl.Event.touchUpInside)
+        
         return cbf
         
     }()
@@ -146,7 +146,30 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         self.layer.shouldRasterize = false
         
         self.addViews()
+       
+        let longPressGeture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress(sender:)))
+        self.dummyMicrophoneRecordButton.addGestureRecognizer(longPressGeture)
         
+    }
+    
+    @objc func handleLongPress(sender: UILongPressGestureRecognizer) {
+        
+        switch sender.state {
+            
+        case .began: print("FT - BEGAN")
+            self.handleBeginAudioRecording()
+            UIDevice.vibrateLight()
+
+        case .ended, .failed, .cancelled: print("FT - CANCELLED")
+            self.handleTrashCan()
+            UIDevice.vibrateLight()
+
+        case .changed: print("FT SWIPE CHANGE")
+            print("capture the swipe up and send from here")
+            
+        default: print("FT - DEFAULT")
+            
+        }
     }
     
     func addViews() {
@@ -218,6 +241,8 @@ class AccessoryInputView : UIView, UITextViewDelegate {
             self.layoutIfNeeded()
             self.chatMain?.view.layoutIfNeeded()
             self.reloadInputViews()
+            self.shouldInvertText(should: false)
+            //snap the color back for the chat view
             
             //not showing, mic comes back to life
             if let chatMain = self.chatMain {
@@ -260,6 +285,7 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         } else {
             self.commentTextView.backgroundColor = UIColor .black.withAlphaComponent(0.4)
             self.commentTextView.textColor = UIColor .white
+            self.placeHolderLabel.isHidden = false
         }
     }
     
@@ -310,12 +336,16 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         if hidden == true {
             UIView.animate(withDuration: 0.15) {
                 self.recordBar.alpha = 1.0
+                self.dummyMicrophoneRecordButton.isHidden = true
             } completion: { complete in
                 print("🟢 in record mode now")
             }
         } else {
             UIView.animate(withDuration: 0.15) {
                 self.recordBar.alpha = 0.0
+                if self.chatMain?.isKeyboardShowing == false {
+                    self.dummyMicrophoneRecordButton.isHidden = false
+                }
             } completion: { complete in
                 print("🟡 finished recording")
             }
@@ -326,7 +356,7 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         self.chatMain?.handleSendButton(sender: sender)
     }
     
-    @objc func handleBeginAudioRecording(sender:UIButton) {
+    @objc func handleBeginAudioRecording() {
         
         //needs to be faster
         DispatchQueue.main.async {
@@ -337,6 +367,8 @@ class AccessoryInputView : UIView, UITextViewDelegate {
     
     //this send a normal text message
     @objc func handleSendIcon(sender:UIButton) {
+        
+        UIDevice.vibrateLight()
         
         guard let message = self.commentTextView.text else {return}
         let cleanMessage = message.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -352,11 +384,13 @@ class AccessoryInputView : UIView, UITextViewDelegate {
     
     //I have no idea what this does
     @objc func handleAddIcon(sender:UIButton) {
+        UIDevice.vibrateLight()
         self.chatMain?.handleAddIcon(sender:sender)
     }
     
     //this uses the wallet and sends money as it's own cell
     @objc func handleCashIcon(sender:UIButton) {
+        UIDevice.vibrateLight()
         self.chatMain?.handleCashButton(sender:sender)
     }
     

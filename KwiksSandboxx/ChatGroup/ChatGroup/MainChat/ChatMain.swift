@@ -74,15 +74,19 @@ class ChatMain : UIViewController {
         
         self.view.backgroundColor = UIColor .white
         self.addViews() //ui
-        self.handleObservers() //listeners - keyboard
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.loadDummyData() //replace this with the datasource
+        
+        self.handleObservers() //listeners - keyboard
         self.chatDataSource = globalChatDataSource //global
-        self.loadDummyData()
+        self.loadDummyData() //replace this with the datasource
+        
+        DispatchQueue.main.async {
+            self.resignFirstResponder() //weird issue, without this - the keyboard hides the first time the comment textview is tapped
+        }
     }
     
     //garbage and memory cleanup
@@ -95,7 +99,6 @@ class ChatMain : UIViewController {
         super.viewDidAppear(true)
         self.shouldAdjustForKeyboard = true //this happens with overviews on the same controller
         self.showFirstResponder()
-        self.chatCollection.scrollToBottom(animated: true)
 
     }
     
@@ -140,21 +143,12 @@ class ChatMain : UIViewController {
     }
     
     func loadDummyData() {
-        
-        DispatchQueue.main.async {
             
-            //dummy info to delete and dynamically fill
-            let stock_image = UIImage(named: "stock_photo_man")?.withRenderingMode(.alwaysOriginal)
-            self.chatHeader.statusLabel.text = "Online"
-            self.chatHeader.nameLabel.text = "Charlie Arcodia"
-            self.chatHeader.profilePhoto.image = stock_image
-            
-        }
-        
-        DispatchQueue.main.async {
-            self.chatCollection.reloadData()
-            self.chatCollection.scrollToBottom(animated: true)
-        }
+        //dummy info to delete and dynamically fill
+        let stock_image = UIImage(named: "stock_photo_man")?.withRenderingMode(.alwaysOriginal)
+        self.chatHeader.statusLabel.text = "Online"
+        self.chatHeader.nameLabel.text = "Charlie Arcodia"
+        self.chatHeader.profilePhoto.image = stock_image
     }
     
     @objc func toggleRequestView(shouldShow : Bool) { //also pass in the datasrouce
@@ -296,7 +290,7 @@ extension ChatMain {
             self.chatCollection.contentInset = insets
             self.chatCollection.scrollIndicatorInsets = insets
             
-            if distanceFromBottom < 100 {
+            if distanceFromBottom < 50 {
                 self.chatCollection.contentOffset = self.chatCollection.bottomOffset()
             }
         }, completion: nil)
@@ -316,8 +310,6 @@ extension ChatMain {
             self.becomeFirstResponder()
             self.reloadInputViews()
             self.customInputAccessoryView.reloadInputViews()
-            
         }
     }
-    
 }

@@ -41,7 +41,7 @@ class RecordBar : UIView, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         rb.translatesAutoresizingMaskIntoConstraints = false
         rb.backgroundColor = UIColor.recordGreen
         rb.isUserInteractionEnabled = true
-        rb.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.handleSaveAndSend)))
+//        rb.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.handleSaveAndSend)))
         
         return rb
     }()
@@ -55,6 +55,15 @@ class RecordBar : UIView, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         dcl.clipsToBounds = true
         let image = UIImage(named: "trashcan_button")?.withRenderingMode(.alwaysOriginal)
         dcl.setImage(image, for: .normal)
+        dcl.layer.zPosition = 100
+        return dcl
+    }()
+    
+    lazy var dummyTrashCanButton : UIButton = {
+        
+        let dcl = UIButton(type: .system)
+        dcl.translatesAutoresizingMaskIntoConstraints = false
+        dcl.backgroundColor = .clear
         dcl.layer.zPosition = 100
         return dcl
     }()
@@ -78,8 +87,8 @@ class RecordBar : UIView, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         self.isUserInteractionEnabled = true
         self.addViews()
         
-        self.trashCanImage.addTarget(self.accessoryInputView, action: #selector(self.accessoryInputView?.handleTrashCan), for: .touchUpInside)
-        self.lottiAnimation.addGestureRecognizer(UITapGestureRecognizer(target: self.accessoryInputView, action: #selector(self.accessoryInputView?.handleTrashCan)))
+        self.dummyTrashCanButton.addTarget(self.accessoryInputView, action: #selector(self.accessoryInputView?.handleTrashCan), for: .touchUpInside)
+//        self.lottiAnimation.addGestureRecognizer(UITapGestureRecognizer(target: self.accessoryInputView, action: #selector(self.accessoryInputView?.handleTrashCan)))
         
     }
     
@@ -89,9 +98,10 @@ class RecordBar : UIView, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         self.addSubview(self.trashCanImage)
         self.addSubview(self.lottiAnimation)
         self.addSubview(self.timerLabel)
+        self.addSubview(self.dummyTrashCanButton)
 
-        self.recordBar.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 28).isActive = true
-        self.recordBar.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -28).isActive = true
+        self.recordBar.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 18).isActive = true
+        self.recordBar.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -18).isActive = true
         self.recordBar.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -5).isActive = true
         self.recordBar.heightAnchor.constraint(equalToConstant: 35).isActive = true
         self.recordBar.layer.cornerRadius = 35/2
@@ -100,6 +110,11 @@ class RecordBar : UIView, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         self.trashCanImage.leftAnchor.constraint(equalTo: self.recordBar.leftAnchor, constant: 6).isActive = true
         self.trashCanImage.heightAnchor.constraint(equalToConstant: 23).isActive = true
         self.trashCanImage.widthAnchor.constraint(equalToConstant: 23).isActive = true
+        
+        self.dummyTrashCanButton.topAnchor.constraint(equalTo: self.trashCanImage.topAnchor, constant: -10).isActive = true
+        self.dummyTrashCanButton.leftAnchor.constraint(equalTo: self.trashCanImage.leftAnchor, constant: -10).isActive = true
+        self.dummyTrashCanButton.rightAnchor.constraint(equalTo: self.trashCanImage.rightAnchor, constant: 10).isActive = true
+        self.dummyTrashCanButton.bottomAnchor.constraint(equalTo: self.trashCanImage.bottomAnchor, constant: 10).isActive = true
         
         self.timerLabel.rightAnchor.constraint(equalTo: self.recordBar.rightAnchor, constant: -19).isActive = true
         self.timerLabel.centerYAnchor.constraint(equalTo: self.recordBar.centerYAnchor).isActive = true
@@ -233,7 +248,10 @@ extension RecordBar {
     
     //call me to cancel and/or save
     func finishRecording(fromTrashCan : Bool) {
+        print("everytime here")
         if self.audioRecorder != nil {
+            print("everytime here 1")
+
             self.recordingTimeInSeconds = 0
             self.recordingTimeInSeconds = Int(self.audioRecorder.currentTime)
             self.audioRecorder = nil
@@ -259,6 +277,7 @@ extension RecordBar {
         self.recordingSession = AVAudioSession()
         self.isAudioEnabled = false
         self.recordingTimeInSeconds = 0 //do I ruin the save below? Maybe wrap me under the trashcan parameter
+        self.accessoryInputView?.dummyMicrophoneRecordButton.isHidden = false
     }
     
     //call me when you want to save the audio clip

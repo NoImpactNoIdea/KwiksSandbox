@@ -110,11 +110,12 @@ class MessagesContainer: UIViewController {
     }
     
     @objc func handleCellSelection() {
-        DispatchQueue.main.async {
-            let chatMain = ChatMain()
-            chatMain.navigationController?.navigationBar.isHidden = true
-            self.navigationController?.pushViewController(chatMain, animated: true)
-        }
+        
+        UIDevice.vibrateLight()
+        
+        let chatMain = ChatMain()
+        chatMain.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.pushViewController(chatMain, animated: true)
     }
     
     @objc func handleBackButton() {

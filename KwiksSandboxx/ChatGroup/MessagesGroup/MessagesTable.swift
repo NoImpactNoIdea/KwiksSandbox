@@ -67,6 +67,10 @@ class MessagesTable : UITableView, UIScrollViewDelegate, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = self.dequeueReusableCell(withIdentifier: self.messagesTableID, for: indexPath) as! MessagesFeeder
          cell.messagesTable = self
+         //speed & performance bump possibly, these controllers are difficult without pre fetching - added to chat main also
+         cell.layer.shouldRasterize = true
+         cell.layer.rasterizationScale = UIScreen.main.scale
+        
          return cell
     }
     

@@ -109,6 +109,7 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
     }
     
     func configureMessageCell(indexPath : IndexPath) -> UICollectionViewCell {
+        print("Hey hey!")
         
         let cell = self.dequeueReusableCell(withReuseIdentifier: self.chatID, for: indexPath) as! ChatMainCell
         cell.chatCollection = self
@@ -122,7 +123,6 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
 
             //owners message
             if let ownersMessage = feeder.message {
-                print("owners message: \(ownersMessage)")
                 cell.messageLabel.text = ownersMessage
             }
 
@@ -137,10 +137,8 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
             }
 
             //owners time stamp
-            let ownersTimeStamp = feeder.timeStamp //not optional because it is hardcoded in the model for testing
-                print("ownersTimeStamp: \(ownersTimeStamp)")
-
-        }
+            let _ = feeder.timeStamp //not optional because it is hardcoded in the model for testing
+            }
         return cell
     }
     
@@ -169,7 +167,6 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
             let ownersTimeStamp = feeder.timeStamp //not optional because it is hardcoded in the model for testing
                 print("ownersTimeStamp: \(ownersTimeStamp)")
             }
-        
             //pass the audio clip/url here on todo
             
         return cell
@@ -196,11 +193,8 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
                 }
             }
             
-            
-            
             //owners time stamp
-            let ownersTimeStamp = feeder.timeStamp //not optional because it is hardcoded in the model for testing
-                print("ownersTimeStamp: \(ownersTimeStamp)")
+            let _ = feeder.timeStamp //not optional because it is hardcoded in the model for testing
             }
         
             //pass the audio clip/url here on todo
