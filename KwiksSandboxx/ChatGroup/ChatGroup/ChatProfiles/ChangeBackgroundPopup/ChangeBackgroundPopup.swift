@@ -89,6 +89,8 @@ class ChangeBackgroundPopup : UIView {
         
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismiss)))
         
+        self.runDummyValues()
+        
     }
    
     override func layoutSubviews() {
@@ -131,6 +133,15 @@ class ChangeBackgroundPopup : UIView {
         self.changeBackgroundCollection.leftAnchor.constraint(equalTo: self.container.leftAnchor, constant: 20).isActive = true
         self.changeBackgroundCollection.rightAnchor.constraint(equalTo: self.container.rightAnchor, constant: -20).isActive = true
 
+    }
+    
+    func runDummyValues() {
+        
+        self.changeBackgroundPhotoArray = globalBackgroundArray
+      
+        DispatchQueue.main.async {
+            self.changeBackgroundCollection.reloadData()
+        }
     }
     
     func engagePopup() {

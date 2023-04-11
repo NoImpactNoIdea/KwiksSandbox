@@ -46,6 +46,15 @@ struct S { //S for string
     var video = "video"
     var ellipsis = "ellipsis"
     
+    var background_chat_deep_pink = "background_chat_deep_pink"
+    var background_chat_empty = "background_chat_empty"
+    var background_chat_light_blue = "background_chat_light_blue"
+    var background_chat_orange = "background_chat_orange"
+    var background_chat_pink = "background_chat_pink"
+    var background_chat_purple = "background_chat_purple"
+    var background_chat_yellow = "background_chat_yellow"
+    var chat_background_1 = "chat_background_1"
+
     var chat_backround_1 = "chat_background_1"
     var stockPhotoUrlBasicPattern = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2Fchat_backdrop_1%403x.png?alt=media&token=4299f7b8-ab38-4527-b29f-9ee03a728edd"
     var stockPhotoURLPattern = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2Fstock_wall_paper.jpg?alt=media&token=31989698-163b-4892-b8f1-aee5be2b4c56"
@@ -155,6 +164,27 @@ var globalPhotoArray : [String] = ["\(S().stockPhotoURLPattern)",
                              "\(S().stockPhotoURLPattern)",
                              "\(S().stockPhotoURLPattern)",
                              "\(S().stockPhotoURLPattern)"]
+
+
+
+var background_chat_deep_pink = "background_chat_deep_pink"
+var background_chat_empty = "background_chat_empty"
+var background_chat_light_blue = "background_chat_light_blue"
+var background_chat_orange = "background_chat_orange"
+var background_chat_pink = "background_chat_pink"
+var background_chat_purple = "background_chat_purple"
+var background_chat_yellow = "background_chat_yellow"
+var chat_background_1 = "chat_background_1"
+
+
+var globalBackgroundArray : [String] = ["\(S().background_chat_empty)",
+                             "\(S().background_chat_deep_pink)",
+                             "\(S().background_chat_light_blue)",
+                             "\(S().background_chat_orange)",
+                             "\(S().background_chat_pink)",
+                             "\(S().background_chat_purple)",
+                             "\(S().background_chat_yellow)",
+                             "\(S().chat_background_1)"]
 
 func loadDummyData(completion : @escaping (_ isComplete : Bool, _ returnedBlock : [ChatModel])->()) {
     

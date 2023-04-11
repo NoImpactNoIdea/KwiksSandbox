@@ -348,4 +348,13 @@ extension ChatMain {
             self.customInputAccessoryView.reloadInputViews()
         }
     }
+    
+    //pushes the controller where you can change the backgrounds and mute notifications
+    func showIndividualController() {
+        
+        let individualProfileChatController = IndividualProfileChatController()
+        individualProfileChatController.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.pushViewController(individualProfileChatController, animated: true)
+        
+    }
 }

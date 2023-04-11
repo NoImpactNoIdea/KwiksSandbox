@@ -46,7 +46,7 @@ class ChangeBackgroundCollection : UICollectionView, UICollectionViewDelegateFlo
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let changeBackground = self.changeBackgroundPopup {
-            return changeBackground.photoArray.count
+            return changeBackground.changeBackgroundPhotoArray.count
         } else {
             return 0
         }
@@ -62,14 +62,19 @@ class ChangeBackgroundCollection : UICollectionView, UICollectionViewDelegateFlo
             let cell = self.dequeueReusableCell(withReuseIdentifier: self.changeBackgroundID, for: indexPath) as! ChangeBackgroundFeeder
             cell.changeBackgroundCollection = self
             
-            let dataSource = changeBackground.photoArray
+            let dataSource = changeBackground.changeBackgroundPhotoArray
             
             if dataSource.count > 0 {
                 
                 let feeder = dataSource[indexPath.item] //get the first image in the loop
-                cell.containerView.loadImageGeneralUse(feeder) { isComplete in
-                    print("image loaded")
-                }
+//                cell.containerView.loadImageGeneralUse(feeder) { isComplete in
+//                    print("image loaded")
+//                }
+                
+                //you will load dynamically, this is just for testing
+                cell.containerView.image = UIImage(named: feeder)?.withRenderingMode(.alwaysOriginal)
+                
+                
             }
             return cell
             
@@ -112,9 +117,9 @@ class ChangeBackgroundFeeder : UICollectionViewCell {
         self.addSubview(self.containerView)
         
         self.containerView.topAnchor.constraint(equalTo: self.topAnchor, constant: 2).isActive = true
-        self.containerView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 2).isActive = true
-        self.containerView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -2).isActive = true
-        self.containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -2).isActive = true
+        self.containerView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        self.containerView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        self.containerView.widthAnchor.constraint(equalToConstant: 84).isActive = true
         
     }
     

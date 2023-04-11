@@ -38,6 +38,16 @@ class AudioMainCell : UICollectionViewCell {
         return dcl
     }()
     
+    lazy var dummyPhotoButton : UIButton = {
+        
+        let cbf = UIButton(type: .system)
+        cbf.translatesAutoresizingMaskIntoConstraints = false
+        cbf.backgroundColor = .clear
+        cbf.addTarget(self, action: #selector(self.handleIndividualProfileView(sender:)), for: .touchUpInside)
+        return cbf
+        
+    }()
+    
     let recordBubble : UIView = {
         
         let cb = UIView()
@@ -94,6 +104,7 @@ class AudioMainCell : UICollectionViewCell {
         self.addSubview(self.timeLabel)
         self.addSubview(self.playPauseButton)
         self.addSubview(self.lottiAnimation)
+        self.addSubview(self.dummyPhotoButton)
 
         //this is the base line here
         self.timeLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 75).isActive = true
@@ -122,6 +133,13 @@ class AudioMainCell : UICollectionViewCell {
         self.lottiAnimation.topAnchor.constraint(equalTo: self.recordBubble.topAnchor, constant: 8).isActive = true
         self.lottiAnimation.bottomAnchor.constraint(equalTo: self.recordBubble.bottomAnchor, constant : -8).isActive = true
 
+        //easy targeting
+        self.dummyPhotoButton.centerYAnchor.constraint(equalTo: self.profilePhoto.centerYAnchor).isActive = true
+        self.dummyPhotoButton.centerXAnchor.constraint(equalTo: self.profilePhoto.centerXAnchor).isActive = true
+        self.dummyPhotoButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        self.dummyPhotoButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+       
+        
     }
     
     func shouldAnimationBegin(shouldBegin : Bool) {
@@ -136,6 +154,11 @@ class AudioMainCell : UICollectionViewCell {
             self.lottiAnimation.stop()
         }
     }
+    
+    @objc func handleIndividualProfileView(sender:UIButton) {
+        self.chatCollection?.chatMain?.showIndividualController()
+    }
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()

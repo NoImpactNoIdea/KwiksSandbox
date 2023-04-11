@@ -165,9 +165,7 @@ class ChatHeader : UIView {
     }
     
     @objc func handleProfilePhotoTaps(sender:UIGestureRecognizer) {
-        if let imageView = sender.view as? UIImageView {
-            print("IMAGE: \(imageView)")
-        }
+        self.chatMain?.showIndividualController()
     }
     
     func notificationStatus(isOnline : Bool) {

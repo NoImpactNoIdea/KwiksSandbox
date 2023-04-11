@@ -12,15 +12,24 @@ class ChatMainCell : UICollectionViewCell {
     
     var chatCollection : ChatCollection?
  
-    let profilePhoto : UIButton = {
+    lazy var profilePhoto : UIButton = {
         
         let dcl = UIButton()
         dcl.translatesAutoresizingMaskIntoConstraints = false
         dcl.backgroundColor = UIColor.profilePhotoBackgroundColor
         dcl.contentMode = .scaleAspectFill
         dcl.layer.masksToBounds = true
-        
         return dcl
+    }()
+    
+    lazy var dummyPhotoButton : UIButton = {
+        
+        let cbf = UIButton(type: .system)
+        cbf.translatesAutoresizingMaskIntoConstraints = false
+        cbf.backgroundColor = .clear
+        cbf.addTarget(self, action: #selector(self.handleIndividualProfileView(sender:)), for: .touchUpInside)
+        return cbf
+        
     }()
     
     let chatBubble : UIView = {
@@ -79,7 +88,8 @@ class ChatMainCell : UICollectionViewCell {
         self.addSubview(self.chatBubble)
         self.addSubview(self.timeLabel)
         self.addSubview(self.messageLabel)
-        
+        self.addSubview(self.dummyPhotoButton)
+
         //this is the base line here
         self.timeLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 75).isActive = true
         self.timeLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -2).isActive = true
@@ -100,12 +110,22 @@ class ChatMainCell : UICollectionViewCell {
         self.messageLabel.leftAnchor.constraint(equalTo: self.chatBubble.leftAnchor, constant: 14).isActive = true
         self.messageLabel.bottomAnchor.constraint(equalTo: self.chatBubble.bottomAnchor, constant: -8).isActive = true
         self.messageLabel.rightAnchor.constraint(equalTo: self.chatBubble.rightAnchor, constant: -10).isActive = true
+        
+        //easy targeting
+        self.dummyPhotoButton.centerYAnchor.constraint(equalTo: self.profilePhoto.centerYAnchor).isActive = true
+        self.dummyPhotoButton.centerXAnchor.constraint(equalTo: self.profilePhoto.centerXAnchor).isActive = true
+        self.dummyPhotoButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        self.dummyPhotoButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
        
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         self.chatBubble.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+    }
+    
+    @objc func handleIndividualProfileView(sender:UIButton) {
+        self.chatCollection?.chatMain?.showIndividualController()
     }
     
     required init?(coder: NSCoder) {

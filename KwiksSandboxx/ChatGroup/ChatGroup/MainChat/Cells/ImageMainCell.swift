@@ -24,6 +24,16 @@ class ImageMainCell : UICollectionViewCell {
         return dcl
     }()
     
+    lazy var dummyPhotoButton : UIButton = {
+        
+        let cbf = UIButton(type: .system)
+        cbf.translatesAutoresizingMaskIntoConstraints = false
+        cbf.backgroundColor = .clear
+        cbf.addTarget(self, action: #selector(self.handleIndividualProfileView(sender:)), for: .touchUpInside)
+        return cbf
+        
+    }()
+    
     let imageBubble : UIView = {
         
         let cb = UIView()
@@ -82,6 +92,7 @@ class ImageMainCell : UICollectionViewCell {
         self.addSubview(self.imageBubble)
         self.addSubview(self.timeLabel)
         self.addSubview(self.framedImage)
+        self.addSubview(self.dummyPhotoButton)
 
         //this is the base line here
         self.timeLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 75).isActive = true
@@ -104,6 +115,16 @@ class ImageMainCell : UICollectionViewCell {
         self.framedImage.bottomAnchor.constraint(equalTo: self.imageBubble.bottomAnchor, constant: -4).isActive = true
         self.framedImage.rightAnchor.constraint(equalTo: self.imageBubble.rightAnchor, constant: -4).isActive = true
         
+        //easy targeting
+        self.dummyPhotoButton.centerYAnchor.constraint(equalTo: self.profilePhoto.centerYAnchor).isActive = true
+        self.dummyPhotoButton.centerXAnchor.constraint(equalTo: self.profilePhoto.centerXAnchor).isActive = true
+        self.dummyPhotoButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        self.dummyPhotoButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        
+    }
+    
+    @objc func handleIndividualProfileView(sender:UIButton) {
+        self.chatCollection?.chatMain?.showIndividualController()
     }
     
     override func layoutSubviews() {
