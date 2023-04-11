@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import AVFoundation
+import Lottie
 
 class RecordBar : UIView, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
@@ -19,6 +20,20 @@ class RecordBar : UIView, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         recordingSession: AVAudioSession!,
         isAudioEnabled: Bool = false,
         recordingTimeInSeconds: Int = 0
+    
+    var lottiAnimation : LottieAnimationView = {
+
+        let lav = LottieAnimationView.init(name: "record_anim_2")
+        lav.translatesAutoresizingMaskIntoConstraints = false
+        lav.contentMode = .scaleAspectFill
+        lav.layer.masksToBounds = true
+        lav.clipsToBounds = true
+        lav.loopMode = .loop
+        lav.animationSpeed = 1.0
+        lav.backgroundBehavior = .pauseAndRestore
+        lav.isUserInteractionEnabled = true
+       return lav
+    }()
 
     lazy var recordBar : UIView = {
         
@@ -63,8 +78,8 @@ class RecordBar : UIView, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         self.isUserInteractionEnabled = true
         self.addViews()
         
-        self.trashCanImage.addTarget(self.accessoryInputView, action: #selector(self.accessoryInputView?.handleTrashCan(sender:)), for: .touchUpInside)
-
+        self.trashCanImage.addTarget(self.accessoryInputView, action: #selector(self.accessoryInputView?.handleTrashCan), for: .touchUpInside)
+        self.lottiAnimation.addGestureRecognizer(UITapGestureRecognizer(target: self.accessoryInputView, action: #selector(self.accessoryInputView?.handleTrashCan)))
         
     }
     
@@ -72,6 +87,7 @@ class RecordBar : UIView, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         
         self.addSubview(self.recordBar)
         self.addSubview(self.trashCanImage)
+        self.addSubview(self.lottiAnimation)
         self.addSubview(self.timerLabel)
 
         self.recordBar.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 28).isActive = true
@@ -88,7 +104,26 @@ class RecordBar : UIView, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         self.timerLabel.rightAnchor.constraint(equalTo: self.recordBar.rightAnchor, constant: -19).isActive = true
         self.timerLabel.centerYAnchor.constraint(equalTo: self.recordBar.centerYAnchor).isActive = true
         self.timerLabel.sizeToFit()
+        
+        self.lottiAnimation.leftAnchor.constraint(equalTo: self.trashCanImage.rightAnchor, constant: 10).isActive = true
+        self.lottiAnimation.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -130).isActive = true
+        self.lottiAnimation.topAnchor.constraint(equalTo: self.recordBar.topAnchor, constant: 8).isActive = true
+        self.lottiAnimation.bottomAnchor.constraint(equalTo: self.recordBar.bottomAnchor, constant : -8).isActive = true
 
+    }
+    
+    func shouldAnimationBegin(shouldBegin : Bool) {
+        
+        if shouldBegin {
+            self.lottiAnimation.isHidden = false
+            self.lottiAnimation.play { complete in
+                print("anim loop complete")
+            }
+        } else {
+            self.lottiAnimation.isHidden = true
+            self.lottiAnimation.currentTime = 0
+            self.lottiAnimation.stop()
+        }
     }
     
     @objc func beginAudioRecording() {
@@ -180,8 +215,10 @@ extension RecordBar {
             self.audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             self.audioRecorder.delegate = self
             self.audioRecorder.record()
+            self.shouldAnimationBegin(shouldBegin: true)
             print("🎙 Recording in progress...")
         } catch {
+            self.shouldAnimationBegin(shouldBegin: false)
             self.finishRecording(fromTrashCan: true)
         }
     }
@@ -200,11 +237,13 @@ extension RecordBar {
             self.recordingTimeInSeconds = 0
             self.recordingTimeInSeconds = Int(self.audioRecorder.currentTime)
             self.audioRecorder = nil
+            self.shouldAnimationBegin(shouldBegin: false)
             //only save if on purpose, if from trashcan route then negative
             if !fromTrashCan {
                 self.storeDataForAudio()
             }
         } else {
+            self.shouldAnimationBegin(shouldBegin: false)
             self.recordingTimeInSeconds = 0
         }
         

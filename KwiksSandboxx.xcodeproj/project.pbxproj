@@ -78,6 +78,10 @@
 		E39F084129E4B38300C76016 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39F084029E4B38300C76016 /* MessageCell.swift */; };
 		E39F084429E4B60F00C76016 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39F084329E4B60F00C76016 /* ChatModel.swift */; };
 		E39F084729E4D24400C76016 /* InteriorHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39F084629E4D24400C76016 /* InteriorHeader.swift */; };
+		E3CAFA7A29E4E81A00AEFC74 /* record_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = E3CAFA7929E4E81A00AEFC74 /* record_anim.json */; };
+		E3CAFA7C29E4EF9300AEFC74 /* record_anim_2.json in Resources */ = {isa = PBXBuildFile; fileRef = E3CAFA7B29E4EF9300AEFC74 /* record_anim_2.json */; };
+		E3CAFA7E29E4F13700AEFC74 /* AudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CAFA7D29E4F13700AEFC74 /* AudioCell.swift */; };
+		E3CAFA8029E4F77500AEFC74 /* ImageMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CAFA7F29E4F77500AEFC74 /* ImageMainCell.swift */; };
 		E3D0831929D72ADB00CE82D9 /* ColorSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */; };
 		E3D0832729D734A200CE82D9 /* Segoe UI Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */; };
 		E3D0832829D734A200CE82D9 /* Segoe UI Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832429D734A200CE82D9 /* Segoe UI Bold Italic.ttf */; };
@@ -162,6 +166,14 @@
 		E39F084029E4B38300C76016 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		E39F084329E4B60F00C76016 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		E39F084629E4D24400C76016 /* InteriorHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteriorHeader.swift; sourceTree = "<group>"; };
+		E3CAFA7429E4E80F00AEFC74 /* Segoe UI Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI Italic.ttf"; sourceTree = "<group>"; };
+		E3CAFA7529E4E80F00AEFC74 /* Segoe UI Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI Bold.ttf"; sourceTree = "<group>"; };
+		E3CAFA7629E4E80F00AEFC74 /* Segoe UI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI.ttf"; sourceTree = "<group>"; };
+		E3CAFA7729E4E80F00AEFC74 /* Segoe UI Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI Bold Italic.ttf"; sourceTree = "<group>"; };
+		E3CAFA7929E4E81A00AEFC74 /* record_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = record_anim.json; sourceTree = "<group>"; };
+		E3CAFA7B29E4EF9300AEFC74 /* record_anim_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = record_anim_2.json; sourceTree = "<group>"; };
+		E3CAFA7D29E4F13700AEFC74 /* AudioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCell.swift; sourceTree = "<group>"; };
+		E3CAFA7F29E4F77500AEFC74 /* ImageMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMainCell.swift; sourceTree = "<group>"; };
 		E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSheet.swift; sourceTree = "<group>"; };
 		E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI Italic.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI Italic.ttf"; sourceTree = "<group>"; };
 		E3D0832429D734A200CE82D9 /* Segoe UI Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI Bold Italic.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI Bold Italic.ttf"; sourceTree = "<group>"; };
@@ -345,6 +357,8 @@
 			isa = PBXGroup;
 			children = (
 				E39F084029E4B38300C76016 /* MessageCell.swift */,
+				E3CAFA7D29E4F13700AEFC74 /* AudioCell.swift */,
+				E3CAFA7F29E4F77500AEFC74 /* ImageMainCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -363,6 +377,27 @@
 				E39F084629E4D24400C76016 /* InteriorHeader.swift */,
 			);
 			path = InterioirHeader;
+			sourceTree = "<group>";
+		};
+		E3CAFA7329E4E80900AEFC74 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E3D0832B29D73F5900CE82D9 /* segoeui-semibold.ttf */,
+				E3CAFA7729E4E80F00AEFC74 /* Segoe UI Bold Italic.ttf */,
+				E3CAFA7529E4E80F00AEFC74 /* Segoe UI Bold.ttf */,
+				E3CAFA7429E4E80F00AEFC74 /* Segoe UI Italic.ttf */,
+				E3CAFA7629E4E80F00AEFC74 /* Segoe UI.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		E3CAFA7829E4E81200AEFC74 /* animations */ = {
+			isa = PBXGroup;
+			children = (
+				E3CAFA7B29E4EF9300AEFC74 /* record_anim_2.json */,
+				E3CAFA7929E4E81A00AEFC74 /* record_anim.json */,
+			);
+			path = animations;
 			sourceTree = "<group>";
 		};
 		E3D0831629D729AD00CE82D9 /* ChatGroup */ = {
@@ -386,8 +421,9 @@
 		E3D0831A29D72D5100CE82D9 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				E3CAFA7829E4E81200AEFC74 /* animations */,
+				E3CAFA7329E4E80900AEFC74 /* fonts */,
 				E347447A29DB7E5900E64B68 /* icons */,
-				E3D0832B29D73F5900CE82D9 /* segoeui-semibold.ttf */,
 				E3D0832429D734A200CE82D9 /* Segoe UI Bold Italic.ttf */,
 				E3D0832529D734A200CE82D9 /* Segoe UI Bold.ttf */,
 				E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */,
@@ -469,6 +505,7 @@
 				E3D0832729D734A200CE82D9 /* Segoe UI Italic.ttf in Resources */,
 				E347449B29DCB3C300E64B68 /* trash_icon_white@1x.png in Resources */,
 				E34744B329DCB49F00E64B68 /* back_icon_final@3x.png in Resources */,
+				E3CAFA7A29E4E81A00AEFC74 /* record_anim.json in Resources */,
 				E34744AE29DCB3D800E64B68 /* message_pin_icon@1x.png in Resources */,
 				E39F082229E47E9700C76016 /* kwiks_play_voice_note@1x.png in Resources */,
 				E39F083329E47E9700C76016 /* wallet_cash_button@1x.png in Resources */,
@@ -510,6 +547,7 @@
 				E39F082629E47E9700C76016 /* happyTypingFace@2x.png in Resources */,
 				E39F083929E49DD600C76016 /* trashcan_icon_group@3x.png in Resources */,
 				E39F082E29E47E9700C76016 /* chat_send_button@1x.png in Resources */,
+				E3CAFA7C29E4EF9300AEFC74 /* record_anim_2.json in Resources */,
 				E34744A329DCB3CA00E64B68 /* white_pin_large_tableview@1x.png in Resources */,
 				E34744A129DCB3CA00E64B68 /* white_pin_large_tableview@3x.png in Resources */,
 				E39F083229E47E9700C76016 /* mini_microphone@3x.png in Resources */,
@@ -584,12 +622,14 @@
 				E35676D529AD182F003B5E9A /* AppDelegate.swift in Sources */,
 				E3D0831929D72ADB00CE82D9 /* ColorSheet.swift in Sources */,
 				E365516829C7A7D000F3D37E /* FadeController.swift in Sources */,
+				E3CAFA7E29E4F13700AEFC74 /* AudioCell.swift in Sources */,
 				E347447929DB736A00E64B68 /* MessagesTable.swift in Sources */,
 				E39F083529E496A000C76016 /* RecordBar.swift in Sources */,
 				E39F080929E4755500C76016 /* AccessoryInputView.swift in Sources */,
 				E347448729DB9EA500E64B68 /* ChatHeader.swift in Sources */,
 				E365516529C7A79B00F3D37E /* FadingCollection.swift in Sources */,
 				E35676D729AD182F003B5E9A /* SceneDelegate.swift in Sources */,
+				E3CAFA8029E4F77500AEFC74 /* ImageMainCell.swift in Sources */,
 				E347447329DB610700E64B68 /* MessagesHeader.swift in Sources */,
 				E365516A29C7B16F00F3D37E /* Layout.swift in Sources */,
 				E39F084129E4B38300C76016 /* MessageCell.swift in Sources */,

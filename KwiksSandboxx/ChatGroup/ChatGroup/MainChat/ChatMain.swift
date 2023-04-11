@@ -75,8 +75,12 @@ class ChatMain : UIViewController {
         self.view.backgroundColor = UIColor .white
         self.addViews() //ui
         self.handleObservers() //listeners - keyboard
-        self.loadDummyData() //replace this with the datasource
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.loadDummyData() //replace this with the datasource
     }
     
     //garbage and memory cleanup
@@ -85,41 +89,11 @@ class ChatMain : UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    func loadDummyData() {
-        
-        //dummy info to delete and dynamically fill
-        let stock_image = UIImage(named: "stock_photo_man")?.withRenderingMode(.alwaysOriginal)
-        self.chatHeader.statusLabel.text = "Online"
-        self.chatHeader.nameLabel.text = "Charlie Arcodia"
-        self.chatHeader.profilePhoto.image = stock_image
-       
-        let dataOne : [String : Any] = ["message" : "Hello Bernice 😅",
-                                        "ownersProfilePhoto" : "\(S().stockPhotoURL)",
-                                        "ownersName" : "Charlie Arcodia",
-                                        "timeStamp" : Date().timeIntervalSince1970,
-                                        "audioClipUrl" : "url goes here",
-                                        "messageTypeForDecision" : "message"
-        ]
-        let dataTwo : [String : Any] = ["message" : "Hello Charlie 👋",
-                                        "ownersProfilePhoto" : "\(S().stockPhotoURL)",
-                                        "ownersName" : "Charlie Arcodia",
-                                        "timeStamp" : Date().timeIntervalSince1970,
-                                        "audioClipUrl" : "url goes here",
-                                        "messageTypeForDecision" : "message"
-        ]
-        
-        let modelOne = ChatModel(JSON: dataOne)
-        let modelTwo = ChatModel(JSON: dataTwo)
-
-        self.chatDataSource.append(modelOne)
-        self.chatDataSource.append(modelTwo)
-        
-        DispatchQueue.main.async {
-            self.chatCollection.reloadData()
-        }
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.shouldAdjustForKeyboard = true //this happens with overviews on the same controller
     }
-   
+    
     func addViews() {
         
         self.view.addSubview(self.chatHeader)
@@ -291,7 +265,7 @@ extension ChatMain {
         let distanceFromBottom = self.chatCollection.bottomOffset().y - self.chatCollection.contentOffset.y
         
         var insets = self.chatCollection.contentInset
-        insets.bottom = keyboardHeight - 30.0
+        insets.bottom = keyboardHeight + 5.0
         
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
             
@@ -302,5 +276,57 @@ extension ChatMain {
                 self.chatCollection.contentOffset = self.chatCollection.bottomOffset()
             }
         }, completion: nil)
+    }
+}
+
+extension ChatMain {
+    
+    func loadDummyData() {
+        
+        DispatchQueue.main.async {
+            
+            //dummy info to delete and dynamically fill
+            let stock_image = UIImage(named: "stock_photo_man")?.withRenderingMode(.alwaysOriginal)
+            self.chatHeader.statusLabel.text = "Online"
+            self.chatHeader.nameLabel.text = "Charlie Arcodia"
+            self.chatHeader.profilePhoto.image = stock_image
+            
+        }
+       
+        let dataOne : [String : Any] = ["message" : "Hello Bernice 😅",
+                                        "ownersProfilePhoto" : "\(S().stockPhotoURL)",
+                                        "ownersName" : "Charlie Arcodia",
+                                        "timeStamp" : Date().timeIntervalSince1970,
+                                        "audioClipUrl" : "url goes here",
+                                        "messageTypeForDecision" : "message"
+        ]
+      
+        let dataSix : [String : Any] = ["message" : "John and James",
+                                         "ownersProfilePhoto" : "\(S().stockPhotoURL)",
+                                         "ownersName" : "Charlie Arcodia",
+                                         "timeStamp" : Date().timeIntervalSince1970,
+                                         "audioClipUrl" : "url goes here",
+                                         "messageTypeForDecision" : "audio"
+        ]
+        let dataSeven : [String : Any] = ["message" : "John and James",
+                                         "ownersProfilePhoto" : "\(S().stockPhotoURL)",
+                                         "ownersName" : "Charlie Arcodia",
+                                         "timeStamp" : Date().timeIntervalSince1970,
+                                         "audioClipUrl" : "url goes here",
+                                         "messageTypeForDecision" : "image"
+        ]
+        
+    let objOne = ChatModel(JSON: dataOne),
+        objSix = ChatModel(JSON: dataSix),
+        objSeven = ChatModel(JSON: dataSeven),
+
+        array = [objOne, objSix, objSeven]
+        self.chatDataSource = array
+        
+        DispatchQueue.main.async {
+
+            self.chatCollection.reloadData()
+            
+        }
     }
 }

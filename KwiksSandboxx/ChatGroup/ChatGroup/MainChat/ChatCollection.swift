@@ -11,7 +11,9 @@ import UIKit
 class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate, UIGestureRecognizerDelegate {
     
     private let chatID = "chatID"
-    
+    private let audioID = "audioID"
+    private let imageID = "imageID"
+
     var chatMain : ChatMain?,
         counter : Int = 0
 
@@ -38,7 +40,9 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
         self.contentInset = UIEdgeInsets(top: 210, left: 0, bottom: 0, right: 0)
         
         self.register(ChatMainCell.self, forCellWithReuseIdentifier: self.chatID)
-        
+        self.register(AudioMainCell.self, forCellWithReuseIdentifier: self.audioID)
+        self.register(ImageMainCell.self, forCellWithReuseIdentifier: self.imageID)
+
     }
     
     override func layoutSubviews() {
@@ -55,8 +59,25 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: self.frame.width, height: 50)///50 is the base height for a one liner message
+       
+        if let chatMain = self.chatMain {
+            let dataSource = chatMain.chatDataSource
+            
+            if dataSource.count > 0 {
+                let typeEnum = dataSource[indexPath.item].typeEnum
+                
+                switch typeEnum {
+                    case .image: return CGSize(width: self.frame.width, height: 270)
+                    case .message:  return CGSize(width: self.frame.width, height: 50)
+                    case .audio :  return CGSize(width: self.frame.width, height: 50)
+                }
+                
+            } else {
+                return CGSize(width: self.frame.width, height: 0)
+            }
+        } else {
+            return CGSize(width: self.frame.width, height: 0)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -69,8 +90,8 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
                 let typeEnum = chatMain.chatDataSource[indexPath.item].typeEnum
                 
                     switch typeEnum {
-                        case .image: return self.configureMessageCell(indexPath: indexPath)
-                        case .audio: return self.configureMessageCell(indexPath: indexPath)
+                        case .image: return self.configureImageCell(indexPath: indexPath)
+                        case .audio: return self.configureAudioCell(indexPath: indexPath)
                         case .message: return self.configureMessageCell(indexPath: indexPath)
                     }
                 
@@ -106,11 +127,6 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
                 }
             }
 
-            //owners profile photo
-            if let ownersName = feeder.ownersName {
-                print("ownersName: \(ownersName)")
-            }
-
             //owners time stamp
             let ownersTimeStamp = feeder.timeStamp //not optional because it is hardcoded in the model for testing
                 print("ownersTimeStamp: \(ownersTimeStamp)")
@@ -119,14 +135,68 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
         return cell
     }
     
+    func configureAudioCell(indexPath : IndexPath) -> UICollectionViewCell {
+        
+        let cell = self.dequeueReusableCell(withReuseIdentifier: self.audioID, for: indexPath) as! AudioMainCell
+        cell.chatCollection = self
+
+        if let chatMain = self.chatMain {
+            let feeder = chatMain.chatDataSource[indexPath.item]
+
+            //owners profile photo
+            if let ownersProfilePhoto = feeder.ownersProfilePhoto {
+                let imageView = UIImageView()
+                imageView.loadImageGeneralUse(ownersProfilePhoto) { isComplete in
+                    if imageView.image != nil {
+                        cell.profilePhoto.setBackgroundImage(imageView.image!, for: .normal)
+                    }
+                }
+            }
+
+            //owners time stamp
+            let ownersTimeStamp = feeder.timeStamp //not optional because it is hardcoded in the model for testing
+                print("ownersTimeStamp: \(ownersTimeStamp)")
+            }
+        
+            //pass the audio clip/url here on todo
+            
+        return cell
+    }
+    
+    func configureImageCell(indexPath : IndexPath) -> UICollectionViewCell {
+        
+        let cell = self.dequeueReusableCell(withReuseIdentifier: self.imageID, for: indexPath) as! ImageMainCell
+        cell.chatCollection = self
+
+        if let chatMain = self.chatMain {
+            let feeder = chatMain.chatDataSource[indexPath.item]
+
+            //owners profile photo
+            if let ownersProfilePhoto = feeder.ownersProfilePhoto {
+                let imageView = UIImageView()
+                imageView.loadImageGeneralUse(ownersProfilePhoto) { isComplete in
+                    if imageView.image != nil {
+                        cell.profilePhoto.setBackgroundImage(imageView.image!, for: .normal)
+                    }
+                }
+            }
+            
+            
+            
+            //owners time stamp
+            let ownersTimeStamp = feeder.timeStamp //not optional because it is hardcoded in the model for testing
+                print("ownersTimeStamp: \(ownersTimeStamp)")
+            }
+        
+            //pass the audio clip/url here on todo
+            
+        return cell
+    }
+    
     func bottomOffset() -> CGPoint {
         
         self.counter += 1
-        if self.counter == 1 {
-            return CGPoint(x: 0, y: max(-self.contentInset.top, self.contentSize.height - (self.bounds.size.height - self.contentInset.bottom)) + 38.0)
-        } else {
-            return CGPoint(x: 0, y: max(-self.contentInset.top, self.contentSize.height - (self.bounds.size.height - self.contentInset.bottom)))
-        }
+        return CGPoint(x: 0, y: max(-self.contentInset.top, self.contentSize.height - (self.bounds.size.height - self.contentInset.bottom)))
     }
     
     required init?(coder: NSCoder) {

@@ -1,14 +1,15 @@
 //
-//  MessageCell.swift
+//  ImageMainCell.swift
 //  KwiksSandboxx
 //
 //  Created by Charlie Arcodia on 4/10/23.
 //
 
+
 import Foundation
 import UIKit
 
-class ChatMainCell : UICollectionViewCell {
+class ImageMainCell : UICollectionViewCell {
     
     var chatCollection : ChatCollection?
  
@@ -23,14 +24,14 @@ class ChatMainCell : UICollectionViewCell {
         return dcl
     }()
     
-    let chatBubble : UIView = {
+    let imageBubble : UIView = {
         
         let cb = UIView()
         cb.translatesAutoresizingMaskIntoConstraints = false
-        cb.backgroundColor = UIColor.deleteGrey
+        cb.backgroundColor = UIColor.kwiksGreen
         cb.isUserInteractionEnabled = false
         cb.layer.masksToBounds = true
-        cb.layer.cornerRadius = 8
+        cb.layer.cornerRadius = 15
 
         return cb
     }()
@@ -51,35 +52,37 @@ class ChatMainCell : UICollectionViewCell {
         
     }()
     
-    let messageLabel : UILabel = {
+    let framedImage : UIImageView = {
         
-        let thl = UILabel()
-        thl.translatesAutoresizingMaskIntoConstraints = false
-        thl.textAlignment = .left
-        thl.text = ""
-        thl.font = UIFont(name: FontKit().segoeRegular, size: 12)
-        thl.numberOfLines = -1
-        thl.adjustsFontSizeToFitWidth = false
-        thl.textColor = .black
-        thl.backgroundColor = .clear
-        
-        return thl
-        
+        let dcl = UIImageView()
+        dcl.translatesAutoresizingMaskIntoConstraints = false
+        dcl.backgroundColor = UIColor.profilePhotoBackgroundColor
+        dcl.contentMode = .scaleAspectFill
+        dcl.layer.masksToBounds = true
+        dcl.clipsToBounds = true
+        dcl.layer.masksToBounds = true
+        dcl.layer.cornerRadius = 12
+     
+        return dcl
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         self.backgroundColor = .white
         self.addViews()
+        
+        let image = UIImage(named: "stock_photo_woman")?.withRenderingMode(.alwaysOriginal)
+        self.framedImage.image = image
     }
     
     func addViews() {
         
         self.addSubview(self.profilePhoto)
-        self.addSubview(self.chatBubble)
+        self.addSubview(self.imageBubble)
         self.addSubview(self.timeLabel)
-        self.addSubview(self.messageLabel)
-        
+        self.addSubview(self.framedImage)
+
         //this is the base line here
         self.timeLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 75).isActive = true
         self.timeLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -2).isActive = true
@@ -91,21 +94,23 @@ class ChatMainCell : UICollectionViewCell {
         self.profilePhoto.widthAnchor.constraint(equalToConstant: 25).isActive = true
         self.profilePhoto.layer.cornerRadius = 15
        
-        self.chatBubble.leftAnchor.constraint(equalTo: self.profilePhoto.rightAnchor, constant: 20).isActive = true
-        self.chatBubble.topAnchor.constraint(equalTo: self.profilePhoto.topAnchor, constant: -3).isActive = true
-        self.chatBubble.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -30).isActive = true
-        self.chatBubble.bottomAnchor.constraint(equalTo: self.profilePhoto.bottomAnchor, constant: 3).isActive = true
+        self.imageBubble.leftAnchor.constraint(equalTo: self.profilePhoto.rightAnchor, constant: 20).isActive = true
+        self.imageBubble.widthAnchor.constraint(equalToConstant: 158).isActive = true
+        self.imageBubble.bottomAnchor.constraint(equalTo: self.profilePhoto.bottomAnchor, constant: 3).isActive = true
+        self.imageBubble.heightAnchor.constraint(equalToConstant: 250).isActive = true
         
-        self.messageLabel.topAnchor.constraint(equalTo: self.chatBubble.topAnchor, constant: 8).isActive = true
-        self.messageLabel.leftAnchor.constraint(equalTo: self.chatBubble.leftAnchor, constant: 14).isActive = true
-        self.messageLabel.bottomAnchor.constraint(equalTo: self.chatBubble.bottomAnchor, constant: -8).isActive = true
-        self.messageLabel.rightAnchor.constraint(equalTo: self.chatBubble.rightAnchor, constant: -10).isActive = true
-       
+        self.framedImage.topAnchor.constraint(equalTo: self.imageBubble.topAnchor, constant: 4).isActive = true
+        self.framedImage.leftAnchor.constraint(equalTo: self.imageBubble.leftAnchor, constant: 4).isActive = true
+        self.framedImage.bottomAnchor.constraint(equalTo: self.imageBubble.bottomAnchor, constant: -4).isActive = true
+        self.framedImage.rightAnchor.constraint(equalTo: self.imageBubble.rightAnchor, constant: -4).isActive = true
+        
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.chatBubble.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+        self.imageBubble.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+        self.framedImage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+
     }
     
     required init?(coder: NSCoder) {

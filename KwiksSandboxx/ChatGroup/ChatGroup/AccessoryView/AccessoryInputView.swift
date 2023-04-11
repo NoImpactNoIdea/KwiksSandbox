@@ -130,7 +130,7 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         //add the shadow to the top
         self.clipsToBounds = false
         self.layer.masksToBounds = false
-        self.layer.shadowColor = UIColor .black.withAlphaComponent(0.1).cgColor
+        self.layer.shadowColor = UIColor .black.withAlphaComponent(0.05).cgColor
         self.layer.shadowOpacity = 1.0
         self.layer.shadowOffset = CGSize(width: 0, height: -3)
         self.layer.shadowRadius = 25
@@ -176,7 +176,7 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         self.commentLeftAnchor?.isActive = true
         self.commentTextView.layer.cornerRadius = 35/2
         
-        self.commentTextView.textContainerInset = UIEdgeInsets(top: 11, left: 17, bottom: 5, right: 40)
+        self.commentTextView.textContainerInset = UIEdgeInsets(top: 8, left: 17, bottom: 5, right: 40)
         
         self.addIcon.rightAnchor.constraint(equalTo: self.commentTextView.rightAnchor, constant: 0).isActive = true
         self.addIcon.bottomAnchor.constraint(equalTo: self.commentTextView.bottomAnchor, constant: 2).isActive = true
@@ -199,11 +199,17 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         self.commentTextView.text = ""
         UIView.animate(withDuration: 0.2) {
             self.textViewYConstraint?.constant = 35.0
-            self.textViewBottomConstraint?.constant = 20.0
             self.chatMain?.heightConstraint?.constant = 60
             self.layoutIfNeeded()
             self.chatMain?.view.layoutIfNeeded()
             self.reloadInputViews()
+            
+            //not showing, mic comes back to life
+            if let chatMain = self.chatMain {
+                if !chatMain.isKeyboardShowing {
+                    self.microphoneRecordButton.isHidden = false
+                }
+            }
         }
     }
     
@@ -333,7 +339,7 @@ class AccessoryInputView : UIView, UITextViewDelegate {
     }
     
     //this is for the record bar trashcarn, scraps the recording
-    @objc func handleTrashCan(sender:UIButton) {
+    @objc func handleTrashCan() {
         self.recordBar.finishRecording(fromTrashCan: true)
     }
     

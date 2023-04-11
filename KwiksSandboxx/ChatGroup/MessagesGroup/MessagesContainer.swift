@@ -105,6 +105,12 @@ class MessagesContainer: UIViewController {
         self.present(alertSheet, animated: true)
     }
     
+    @objc func handleCellSelection() {
+        let chatMain = ChatMain()
+        chatMain.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.pushViewController(chatMain, animated: true)
+    }
+    
     @objc func handleBackButton() {
         if self.navigationController != nil {
             self.navigationController?.popViewController(animated: true) //i suppose this could be presented also, need a decision

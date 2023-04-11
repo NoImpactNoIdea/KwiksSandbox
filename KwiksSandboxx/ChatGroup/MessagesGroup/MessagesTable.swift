@@ -132,6 +132,18 @@ class MessagesTable : UITableView, UIScrollViewDelegate, UITableViewDelegate, UI
         print(#function)
     }
     
+    @objc func handleCellSelection(sender:UIButton) {
+        
+        let selectedButtonCell = sender.superview as! UITableViewCell
+        guard let indexPath = self.indexPath(for: selectedButtonCell) else {return}
+        //pass the datasource in here feeder style to get the real object data
+        print("Selected index path is: \(indexPath)")
+        self.messagesContainer?.handleCellSelection()
+        self.adjustForArchived(shouldAdjust: false) //edge case for when adjusted text is visible and someone scrolls
+        
+        
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -257,6 +269,17 @@ class MessagesFeeder : UITableViewCell {
         return cbf
     }()
     
+    lazy var dummyMessageButton : UIButton = {
+        
+        let cbf = UIButton(type: .system)
+        cbf.translatesAutoresizingMaskIntoConstraints = false
+        cbf.backgroundColor = .clear
+        cbf.addTarget(self, action: #selector(self.handleMessageTap), for: .touchUpInside)
+        
+        return cbf
+        
+    }()
+    
    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -282,7 +305,8 @@ class MessagesFeeder : UITableViewCell {
         self.addSubview(self.notificationCircle)
         self.addSubview(self.pinIcon)
         self.addSubview(self.dateTimeLabel)
-        
+        self.addSubview(self.dummyMessageButton)
+
         self.containerView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         self.containerView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         self.containerView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
@@ -330,12 +354,23 @@ class MessagesFeeder : UITableViewCell {
         self.dateTimeLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 10).isActive = true
         self.dateTimeLabel.sizeToFit()
         
+        self.dummyMessageButton.leftAnchor.constraint(equalTo: self.profilePhoto.rightAnchor, constant: 0).isActive = true
+        self.dummyMessageButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        self.dummyMessageButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        self.dummyMessageButton.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+
     }
     
+    //profile view taps
     @objc func handleProfilePhotoTaps(sender:UIGestureRecognizer) {
         if let imageView = sender.view as? UIImageView {
             print("IMAGE: \(imageView)")
         }
+    }
+    
+    //general taps
+    @objc func handleMessageTap(sender:UIButton) {
+        self.messagesTable?.handleCellSelection(sender: sender)
     }
     
     override func layoutSubviews() {
