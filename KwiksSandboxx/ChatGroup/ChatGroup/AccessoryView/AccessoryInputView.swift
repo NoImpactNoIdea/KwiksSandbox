@@ -52,6 +52,7 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         let image = UIImage(named: "chat_plus_icon")?.withRenderingMode(.alwaysOriginal)
         cbf.setImage(image, for: .normal)
         cbf.addTarget(self, action: #selector(self.handleAddIcon(sender:)), for: UIControl.Event.touchUpInside)
+        cbf.isHidden = true
         return cbf
     }()
     

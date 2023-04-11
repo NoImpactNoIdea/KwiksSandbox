@@ -93,6 +93,7 @@ class ChatMain : UIViewController {
         
         self.handleObservers() //listeners - keyboard
         self.loadDummyData() //replace this with the datasource
+        self.loadDataSource()
        
         DispatchQueue.main.async {
             self.resignFirstResponder() //weird issue, without this - the keyboard hides the first time the comment textview is tapped
@@ -116,7 +117,7 @@ class ChatMain : UIViewController {
         super.viewDidAppear(true)
         self.shouldAdjustForKeyboard = true //this happens with overviews on the same controller
         self.showFirstResponder()
-        self.loadDataSource()
+//        self.loadDataSource()
     }
     
     override func viewDidLayoutSubviews() {

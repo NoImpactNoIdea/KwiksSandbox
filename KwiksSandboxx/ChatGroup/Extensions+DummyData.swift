@@ -186,15 +186,32 @@ func loadDummyData(completion : @escaping (_ isComplete : Bool, _ returnedBlock 
                                     "audioClipUrl" : "url goes here",
                                     "messageTypeForDecision" : "audio"
     ]
+    let six : [String : Any] = ["message" : "Emojis -> 🤩🚀🤯👆🏽🐣💣💋",
+                                    "ownersProfilePhoto" : "\(S().stockPhotoURLMusician)",
+                                    "ownersName" : "Charlie Arcodia",
+                                    "timeStamp" : Date().timeIntervalSince1970,
+                                    "audioClipUrl" : "url goes here",
+                                    "messageTypeForDecision" : "message"
+    ]
+    
+    let seven : [String : Any] = ["message" : "Last message in the test collection 💪🏼",
+                                    "ownersProfilePhoto" : "\(S().stockPhotoURLMusician)",
+                                    "ownersName" : "Charlie Arcodia",
+                                    "timeStamp" : Date().timeIntervalSince1970,
+                                    "audioClipUrl" : "url goes here",
+                                    "messageTypeForDecision" : "message"
+    ]
     
     
 let objOne = ChatModel(JSON: one),
     objTwo = ChatModel(JSON: two),
-    objThree = ChatModel(JSON: three),
+    objThree = ChatModel(JSON: three), //this is the image for testing - on hold though
     objFour = ChatModel(JSON: four),
     objFive = ChatModel(JSON: five),
+    objSix = ChatModel(JSON: six),
+    objSeven = ChatModel(JSON: seven),
 
-    array = [objOne, objTwo, objThree, objFour, objFive]
+    array = [objOne, objTwo, objFour, objFive, objSix, objSeven]
     globalChatDataSource = array
     completion(true, array)
 }
