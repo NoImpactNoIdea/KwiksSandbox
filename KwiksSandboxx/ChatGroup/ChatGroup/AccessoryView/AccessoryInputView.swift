@@ -73,6 +73,15 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         cbf.contentMode = .scaleAspectFit
         let image = UIImage(named: "chat_mini_mic_icon")?.withRenderingMode(.alwaysOriginal)
         cbf.setImage(image, for: .normal)
+        return cbf
+        
+    }()
+    
+    lazy var dummyMicrophoneRecordButton : UIButton = {
+        
+        let cbf = UIButton()
+        cbf.translatesAutoresizingMaskIntoConstraints = false
+        cbf.backgroundColor = .clear
         cbf.addTarget(self, action: #selector(self.handleBeginAudioRecording(sender:)), for: UIControl.Event.touchUpInside)
         return cbf
         
@@ -149,12 +158,18 @@ class AccessoryInputView : UIView, UITextViewDelegate {
         self.addSubview(self.cashButton)
         self.addSubview(self.sendButton)
         self.addSubview(self.recordBar)
+        self.addSubview(self.dummyMicrophoneRecordButton)
         
         self.micInset = self.microphoneRecordButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -22)
         self.micInset?.isActive = true
         self.microphoneRecordButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
         self.microphoneRecordButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
         self.microphoneRecordButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        
+        self.dummyMicrophoneRecordButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -2).isActive = true
+        self.dummyMicrophoneRecordButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 2).isActive = true
+        self.dummyMicrophoneRecordButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        self.dummyMicrophoneRecordButton.widthAnchor.constraint(equalToConstant: 44).isActive = true
         
         self.cashButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
         self.cashButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
@@ -208,6 +223,7 @@ class AccessoryInputView : UIView, UITextViewDelegate {
             if let chatMain = self.chatMain {
                 if !chatMain.isKeyboardShowing {
                     self.microphoneRecordButton.isHidden = false
+                    self.dummyMicrophoneRecordButton.isHidden = false
                 }
             }
         }
@@ -254,11 +270,15 @@ class AccessoryInputView : UIView, UITextViewDelegate {
             self.placeHolderLabel.isHidden = false
             if self.chatMain?.isKeyboardShowing == false {
                 self.microphoneRecordButton.isHidden = false
+                self.dummyMicrophoneRecordButton.isHidden = false
+
             }
             self.shouldInvertText(should: false)
             
         } else {
             self.microphoneRecordButton.isHidden = true
+            self.dummyMicrophoneRecordButton.isHidden = true
+
             self.placeHolderLabel.isHidden = true
             self.shouldInvertText(should: true)
         }
@@ -308,9 +328,11 @@ class AccessoryInputView : UIView, UITextViewDelegate {
     
     @objc func handleBeginAudioRecording(sender:UIButton) {
         
-        self.shouldBeRecording(hidden: true) //adjusts the UI - needs a new name
-        self.recordBar.beginAudioRecording() //this starts the recording, call this elsewhere if needed
-        
+        //needs to be faster
+        DispatchQueue.main.async {
+            self.shouldBeRecording(hidden: true) //adjusts the UI - needs a new name
+            self.recordBar.beginAudioRecording() //this starts the recording, call this elsewhere if needed
+        }
     }
     
     //this send a normal text message

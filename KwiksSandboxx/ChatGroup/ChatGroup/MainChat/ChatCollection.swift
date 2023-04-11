@@ -50,6 +50,11 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
         self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
+    func scrollToBottom(animated: Bool) {
+        self.layoutIfNeeded()
+        self.setContentOffset(bottomOffset(), animated: animated)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let chatMain = self.chatMain {
             return chatMain.chatDataSource.count
@@ -107,6 +112,10 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
         
         let cell = self.dequeueReusableCell(withReuseIdentifier: self.chatID, for: indexPath) as! ChatMainCell
         cell.chatCollection = self
+        
+        //speed & performance bump possibly, these controllers are difficult without pre fetching
+        cell.layer.shouldRasterize = true
+        cell.layer.rasterizationScale = UIScreen.main.scale
 
         if let chatMain = self.chatMain {
             let feeder = chatMain.chatDataSource[indexPath.item]
@@ -139,7 +148,10 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
         
         let cell = self.dequeueReusableCell(withReuseIdentifier: self.audioID, for: indexPath) as! AudioMainCell
         cell.chatCollection = self
-
+        
+        cell.layer.shouldRasterize = true
+        cell.layer.rasterizationScale = UIScreen.main.scale
+        
         if let chatMain = self.chatMain {
             let feeder = chatMain.chatDataSource[indexPath.item]
 
@@ -167,6 +179,9 @@ class ChatCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UIC
         
         let cell = self.dequeueReusableCell(withReuseIdentifier: self.imageID, for: indexPath) as! ImageMainCell
         cell.chatCollection = self
+        
+        cell.layer.shouldRasterize = true
+        cell.layer.rasterizationScale = UIScreen.main.scale
 
         if let chatMain = self.chatMain {
             let feeder = chatMain.chatDataSource[indexPath.item]

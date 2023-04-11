@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 import SDWebImage
 
+//globals
+var globalChatDataSource = [ChatModel]() //chat model reference
+
 extension UIDevice { //haptics and vibrations
     static func vibrateLight() {
         let generator = UIImpactFeedbackGenerator(style: .light)
@@ -137,5 +140,58 @@ extension UIImageView {
             }
         }
     }
+}
+
+func loadDummyData(completion : @escaping (_ isComplete : Bool, _ returnedBlock : [ChatModel])->()) {
+    
+    let one : [String : Any] = ["message" : "Hello Bernice 😅",
+                                    "ownersProfilePhoto" : "\(S().stockPhotoURL)",
+                                    "ownersName" : "Charlie Arcodia",
+                                    "timeStamp" : Date().timeIntervalSince1970,
+                                    "audioClipUrl" : "url goes here",
+                                    "messageTypeForDecision" : "message"
+    ]
+  
+    let two : [String : Any] = ["message" : "John and James",
+                                     "ownersProfilePhoto" : "\(S().stockPhotoURL)",
+                                     "ownersName" : "Charlie Arcodia",
+                                     "timeStamp" : Date().timeIntervalSince1970,
+                                     "audioClipUrl" : "url goes here",
+                                     "messageTypeForDecision" : "audio"
+    ]
+    let three : [String : Any] = ["message" : "John and James",
+                                     "ownersProfilePhoto" : "\(S().stockPhotoURL)",
+                                     "ownersName" : "Charlie Arcodia",
+                                     "timeStamp" : Date().timeIntervalSince1970,
+                                     "audioClipUrl" : "url goes here",
+                                     "messageTypeForDecision" : "image"
+    ]
+    
+    let four : [String : Any] = ["message" : "Whoa 🚀 Let's go!",
+                                    "ownersProfilePhoto" : "\(S().stockPhotoURL)",
+                                    "ownersName" : "Charlie Arcodia",
+                                    "timeStamp" : Date().timeIntervalSince1970,
+                                    "audioClipUrl" : "url goes here",
+                                    "messageTypeForDecision" : "message"
+    ]
+    
+    let five : [String : Any] = ["message" : "Whoa 🚀 Let's go!",
+                                    "ownersProfilePhoto" : "\(S().stockPhotoURL)",
+                                    "ownersName" : "Charlie Arcodia",
+                                    "timeStamp" : Date().timeIntervalSince1970,
+                                    "audioClipUrl" : "url goes here",
+                                    "messageTypeForDecision" : "audio"
+    ]
+    
+    
+let objOne = ChatModel(JSON: one),
+    objTwo = ChatModel(JSON: two),
+    objThree = ChatModel(JSON: three),
+    objFour = ChatModel(JSON: four),
+    objFive = ChatModel(JSON: five),
+
+    array = [objOne, objTwo, objThree, objFour, objFive]
+    globalChatDataSource = array
+    completion(true, array)
 }
 

@@ -81,6 +81,8 @@ class ChatMain : UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.loadDummyData() //replace this with the datasource
+        self.chatDataSource = globalChatDataSource //global
+        self.loadDummyData()
     }
     
     //garbage and memory cleanup
@@ -92,6 +94,9 @@ class ChatMain : UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         self.shouldAdjustForKeyboard = true //this happens with overviews on the same controller
+        self.showFirstResponder()
+        self.chatCollection.scrollToBottom(animated: true)
+
     }
     
     func addViews() {
@@ -129,10 +134,27 @@ class ChatMain : UIViewController {
         self.customInputAccessoryView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0).isActive = true
         self.customInputAccessoryView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0).isActive = true
         
-        
         //toggle me to show the normal chat or the request view with accepts etc.
         self.toggleRequestView(shouldShow: false)
         
+    }
+    
+    func loadDummyData() {
+        
+        DispatchQueue.main.async {
+            
+            //dummy info to delete and dynamically fill
+            let stock_image = UIImage(named: "stock_photo_man")?.withRenderingMode(.alwaysOriginal)
+            self.chatHeader.statusLabel.text = "Online"
+            self.chatHeader.nameLabel.text = "Charlie Arcodia"
+            self.chatHeader.profilePhoto.image = stock_image
+            
+        }
+        
+        DispatchQueue.main.async {
+            self.chatCollection.reloadData()
+            self.chatCollection.scrollToBottom(animated: true)
+        }
     }
     
     @objc func toggleRequestView(shouldShow : Bool) { //also pass in the datasrouce
@@ -206,6 +228,7 @@ extension ChatMain {
                 self.customInputAccessoryView.micInset?.constant = -12.5
                 self.customInputAccessoryView.commentLeftAnchor?.constant = -25
                 self.customInputAccessoryView.microphoneRecordButton.isHidden = true
+                self.customInputAccessoryView.dummyMicrophoneRecordButton.isHidden = true
                 self.customInputAccessoryView.updateHeight()
                 self.customInputAccessoryView.updateConstraints()
             } completion: { complete in
@@ -227,6 +250,7 @@ extension ChatMain {
             self.customInputAccessoryView.micInset?.constant = -22
             self.customInputAccessoryView.commentLeftAnchor?.constant = 5
             self.customInputAccessoryView.microphoneRecordButton.isHidden = false
+            self.customInputAccessoryView.dummyMicrophoneRecordButton.isHidden = false
             self.customInputAccessoryView.updateHeight()
             self.customInputAccessoryView.updateConstraints()
         } completion: { complete in
@@ -272,61 +296,28 @@ extension ChatMain {
             self.chatCollection.contentInset = insets
             self.chatCollection.scrollIndicatorInsets = insets
             
-            if distanceFromBottom < 10 {
+            if distanceFromBottom < 100 {
                 self.chatCollection.contentOffset = self.chatCollection.bottomOffset()
             }
         }, completion: nil)
     }
-}
-
-extension ChatMain {
     
-    func loadDummyData() {
-        
-        DispatchQueue.main.async {
-            
-            //dummy info to delete and dynamically fill
-            let stock_image = UIImage(named: "stock_photo_man")?.withRenderingMode(.alwaysOriginal)
-            self.chatHeader.statusLabel.text = "Online"
-            self.chatHeader.nameLabel.text = "Charlie Arcodia"
-            self.chatHeader.profilePhoto.image = stock_image
-            
-        }
-       
-        let dataOne : [String : Any] = ["message" : "Hello Bernice 😅",
-                                        "ownersProfilePhoto" : "\(S().stockPhotoURL)",
-                                        "ownersName" : "Charlie Arcodia",
-                                        "timeStamp" : Date().timeIntervalSince1970,
-                                        "audioClipUrl" : "url goes here",
-                                        "messageTypeForDecision" : "message"
-        ]
-      
-        let dataSix : [String : Any] = ["message" : "John and James",
-                                         "ownersProfilePhoto" : "\(S().stockPhotoURL)",
-                                         "ownersName" : "Charlie Arcodia",
-                                         "timeStamp" : Date().timeIntervalSince1970,
-                                         "audioClipUrl" : "url goes here",
-                                         "messageTypeForDecision" : "audio"
-        ]
-        let dataSeven : [String : Any] = ["message" : "John and James",
-                                         "ownersProfilePhoto" : "\(S().stockPhotoURL)",
-                                         "ownersName" : "Charlie Arcodia",
-                                         "timeStamp" : Date().timeIntervalSince1970,
-                                         "audioClipUrl" : "url goes here",
-                                         "messageTypeForDecision" : "image"
-        ]
-        
-    let objOne = ChatModel(JSON: dataOne),
-        objSix = ChatModel(JSON: dataSix),
-        objSeven = ChatModel(JSON: dataSeven),
-
-        array = [objOne, objSix, objSeven]
-        self.chatDataSource = array
-        
-        DispatchQueue.main.async {
-
-            self.chatCollection.reloadData()
+    //MARK: - SHOWS THE ACCESSORY VIEW
+    @objc func showFirstResponder() {
+        if !self.customInputAccessoryView.commentTextView.isFirstResponder {
+            self.customInputAccessoryView.isHidden = false
+            self.canBecomeResponder = true
+            self.becomeFirstResponder()
+            self.reloadInputViews()
+            self.customInputAccessoryView.reloadInputViews()
+        } else {
+            self.customInputAccessoryView.isHidden = false
+            self.canBecomeResponder = true
+            self.becomeFirstResponder()
+            self.reloadInputViews()
+            self.customInputAccessoryView.reloadInputViews()
             
         }
     }
+    
 }

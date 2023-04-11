@@ -46,7 +46,11 @@ class MessagesContainer: UIViewController {
         
         self.view.backgroundColor = .white
         self.addViews()
-      
+        
+        //find me in extensions - quick way to get some data to use in the chat models
+        loadDummyData { isComplete, returnedBlock in
+            print("dummy model has been loaded")
+        }
     }
     
     @objc func addViews() {
@@ -106,9 +110,11 @@ class MessagesContainer: UIViewController {
     }
     
     @objc func handleCellSelection() {
-        let chatMain = ChatMain()
-        chatMain.navigationController?.navigationBar.isHidden = true
-        self.navigationController?.pushViewController(chatMain, animated: true)
+        DispatchQueue.main.async {
+            let chatMain = ChatMain()
+            chatMain.navigationController?.navigationBar.isHidden = true
+            self.navigationController?.pushViewController(chatMain, animated: true)
+        }
     }
     
     @objc func handleBackButton() {
