@@ -81,6 +81,13 @@ extension UIColor {
   static let profilePhotoBackgroundColor = UIColor (white: 0.8, alpha: 0.4)
     
   static let timeChatGrey = UIColor(hex: 0xBBBBBB)
+    
+  static let buttonGreyChat = UIColor(hex: 0xF6F6F6)
+    
+  static let anotherMatteBlack = UIColor(hex: 0x292C30)
+
+    
+    
 
 }
 

@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
       
         
-        let messagesController = MessagesContainer()
+        let messagesController = IndividualProfileChatController()
         let navigationController = UINavigationController(rootViewController: messagesController)
         navigationController.navigationBar.isHidden = true
         navigationController.modalPresentationStyle = .fullScreen

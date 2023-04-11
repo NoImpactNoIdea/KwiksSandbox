@@ -124,6 +124,10 @@
 		E3CAFAD529E5EC5E00AEFC74 /* ellipsisIconChat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3CAFAB129E5EC5E00AEFC74 /* ellipsisIconChat@3x.png */; };
 		E3CAFAD629E5EC5E00AEFC74 /* wave_graphic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3CAFAB229E5EC5E00AEFC74 /* wave_graphic@2x.png */; };
 		E3CAFAD729E5EC5E00AEFC74 /* empty_background_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3CAFAB329E5EC5E00AEFC74 /* empty_background_icon@2x.png */; };
+		E3CAFAD929E5F8ED00AEFC74 /* IndividualCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CAFAD829E5F8ED00AEFC74 /* IndividualCollection.swift */; };
+		E3CAFADB29E5F9F000AEFC74 /* AdaptableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CAFADA29E5F9F000AEFC74 /* AdaptableLayout.swift */; };
+		E3CAFADD29E603E500AEFC74 /* IndividualChangeBackgroundPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CAFADC29E603E500AEFC74 /* IndividualChangeBackgroundPopup.swift */; };
+		E3CAFAE029E60D8A00AEFC74 /* ChangeBackgroundCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CAFADF29E60D8A00AEFC74 /* ChangeBackgroundCollection.swift */; };
 		E3D0831929D72ADB00CE82D9 /* ColorSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */; };
 		E3D0832729D734A200CE82D9 /* Segoe UI Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */; };
 		E3D0832829D734A200CE82D9 /* Segoe UI Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832429D734A200CE82D9 /* Segoe UI Bold Italic.ttf */; };
@@ -258,6 +262,10 @@
 		E3CAFAB129E5EC5E00AEFC74 /* ellipsisIconChat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ellipsisIconChat@3x.png"; sourceTree = "<group>"; };
 		E3CAFAB229E5EC5E00AEFC74 /* wave_graphic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wave_graphic@2x.png"; sourceTree = "<group>"; };
 		E3CAFAB329E5EC5E00AEFC74 /* empty_background_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "empty_background_icon@2x.png"; sourceTree = "<group>"; };
+		E3CAFAD829E5F8ED00AEFC74 /* IndividualCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualCollection.swift; sourceTree = "<group>"; };
+		E3CAFADA29E5F9F000AEFC74 /* AdaptableLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptableLayout.swift; sourceTree = "<group>"; };
+		E3CAFADC29E603E500AEFC74 /* IndividualChangeBackgroundPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualChangeBackgroundPopup.swift; sourceTree = "<group>"; };
+		E3CAFADF29E60D8A00AEFC74 /* ChangeBackgroundCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeBackgroundCollection.swift; sourceTree = "<group>"; };
 		E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSheet.swift; sourceTree = "<group>"; };
 		E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI Italic.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI Italic.ttf"; sourceTree = "<group>"; };
 		E3D0832429D734A200CE82D9 /* Segoe UI Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI Bold Italic.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI Bold Italic.ttf"; sourceTree = "<group>"; };
@@ -545,9 +553,20 @@
 		E3CAFA8D29E5E82200AEFC74 /* ChatProfiles */ = {
 			isa = PBXGroup;
 			children = (
+				E3CAFADE29E60D6B00AEFC74 /* ChangeBackgroundPopup */,
 				E3CAFA8E29E5E83800AEFC74 /* IndividualProfile.swift */,
+				E3CAFAD829E5F8ED00AEFC74 /* IndividualCollection.swift */,
 			);
 			path = ChatProfiles;
+			sourceTree = "<group>";
+		};
+		E3CAFADE29E60D6B00AEFC74 /* ChangeBackgroundPopup */ = {
+			isa = PBXGroup;
+			children = (
+				E3CAFADC29E603E500AEFC74 /* IndividualChangeBackgroundPopup.swift */,
+				E3CAFADF29E60D8A00AEFC74 /* ChangeBackgroundCollection.swift */,
+			);
+			path = ChangeBackgroundPopup;
 			sourceTree = "<group>";
 		};
 		E3D0831629D729AD00CE82D9 /* ChatGroup */ = {
@@ -564,6 +583,7 @@
 			isa = PBXGroup;
 			children = (
 				E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */,
+				E3CAFADA29E5F9F000AEFC74 /* AdaptableLayout.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -809,7 +829,10 @@
 				E39F084729E4D24400C76016 /* InteriorHeader.swift in Sources */,
 				E347448529DB9BDF00E64B68 /* ChatMain.swift in Sources */,
 				E365516D29CB6D0500F3D37E /* KwiksAlert.swift in Sources */,
+				E3CAFAE029E60D8A00AEFC74 /* ChangeBackgroundCollection.swift in Sources */,
 				E3CAFA8F29E5E83800AEFC74 /* IndividualProfile.swift in Sources */,
+				E3CAFADB29E5F9F000AEFC74 /* AdaptableLayout.swift in Sources */,
+				E3CAFADD29E603E500AEFC74 /* IndividualChangeBackgroundPopup.swift in Sources */,
 				E347448B29DBAA4000E64B68 /* RequestView.swift in Sources */,
 				E35676D529AD182F003B5E9A /* AppDelegate.swift in Sources */,
 				E3D0831929D72ADB00CE82D9 /* ColorSheet.swift in Sources */,
@@ -820,6 +843,7 @@
 				E39F080929E4755500C76016 /* AccessoryInputView.swift in Sources */,
 				E347448729DB9EA500E64B68 /* ChatHeader.swift in Sources */,
 				E365516529C7A79B00F3D37E /* FadingCollection.swift in Sources */,
+				E3CAFAD929E5F8ED00AEFC74 /* IndividualCollection.swift in Sources */,
 				E35676D729AD182F003B5E9A /* SceneDelegate.swift in Sources */,
 				E3CAFA8029E4F77500AEFC74 /* ImageMainCell.swift in Sources */,
 				E347447329DB610700E64B68 /* MessagesHeader.swift in Sources */,

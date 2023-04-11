@@ -36,6 +36,7 @@ struct S { //S for string
     var whitePinLargeTable = "white_pin_large_table"
     var messagePinIcon = "message_pin_icon"
     var threeDotsVertical = "three_dots_horizontal_icon"
+    var cancelIcon = "multiply"
 
     var bestiesLabel = "Besties"
     var familyLabel = "Family"
@@ -145,6 +146,15 @@ extension UIImageView {
         }
     }
 }
+
+var globalPhotoArray : [String] = ["\(S().stockPhotoURLPattern)",
+                             "\(S().stockPhotoURLPattern)",
+                             "\(S().stockPhotoURLPattern)",
+                             "\(S().stockPhotoURLPattern)",
+                             "\(S().stockPhotoURLPattern)",
+                             "\(S().stockPhotoURLPattern)",
+                             "\(S().stockPhotoURLPattern)",
+                             "\(S().stockPhotoURLPattern)"]
 
 func loadDummyData(completion : @escaping (_ isComplete : Bool, _ returnedBlock : [ChatModel])->()) {
     

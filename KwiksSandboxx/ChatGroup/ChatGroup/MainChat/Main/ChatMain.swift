@@ -117,7 +117,6 @@ class ChatMain : UIViewController {
         super.viewDidAppear(true)
         self.shouldAdjustForKeyboard = true //this happens with overviews on the same controller
         self.showFirstResponder()
-//        self.loadDataSource()
     }
     
     override func viewDidLayoutSubviews() {
