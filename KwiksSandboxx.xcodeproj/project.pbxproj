@@ -131,12 +131,12 @@
 		E3CAFAE329E61E6300AEFC74 /* ChatMediaViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CAFAE229E61E6300AEFC74 /* ChatMediaViewer.swift */; };
 		E3CAFAE529E61F1900AEFC74 /* ChatMediaCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CAFAE429E61F1900AEFC74 /* ChatMediaCollection.swift */; };
 		E3D0831929D72ADB00CE82D9 /* ColorSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */; };
-		E3D0832729D734A200CE82D9 /* Segoe UI Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */; };
-		E3D0832829D734A200CE82D9 /* Segoe UI Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832429D734A200CE82D9 /* Segoe UI Bold Italic.ttf */; };
-		E3D0832929D734A200CE82D9 /* Segoe UI Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832529D734A200CE82D9 /* Segoe UI Bold.ttf */; };
-		E3D0832A29D734A200CE82D9 /* Segoe UI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832629D734A200CE82D9 /* Segoe UI.ttf */; };
-		E3D0832C29D73F5900CE82D9 /* segoeui-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832B29D73F5900CE82D9 /* segoeui-semibold.ttf */; };
 		E3F91CAD29E7359400591F4C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E3F91CAC29E7359400591F4C /* .gitignore */; };
+		E3FD46FF29E737B80065F649 /* segoeui-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3FD46FE29E737B80065F649 /* segoeui-semibold.ttf */; };
+		E3FD470029E737BF0065F649 /* Segoe UI Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3FD46FC29E737940065F649 /* Segoe UI Bold Italic.ttf */; };
+		E3FD470129E737C00065F649 /* Segoe UI Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3FD46FB29E737940065F649 /* Segoe UI Bold.ttf */; };
+		E3FD470229E737C30065F649 /* Segoe UI Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3FD46FA29E737940065F649 /* Segoe UI Italic.ttf */; };
+		E3FD470329E737C50065F649 /* Segoe UI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3FD46FD29E737940065F649 /* Segoe UI.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -215,10 +215,6 @@
 		E39F084029E4B38300C76016 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		E39F084329E4B60F00C76016 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		E39F084629E4D24400C76016 /* InteriorHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteriorHeader.swift; sourceTree = "<group>"; };
-		E3CAFA7429E4E80F00AEFC74 /* Segoe UI Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI Italic.ttf"; sourceTree = "<group>"; };
-		E3CAFA7529E4E80F00AEFC74 /* Segoe UI Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI Bold.ttf"; sourceTree = "<group>"; };
-		E3CAFA7629E4E80F00AEFC74 /* Segoe UI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI.ttf"; sourceTree = "<group>"; };
-		E3CAFA7729E4E80F00AEFC74 /* Segoe UI Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI Bold Italic.ttf"; sourceTree = "<group>"; };
 		E3CAFA7929E4E81A00AEFC74 /* record_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = record_anim.json; sourceTree = "<group>"; };
 		E3CAFA7B29E4EF9300AEFC74 /* record_anim_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = record_anim_2.json; sourceTree = "<group>"; };
 		E3CAFA7D29E4F13700AEFC74 /* AudioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCell.swift; sourceTree = "<group>"; };
@@ -272,12 +268,12 @@
 		E3CAFAE229E61E6300AEFC74 /* ChatMediaViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMediaViewer.swift; sourceTree = "<group>"; };
 		E3CAFAE429E61F1900AEFC74 /* ChatMediaCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMediaCollection.swift; sourceTree = "<group>"; };
 		E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSheet.swift; sourceTree = "<group>"; };
-		E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI Italic.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI Italic.ttf"; sourceTree = "<group>"; };
-		E3D0832429D734A200CE82D9 /* Segoe UI Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI Bold Italic.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI Bold Italic.ttf"; sourceTree = "<group>"; };
-		E3D0832529D734A200CE82D9 /* Segoe UI Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI Bold.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI Bold.ttf"; sourceTree = "<group>"; };
-		E3D0832629D734A200CE82D9 /* Segoe UI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI.ttf"; sourceTree = "<group>"; };
-		E3D0832B29D73F5900CE82D9 /* segoeui-semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "segoeui-semibold.ttf"; sourceTree = "<group>"; };
 		E3F91CAC29E7359400591F4C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		E3FD46FA29E737940065F649 /* Segoe UI Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI Italic.ttf"; sourceTree = "<group>"; };
+		E3FD46FB29E737940065F649 /* Segoe UI Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI Bold.ttf"; sourceTree = "<group>"; };
+		E3FD46FC29E737940065F649 /* Segoe UI Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI Bold Italic.ttf"; sourceTree = "<group>"; };
+		E3FD46FD29E737940065F649 /* Segoe UI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI.ttf"; sourceTree = "<group>"; };
+		E3FD46FE29E737B80065F649 /* segoeui-semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "segoeui-semibold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -542,11 +538,11 @@
 		E3CAFA7329E4E80900AEFC74 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				E3D0832B29D73F5900CE82D9 /* segoeui-semibold.ttf */,
-				E3CAFA7729E4E80F00AEFC74 /* Segoe UI Bold Italic.ttf */,
-				E3CAFA7529E4E80F00AEFC74 /* Segoe UI Bold.ttf */,
-				E3CAFA7429E4E80F00AEFC74 /* Segoe UI Italic.ttf */,
-				E3CAFA7629E4E80F00AEFC74 /* Segoe UI.ttf */,
+				E3FD46FE29E737B80065F649 /* segoeui-semibold.ttf */,
+				E3FD46FC29E737940065F649 /* Segoe UI Bold Italic.ttf */,
+				E3FD46FB29E737940065F649 /* Segoe UI Bold.ttf */,
+				E3FD46FA29E737940065F649 /* Segoe UI Italic.ttf */,
+				E3FD46FD29E737940065F649 /* Segoe UI.ttf */,
 			);
 			path = fonts;
 			sourceTree = "<group>";
@@ -635,10 +631,6 @@
 				E3CAFA7829E4E81200AEFC74 /* animations */,
 				E3CAFA7329E4E80900AEFC74 /* fonts */,
 				E347447A29DB7E5900E64B68 /* icons */,
-				E3D0832429D734A200CE82D9 /* Segoe UI Bold Italic.ttf */,
-				E3D0832529D734A200CE82D9 /* Segoe UI Bold.ttf */,
-				E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */,
-				E3D0832629D734A200CE82D9 /* Segoe UI.ttf */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -722,7 +714,6 @@
 			files = (
 				E39F082429E47E9700C76016 /* chat_plus_icon@3x.png in Resources */,
 				E3CAFACC29E5EC5E00AEFC74 /* background_pink_gradient@1x.png in Resources */,
-				E3D0832729D734A200CE82D9 /* Segoe UI Italic.ttf in Resources */,
 				E3CAFABF29E5EC5E00AEFC74 /* background_yellow_gradient@2x.png in Resources */,
 				E347449B29DCB3C300E64B68 /* trash_icon_white@1x.png in Resources */,
 				E34744B329DCB49F00E64B68 /* back_icon_final@3x.png in Resources */,
@@ -732,11 +723,11 @@
 				E34744AE29DCB3D800E64B68 /* message_pin_icon@1x.png in Resources */,
 				E39F082229E47E9700C76016 /* kwiks_play_voice_note@1x.png in Resources */,
 				E3CAFAB829E5EC5E00AEFC74 /* background_deep_pink_gradient@1x.png in Resources */,
+				E3FD470229E737C30065F649 /* Segoe UI Italic.ttf in Resources */,
 				E39F083329E47E9700C76016 /* wallet_cash_button@1x.png in Resources */,
 				E3CAFA8529E5CBD700AEFC74 /* chat_backdrop_1@2x.png in Resources */,
 				E3CAFAC729E5EC5E00AEFC74 /* background_light_blue_gradient@3x.png in Resources */,
 				E39F083B29E49DD600C76016 /* trashcan_icon_group@2x.png in Resources */,
-				E3D0832C29D73F5900CE82D9 /* segoeui-semibold.ttf in Resources */,
 				E39F082F29E47E9700C76016 /* mini_microphone@2x.png in Resources */,
 				E34744A929DCB3D100E64B68 /* three_dots_horizontal@2x.png in Resources */,
 				E35676E129AD1831003B5E9A /* LaunchScreen.storyboard in Resources */,
@@ -753,7 +744,6 @@
 				E3CAFAB529E5EC5E00AEFC74 /* wave_graphic@3x.png in Resources */,
 				E347449C29DCB3C300E64B68 /* trash_icon_white@2x.png in Resources */,
 				E3CAFACA29E5EC5E00AEFC74 /* person_icon_chat@2x.png in Resources */,
-				E3D0832929D734A200CE82D9 /* Segoe UI Bold.ttf in Resources */,
 				E3CAFAC129E5EC5E00AEFC74 /* person_icon_chat@1x.png in Resources */,
 				E34744B429DCB49F00E64B68 /* back_icon_final@1x.png in Resources */,
 				E39F082B29E47E9700C76016 /* chat_send_button@3x.png in Resources */,
@@ -766,20 +756,20 @@
 				E347449D29DCB3C300E64B68 /* trash_icon_white@3x.png in Resources */,
 				E39F082929E47E9700C76016 /* chat_plus_icon@1x.png in Resources */,
 				E3CAFAC529E5EC5E00AEFC74 /* mag_icon_chat@1x.png in Resources */,
-				E3D0832829D734A200CE82D9 /* Segoe UI Bold Italic.ttf in Resources */,
 				E39F082D29E47E9700C76016 /* mini_microphone@1x.png in Resources */,
 				E3CAFAC029E5EC5E00AEFC74 /* background_purple_gradient@2x.png in Resources */,
 				E3CAFAC629E5EC5E00AEFC74 /* background_deep_pink_gradient@2x.png in Resources */,
 				E3CAFAD129E5EC5E00AEFC74 /* background_orange_gradient@3x.png in Resources */,
-				E3D0832A29D734A200CE82D9 /* Segoe UI.ttf in Resources */,
 				E3CAFABC29E5EC5E00AEFC74 /* mag_icon_chat@3x.png in Resources */,
 				E35676DE29AD1831003B5E9A /* Assets.xcassets in Resources */,
 				E34744B529DCB49F00E64B68 /* back_icon_final@2x.png in Resources */,
 				E39F082129E47E9700C76016 /* kwiks_audio_pause_button@2x.png in Resources */,
+				E3FD470029E737BF0065F649 /* Segoe UI Bold Italic.ttf in Resources */,
 				E39F082329E47E9700C76016 /* wallet_cash_button@2x.png in Resources */,
 				E3CAFAC429E5EC5E00AEFC74 /* background_yellow_gradient@1x.png in Resources */,
 				E34744AF29DCB3D800E64B68 /* message_pin_icon@2x.png in Resources */,
 				E3CAFAB729E5EC5E00AEFC74 /* background_light_blue_gradient@1x.png in Resources */,
+				E3FD470329E737C50065F649 /* Segoe UI.ttf in Resources */,
 				E3F91CAD29E7359400591F4C /* .gitignore in Resources */,
 				E3CAFAB629E5EC5E00AEFC74 /* ellipsisIconChat@1x.png in Resources */,
 				E3CAFA8429E5CBD700AEFC74 /* chat_backdrop_1@1x.png in Resources */,
@@ -818,6 +808,8 @@
 				E3CAFACF29E5EC5E00AEFC74 /* background_light_blue_gradient@2x.png in Resources */,
 				E3CAFABB29E5EC5E00AEFC74 /* empty_background_icon@3x.png in Resources */,
 				E3CAFACE29E5EC5E00AEFC74 /* background_purple_gradient@1x.png in Resources */,
+				E3FD46FF29E737B80065F649 /* segoeui-semibold.ttf in Resources */,
+				E3FD470129E737C00065F649 /* Segoe UI Bold.ttf in Resources */,
 				E39F082029E47E9700C76016 /* kwiks_play_voice_note@2x.png in Resources */,
 				E3CAFAC829E5EC5E00AEFC74 /* background_pink_gradient@3x.png in Resources */,
 			);
