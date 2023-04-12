@@ -86,9 +86,6 @@ extension UIColor {
     
   static let anotherMatteBlack = UIColor(hex: 0x292C30)
 
-    
-    
-
 }
 
 //HEX Color value

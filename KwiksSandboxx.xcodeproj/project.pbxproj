@@ -136,6 +136,7 @@
 		E3D0832929D734A200CE82D9 /* Segoe UI Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832529D734A200CE82D9 /* Segoe UI Bold.ttf */; };
 		E3D0832A29D734A200CE82D9 /* Segoe UI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832629D734A200CE82D9 /* Segoe UI.ttf */; };
 		E3D0832C29D73F5900CE82D9 /* segoeui-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D0832B29D73F5900CE82D9 /* segoeui-semibold.ttf */; };
+		E3F91CAD29E7359400591F4C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E3F91CAC29E7359400591F4C /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -276,6 +277,7 @@
 		E3D0832529D734A200CE82D9 /* Segoe UI Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI Bold.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI Bold.ttf"; sourceTree = "<group>"; };
 		E3D0832629D734A200CE82D9 /* Segoe UI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe UI.ttf"; path = "../../../../iOS Helpers/segoe-ui-4-cufonfonts/Segoe UI.ttf"; sourceTree = "<group>"; };
 		E3D0832B29D73F5900CE82D9 /* segoeui-semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "segoeui-semibold.ttf"; sourceTree = "<group>"; };
+		E3F91CAC29E7359400591F4C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -435,18 +437,14 @@
 		E35676D329AD182F003B5E9A /* KwiksSandboxx */ = {
 			isa = PBXGroup;
 			children = (
-				E3D0831A29D72D5100CE82D9 /* assets */,
-				E3D0831729D72ACB00CE82D9 /* Extensions */,
+				E3F91CAB29E7357D00591F4C /* Git */,
+				E36D5ADC29E6FDA800466739 /* Admin */,
+				E36D5ADD29E6FDC000466739 /* FadingScroll */,
 				E3D0831629D729AD00CE82D9 /* ChatGroup */,
 				E365516B29CB6CED00F3D37E /* ErrorSuccessHandling */,
-				E35676D429AD182F003B5E9A /* AppDelegate.swift */,
-				E35676D629AD182F003B5E9A /* SceneDelegate.swift */,
-				E35676DD29AD1831003B5E9A /* Assets.xcassets */,
-				E35676DF29AD1831003B5E9A /* LaunchScreen.storyboard */,
+				E3D0831729D72ACB00CE82D9 /* Extensions */,
+				E3D0831A29D72D5100CE82D9 /* Assets */,
 				E35676E229AD1831003B5E9A /* Info.plist */,
-				E365516429C7A79B00F3D37E /* FadingCollection.swift */,
-				E365516729C7A7D000F3D37E /* FadeController.swift */,
-				E365516929C7B16F00F3D37E /* Layout.swift */,
 			);
 			path = KwiksSandboxx;
 			sourceTree = "<group>";
@@ -457,6 +455,34 @@
 				E365516C29CB6D0500F3D37E /* KwiksAlert.swift */,
 			);
 			path = ErrorSuccessHandling;
+			sourceTree = "<group>";
+		};
+		E36D5ADC29E6FDA800466739 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				E35676DF29AD1831003B5E9A /* LaunchScreen.storyboard */,
+				E35676D629AD182F003B5E9A /* SceneDelegate.swift */,
+				E35676D429AD182F003B5E9A /* AppDelegate.swift */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		E36D5ADD29E6FDC000466739 /* FadingScroll */ = {
+			isa = PBXGroup;
+			children = (
+				E365516429C7A79B00F3D37E /* FadingCollection.swift */,
+				E365516729C7A7D000F3D37E /* FadeController.swift */,
+				E365516929C7B16F00F3D37E /* Layout.swift */,
+			);
+			path = FadingScroll;
+			sourceTree = "<group>";
+		};
+		E36D5ADE29E716D400466739 /* ChatExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				E347447529DB641B00E64B68 /* Extensions+DummyData.swift */,
+			);
+			path = ChatExtensions;
 			sourceTree = "<group>";
 		};
 		E39F083C29E4B34900C76016 /* AccessoryView */ = {
@@ -586,7 +612,7 @@
 		E3D0831629D729AD00CE82D9 /* ChatGroup */ = {
 			isa = PBXGroup;
 			children = (
-				E347447529DB641B00E64B68 /* Extensions+DummyData.swift */,
+				E36D5ADE29E716D400466739 /* ChatExtensions */,
 				E347448329DB9BCF00E64B68 /* ChatGroup */,
 				E347447429DB610A00E64B68 /* MessagesGroup */,
 			);
@@ -596,13 +622,14 @@
 		E3D0831729D72ACB00CE82D9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E35676DD29AD1831003B5E9A /* Assets.xcassets */,
 				E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */,
 				E3CAFADA29E5F9F000AEFC74 /* AdaptableLayout.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		E3D0831A29D72D5100CE82D9 /* assets */ = {
+		E3D0831A29D72D5100CE82D9 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				E3CAFA7829E4E81200AEFC74 /* animations */,
@@ -613,7 +640,15 @@
 				E3D0832329D734A200CE82D9 /* Segoe UI Italic.ttf */,
 				E3D0832629D734A200CE82D9 /* Segoe UI.ttf */,
 			);
-			path = assets;
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		E3F91CAB29E7357D00591F4C /* Git */ = {
+			isa = PBXGroup;
+			children = (
+				E3F91CAC29E7359400591F4C /* .gitignore */,
+			);
+			path = Git;
 			sourceTree = "<group>";
 		};
 		ED9CD20F0A4E944641598103 /* Pods */ = {
@@ -745,6 +780,7 @@
 				E3CAFAC429E5EC5E00AEFC74 /* background_yellow_gradient@1x.png in Resources */,
 				E34744AF29DCB3D800E64B68 /* message_pin_icon@2x.png in Resources */,
 				E3CAFAB729E5EC5E00AEFC74 /* background_light_blue_gradient@1x.png in Resources */,
+				E3F91CAD29E7359400591F4C /* .gitignore in Resources */,
 				E3CAFAB629E5EC5E00AEFC74 /* ellipsisIconChat@1x.png in Resources */,
 				E3CAFA8429E5CBD700AEFC74 /* chat_backdrop_1@1x.png in Resources */,
 				E39F083029E47E9700C76016 /* kwiks_audio_pause_button@1x.png in Resources */,

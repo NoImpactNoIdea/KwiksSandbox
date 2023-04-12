@@ -181,7 +181,7 @@ class ChatMain : UIViewController {
             self.chatHeader.nameLabel.text = "Charlie Arcodia"
             self.chatHeader.profilePhoto.image = stock_image
             
-            self.backdropView.loadImageGeneralUse("\(S().stockPhotoUrlBasicPattern)") { isComplete in
+            self.backdropView.loadImageGeneralUse("\(S().stockPhotoURLPattern)") { isComplete in
                 print("backdrop loaded in")
             }
         }

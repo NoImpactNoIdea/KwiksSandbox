@@ -251,7 +251,7 @@ let objOne = ChatModel(JSON: one),
     objSix = ChatModel(JSON: six),
     objSeven = ChatModel(JSON: seven),
 
-    array = [objOne, objTwo, objFour, objFive, objSix, objSeven]
+    array = [objOne, objTwo, objFour, objFive, objSix, objSeven, objThree]
     globalChatDataSource = array
     completion(true, array)
 }

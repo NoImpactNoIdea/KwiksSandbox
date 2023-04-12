@@ -15,7 +15,7 @@
 import Foundation
 import UIKit
 //error handling enum
-public enum ErrorHandler{
+public enum ErrorHandler{ //no caps for the first letter
     case NoInternetConnection
     case SomethingWentWrong
     case AccountSuspended
