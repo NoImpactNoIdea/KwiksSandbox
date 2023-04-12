@@ -337,12 +337,12 @@ class IndividualProfileChatController : UIViewController {
         self.view.addSubview(self.nameLabel)
         
         self.buttonStack.addArrangedSubview(self.profileIcon)
-        self.buttonStack.addArrangedSubview(self.magIcon)
-        self.buttonStack.addArrangedSubview(self.moreIcon)
+//        self.buttonStack.addArrangedSubview(self.magIcon)
+//        self.buttonStack.addArrangedSubview(self.moreIcon)
         
         self.view.addSubview(self.profileLabel)
-        self.view.addSubview(self.searchLabel)
-        self.view.addSubview(self.moreLabel)
+//        self.view.addSubview(self.searchLabel)
+//        self.view.addSubview(self.moreLabel)
 
         self.view.addSubview(self.buttonStack)
         self.view.addSubview(self.infoBar)
@@ -405,13 +405,13 @@ class IndividualProfileChatController : UIViewController {
         self.profileLabel.topAnchor.constraint(equalTo: self.profileIcon.bottomAnchor, constant: 8).isActive = true
         self.profileLabel.sizeToFit()
         
-        self.searchLabel.centerXAnchor.constraint(equalTo: self.magIcon.centerXAnchor).isActive = true
-        self.searchLabel.topAnchor.constraint(equalTo: self.magIcon.bottomAnchor, constant: 8).isActive = true
-        self.searchLabel.sizeToFit()
-        
-        self.moreLabel.centerXAnchor.constraint(equalTo: self.moreIcon.centerXAnchor).isActive = true
-        self.moreLabel.topAnchor.constraint(equalTo: self.moreIcon.bottomAnchor, constant: 8).isActive = true
-        self.moreLabel.sizeToFit()
+//        self.searchLabel.centerXAnchor.constraint(equalTo: self.magIcon.centerXAnchor).isActive = true
+//        self.searchLabel.topAnchor.constraint(equalTo: self.magIcon.bottomAnchor, constant: 8).isActive = true
+//        self.searchLabel.sizeToFit()
+//
+//        self.moreLabel.centerXAnchor.constraint(equalTo: self.moreIcon.centerXAnchor).isActive = true
+//        self.moreLabel.topAnchor.constraint(equalTo: self.moreIcon.bottomAnchor, constant: 8).isActive = true
+//        self.moreLabel.sizeToFit()
         
         self.infoBar.topAnchor.constraint(equalTo: self.buttonStack.bottomAnchor, constant: 40).isActive = true
         self.infoBar.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 31).isActive = true

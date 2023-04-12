@@ -16,7 +16,7 @@ class ChatMediaViewer : UIViewController {
         let cbf = UIButton(type: .system)
         cbf.translatesAutoresizingMaskIntoConstraints = false
         cbf.backgroundColor = .clear
-        let image = UIImage(named: S().backIcon)?.withRenderingMode(.alwaysOriginal)
+        let image = UIImage(named: S().longBackIcon)?.withRenderingMode(.alwaysOriginal)
         cbf.setImage(image, for: UIControl.State.normal)
         cbf.tintColor = UIColor.fontBrown
         cbf.addTarget(self, action: #selector(self.handleBackButton), for: .touchUpInside)

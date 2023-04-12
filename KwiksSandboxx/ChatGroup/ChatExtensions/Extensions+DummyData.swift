@@ -31,6 +31,7 @@ extension UIDevice { //haptics and vibrations
 struct S { //S for string
     var messages = "Messages"
     var backIcon = "back_icon_final"
+    var longBackIcon = "long_back_arrow"
     var newConvoIcon = "new_convo_icon"
     var magGlass = "mag_icon_header"
     var trashIcon = "trash_icon_white"

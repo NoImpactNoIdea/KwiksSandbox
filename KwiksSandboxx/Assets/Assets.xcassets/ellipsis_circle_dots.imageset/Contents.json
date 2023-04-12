@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "ellipsis_3_dots_no_shadow_black@1x.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "ellipsis_3_dots_no_shadow_black@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "ellipsis_3_dots_no_shadow_black@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

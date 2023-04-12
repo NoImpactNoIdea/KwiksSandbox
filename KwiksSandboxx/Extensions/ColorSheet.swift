@@ -85,6 +85,8 @@ extension UIColor {
   static let buttonGreyChat = UIColor(hex: 0xF6F6F6)
     
   static let anotherMatteBlack = UIColor(hex: 0x292C30)
+    
+  static let selectorBackgroundColor = UIColor(hex: 0xF2F2F2)
 
 }
 
