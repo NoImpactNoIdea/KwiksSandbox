@@ -123,8 +123,8 @@ class ChangeBackgroundPopup : UIView {
         self.addPhotoButton.bottomAnchor.constraint(equalTo: self.container.bottomAnchor, constant: -40).isActive = true
         self.addPhotoButton.leftAnchor.constraint(equalTo: self.container.leftAnchor, constant: 37).isActive = true
         self.addPhotoButton.rightAnchor.constraint(equalTo: self.container.rightAnchor, constant: -37).isActive = true
-        self.addPhotoButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        self.addPhotoButton.layer.cornerRadius = 30
+        self.addPhotoButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        self.addPhotoButton.layer.cornerRadius = 25
         
         self.changeBackgroundCollection.topAnchor.constraint(equalTo: self.chooseBackgroundLabel.bottomAnchor, constant: 20).isActive = true
         self.changeBackgroundCollection.bottomAnchor.constraint(equalTo: self.addPhotoButton.topAnchor, constant: -20).isActive = true

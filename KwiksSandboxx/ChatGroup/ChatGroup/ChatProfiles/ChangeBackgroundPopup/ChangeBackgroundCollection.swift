@@ -54,7 +54,7 @@ class ChangeBackgroundCollection : UICollectionView, UICollectionViewDelegateFlo
     }
     
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-        return 84
+        return screenWidth / 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -154,7 +154,7 @@ class ChangeBackgroundFeeder : UICollectionViewCell {
         self.containerView.topAnchor.constraint(equalTo: self.topAnchor, constant: 2).isActive = true
         self.containerView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         self.containerView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        self.containerView.widthAnchor.constraint(equalToConstant: 84).isActive = true
+        self.containerView.widthAnchor.constraint(equalToConstant: screenWidth / 5).isActive = true
         
         self.dummyButton.topAnchor.constraint(equalTo: self.containerView.topAnchor).isActive = true
         self.dummyButton.leftAnchor.constraint(equalTo: self.containerView.leftAnchor).isActive = true

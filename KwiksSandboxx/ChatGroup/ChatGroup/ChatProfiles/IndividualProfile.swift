@@ -368,18 +368,18 @@ class IndividualProfileChatController : UIViewController {
         self.backButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         self.backButton.widthAnchor.constraint(equalToConstant: 44).isActive = true
         
-        self.backgroundImageView.topAnchor.constraint(equalTo: self.backButton.bottomAnchor, constant: 35).isActive = true
+        self.backgroundImageView.topAnchor.constraint(equalTo: self.backButton.bottomAnchor, constant: 25).isActive = true
         self.backgroundImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         self.backgroundImageView.heightAnchor.constraint(equalToConstant: 192.5).isActive = true
         self.backgroundImageView.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
         
-        self.profilePhoto.topAnchor.constraint(equalTo: self.backgroundImageView.topAnchor, constant: 0).isActive = true
+        self.profilePhoto.topAnchor.constraint(equalTo: self.backgroundImageView.topAnchor, constant: -20).isActive = true
         self.profilePhoto.widthAnchor.constraint(equalToConstant: 146).isActive = true
         self.profilePhoto.heightAnchor.constraint(equalToConstant: 146).isActive = true
         self.profilePhoto.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0).isActive = true
         self.profilePhoto.layer.cornerRadius = 73
         
-        self.nameLabel.topAnchor.constraint(equalTo: self.profilePhoto.bottomAnchor, constant: 35).isActive = true
+        self.nameLabel.topAnchor.constraint(equalTo: self.profilePhoto.bottomAnchor, constant: 25).isActive = true
         self.nameLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0).isActive = true
         self.nameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         self.nameLabel.sizeToFit()
@@ -413,7 +413,7 @@ class IndividualProfileChatController : UIViewController {
         self.moreLabel.topAnchor.constraint(equalTo: self.moreIcon.bottomAnchor, constant: 8).isActive = true
         self.moreLabel.sizeToFit()
         
-        self.infoBar.topAnchor.constraint(equalTo: self.buttonStack.bottomAnchor, constant: 54).isActive = true
+        self.infoBar.topAnchor.constraint(equalTo: self.buttonStack.bottomAnchor, constant: 40).isActive = true
         self.infoBar.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 31).isActive = true
         self.infoBar.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -31).isActive = true
         self.infoBar.heightAnchor.constraint(equalToConstant: 30).isActive = true
@@ -436,7 +436,7 @@ class IndividualProfileChatController : UIViewController {
         self.individualCollection.rightAnchor.constraint(equalTo: self.infoBar.rightAnchor, constant: 10).isActive = true
         self.individualCollection.heightAnchor.constraint(equalToConstant: 180).isActive = true
         
-        self.changeBackgroundCell.topAnchor.constraint(equalTo: self.individualCollection.bottomAnchor, constant: 40).isActive = true
+        self.changeBackgroundCell.topAnchor.constraint(equalTo: self.individualCollection.bottomAnchor, constant: 25).isActive = true
         self.changeBackgroundCell.leftAnchor.constraint(equalTo: self.infoBar.leftAnchor).isActive = true
         self.changeBackgroundCell.rightAnchor.constraint(equalTo: self.infoBar.rightAnchor).isActive = true
         self.changeBackgroundCell.heightAnchor.constraint(equalToConstant: 30).isActive = true

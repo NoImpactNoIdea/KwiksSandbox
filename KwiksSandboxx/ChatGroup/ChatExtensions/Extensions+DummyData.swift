@@ -11,7 +11,8 @@ import SDWebImage
 
 //globals
 var globalChatDataSource = [ChatModel]() //chat model reference
-
+var screenWidth = UIScreen.main.bounds.width
+var screenHeight = UIScreen.main.bounds.height
 extension UIDevice { //haptics and vibrations
     static func vibrateLight() {
         let generator = UIImpactFeedbackGenerator(style: .light)
@@ -164,8 +165,6 @@ var globalPhotoArray : [String] = ["\(S().stockPhotoURLPattern)",
                              "\(S().stockPhotoURLPattern)",
                              "\(S().stockPhotoURLPattern)",
                              "\(S().stockPhotoURLPattern)"]
-
-
 
 var background_chat_deep_pink = "background_chat_deep_pink"
 var background_chat_empty = "background_chat_empty"
