@@ -158,6 +158,8 @@
 		E3FD473629E76C810065F649 /* CustomThreeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FD473529E76C810065F649 /* CustomThreeSelector.swift */; };
 		E3FD473829E78D730065F649 /* FourSquareLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FD473729E78D730065F649 /* FourSquareLayout.swift */; };
 		E3FD473A29E78D7E0065F649 /* ThreeSquareLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FD473929E78D7E0065F649 /* ThreeSquareLayout.swift */; };
+		E3FD473C29E78DDF0065F649 /* DynamicProfileCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FD473B29E78DDF0065F649 /* DynamicProfileCollection.swift */; };
+		E3FD473E29E798610065F649 /* CustomTwoSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FD473D29E798610065F649 /* CustomTwoSelector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -316,6 +318,8 @@
 		E3FD473529E76C810065F649 /* CustomThreeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomThreeSelector.swift; sourceTree = "<group>"; };
 		E3FD473729E78D730065F649 /* FourSquareLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareLayout.swift; sourceTree = "<group>"; };
 		E3FD473929E78D7E0065F649 /* ThreeSquareLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeSquareLayout.swift; sourceTree = "<group>"; };
+		E3FD473B29E78DDF0065F649 /* DynamicProfileCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicProfileCollection.swift; sourceTree = "<group>"; };
+		E3FD473D29E798610065F649 /* CustomTwoSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTwoSelector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -620,6 +624,8 @@
 			children = (
 				E3FD470729E75C610065F649 /* DynamicUserProfile.swift */,
 				E3FD473529E76C810065F649 /* CustomThreeSelector.swift */,
+				E3FD473B29E78DDF0065F649 /* DynamicProfileCollection.swift */,
+				E3FD473D29E798610065F649 /* CustomTwoSelector.swift */,
 			);
 			path = PersonalFriendsProfiles;
 			sourceTree = "<group>";
@@ -989,6 +995,7 @@
 				E3FD473629E76C810065F649 /* CustomThreeSelector.swift in Sources */,
 				E347448929DBA70B00E64B68 /* ChatCollection.swift in Sources */,
 				E39F084429E4B60F00C76016 /* ChatModel.swift in Sources */,
+				E3FD473C29E78DDF0065F649 /* DynamicProfileCollection.swift in Sources */,
 				E347447629DB641B00E64B68 /* Extensions+DummyData.swift in Sources */,
 				E39F084729E4D24400C76016 /* InteriorHeader.swift in Sources */,
 				E347448529DB9BDF00E64B68 /* ChatMain.swift in Sources */,
@@ -1012,6 +1019,7 @@
 				E365516529C7A79B00F3D37E /* FadingCollection.swift in Sources */,
 				E3CAFAD929E5F8ED00AEFC74 /* IndividualCollection.swift in Sources */,
 				E35676D729AD182F003B5E9A /* SceneDelegate.swift in Sources */,
+				E3FD473E29E798610065F649 /* CustomTwoSelector.swift in Sources */,
 				E3CAFA8029E4F77500AEFC74 /* ImageMainCell.swift in Sources */,
 				E3FD473829E78D730065F649 /* FourSquareLayout.swift in Sources */,
 				E347447329DB610700E64B68 /* MessagesHeader.swift in Sources */,

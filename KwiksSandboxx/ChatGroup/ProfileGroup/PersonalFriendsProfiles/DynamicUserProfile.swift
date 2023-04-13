@@ -18,6 +18,8 @@ class DynamicUserProfile : UIViewController {
         case random
     }
     
+    var dynamicImages = [String]()
+    
     //reference to state
     var dynamicState = DynamicState.personal
     
@@ -51,12 +53,9 @@ class DynamicUserProfile : UIViewController {
         sii.translatesAutoresizingMaskIntoConstraints = false
         sii.contentMode = .scaleAspectFit
         sii.isUserInteractionEnabled = true
-        let image = UIImage(named: "settings_icon_personal_no_shadow")?.withRenderingMode(.alwaysOriginal)
-        sii.setImage(image, for: UIControl.State.normal)
         sii.translatesAutoresizingMaskIntoConstraints = false
         sii.isUserInteractionEnabled = true
         sii.imageView?.contentMode = .scaleAspectFit
-        sii.addTarget(self, action: #selector(self.handleEllipsisTap(sender:)), for: UIControl.Event.touchUpInside)
         sii.clipsToBounds = false
         sii.layer.masksToBounds = false
         sii.layer.shadowColor = UIColor .black.withAlphaComponent(0.1).cgColor
@@ -64,6 +63,8 @@ class DynamicUserProfile : UIViewController {
         sii.layer.shadowOffset = CGSize(width: 0, height: 7)
         sii.layer.shadowRadius = 10
         sii.layer.shouldRasterize = false
+        sii.addTarget(self, action: #selector(self.handleRopRightIconTap(sender:)), for: UIControl.Event.touchUpInside)
+
         return sii
         
     }()
@@ -126,6 +127,17 @@ class DynamicUserProfile : UIViewController {
         return sii
         
     }()
+    
+    var alternateButtonContainer : UIView = {
+        
+        let abc = UIView()
+        abc.translatesAutoresizingMaskIntoConstraints = false
+        abc.backgroundColor = UIColor .clear
+        abc.isUserInteractionEnabled = false
+        
+        return abc
+        
+    }()
    
     lazy var editProfileButton : UIButton = {
         
@@ -141,6 +153,59 @@ class DynamicUserProfile : UIViewController {
         cbf.tintColor = UIColor .white
         cbf.layer.cornerRadius = 5
         cbf.addTarget(self, action: #selector(self.handleEditProfileButton(sender:)), for: .touchUpInside)
+        
+        return cbf
+        
+    }()
+    
+    lazy var messageFriendButton : UIButton = {
+        
+        let cbf = UIButton(type: .system)
+        cbf.translatesAutoresizingMaskIntoConstraints = false
+        cbf.setTitle("Message", for: UIControl.State.normal)
+        cbf.titleLabel?.font = UIFont.init(name: FontKit().segoeSemiBold, size: 13)
+        cbf.titleLabel?.adjustsFontSizeToFitWidth = true
+        cbf.titleLabel?.numberOfLines = 1
+        cbf.titleLabel?.adjustsFontForContentSizeCategory = true
+        cbf.titleLabel?.textColor = UIColor .white
+        cbf.backgroundColor = UIColor.chatTextGrey.withAlphaComponent(0.1)
+        cbf.tintColor = UIColor .chatTextGrey
+        cbf.layer.cornerRadius = 5
+        cbf.addTarget(self, action: #selector(self.handleEditProfileButton(sender:)), for: .touchUpInside)
+        
+        return cbf
+        
+    }()
+    
+    lazy var removeFriendButton : UIButton = {
+        
+        let cbf = UIButton(type: .system)
+        cbf.translatesAutoresizingMaskIntoConstraints = false
+        let image = UIImage(named: "friend_delete_removal")?.withRenderingMode(.alwaysOriginal)
+        cbf.setImage(image, for: .normal)
+        cbf.backgroundColor = UIColor.chatTextGrey.withAlphaComponent(0.1)
+        cbf.tintColor = UIColor .chatTextGrey
+        cbf.layer.cornerRadius = 5
+        cbf.addTarget(self, action: #selector(self.handleRemoveFriendButton(sender:)), for: .touchUpInside)
+        
+        return cbf
+        
+    }()
+    
+    lazy var followButton : UIButton = {
+        
+        let cbf = UIButton(type: .system)
+        cbf.translatesAutoresizingMaskIntoConstraints = false
+        cbf.setTitle("Follow", for: UIControl.State.normal)
+        cbf.titleLabel?.font = UIFont.init(name: FontKit().segoeSemiBold, size: 13)
+        cbf.titleLabel?.adjustsFontSizeToFitWidth = true
+        cbf.titleLabel?.numberOfLines = 1
+        cbf.titleLabel?.adjustsFontForContentSizeCategory = true
+        cbf.titleLabel?.textColor = UIColor .white
+        cbf.backgroundColor = UIColor.kwiksGreen
+        cbf.tintColor = UIColor .black
+        cbf.layer.cornerRadius = 5
+        cbf.addTarget(self, action: #selector(self.handleFollowButton(sender:)), for: .touchUpInside)
         
         return cbf
         
@@ -257,7 +322,6 @@ class DynamicUserProfile : UIViewController {
         hfl.font = UIFont(name: FontKit().segoeRegular, size: 14)
         hfl.isUserInteractionEnabled = false
         hfl.numberOfLines = 3
-        hfl.text = "Bringing a little more wander into the world, 15 seconds at a time"
 
         return hfl
     }()
@@ -268,6 +332,15 @@ class DynamicUserProfile : UIViewController {
         cts.dynamicUserProfile = self
         
        return cts
+    }()
+    
+    lazy var dynamicProfileCollection : DynamicProfileCollection = {
+       
+        let layout = PinterestLayoutThreeSquare()
+        let dpc = DynamicProfileCollection(frame: .zero, collectionViewLayout: layout)
+        dpc.dynamicUserProfile = self
+        
+        return dpc
     }()
     
     override func viewDidLoad() {
@@ -281,11 +354,47 @@ class DynamicUserProfile : UIViewController {
     
     func fillDummyValues() {
         
+        self.dynamicState = DynamicState.random//this is mine or the account owners
+        
+        var image = UIImage()
+       
+        //set the UI here depending on the trajectory whether personal, following or follower
+        switch self.dynamicState {
+        case .personal: image = UIImage(named: "settings_icon_personal_no_shadow")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
+            self.changeImageButton.isHidden = false
+            self.editProfileButton.isHidden = false
+            self.messageFriendButton.isHidden = true
+            self.removeFriendButton.isHidden = true
+            self.followButton.isHidden = true
+            
+        case .follower: image = UIImage(named: "ellipsis_circle_dots")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
+            self.changeImageButton.isHidden = true
+            self.editProfileButton.isHidden = true
+            self.messageFriendButton.isHidden = false
+            self.removeFriendButton.isHidden = false
+            self.followButton.isHidden = true
+
+        case .random: image = UIImage(named: "ellipsis_circle_dots")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
+            self.changeImageButton.isHidden = true
+            self.editProfileButton.isHidden = true
+            self.messageFriendButton.isHidden = true
+            self.removeFriendButton.isHidden = true
+            self.followButton.isHidden = false
+
+        }
+        
+        self.settingsIcon.setImage(image, for: .normal)
+
+        ///dummy data
+        self.dynamicImages = globalPhotoArray
+
+        //replace me with real data
         self.nameLabel.text = "Charlie Arcodia"
         self.handleLabel.text = "@v3rnalequinox"
         self.followingCountLabel.text = "450"
         self.followersCountLabel.text = "1123"
         self.likesCountLabel.text = "14.8K"
+        self.oneLineBioLabel.text = "Bringing a little more wander into the world, 15 seconds at a time"
 
         self.profilePhoto.loadImageGeneralUse("\(S().stockPhotoURLMusician)") { isComplete in
             print("Profile photo loaded")
@@ -302,7 +411,10 @@ class DynamicUserProfile : UIViewController {
         self.view.addSubview(self.changeImageButton)
         self.view.addSubview(self.handleLabel)
         self.view.addSubview(self.editProfileButton)
-        
+        self.view.addSubview(self.messageFriendButton)
+        self.view.addSubview(self.removeFriendButton)
+        self.view.addSubview(self.followButton)
+
         self.statsStack.addArrangedSubview(self.followingCountLabel)
         self.statsStack.addArrangedSubview(self.followersCountLabel)
         self.statsStack.addArrangedSubview(self.likesCountLabel)
@@ -314,6 +426,9 @@ class DynamicUserProfile : UIViewController {
         self.view.addSubview(self.likesLabel)
         self.view.addSubview(self.oneLineBioLabel)
         self.view.addSubview(self.customThreeSelector)
+        self.view.addSubview(self.dynamicProfileCollection)
+        
+        self.view.addSubview(self.alternateButtonContainer)
 
         self.backButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20).isActive = true
         self.backButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50).isActive = true
@@ -330,7 +445,7 @@ class DynamicUserProfile : UIViewController {
         self.headerLabel.rightAnchor.constraint(equalTo: self.settingsIcon.leftAnchor, constant: -20).isActive = true
         self.headerLabel.sizeToFit()
         
-        self.profilePhoto.topAnchor.constraint(equalTo: self.headerLabel.bottomAnchor, constant: 53).isActive = true
+        self.profilePhoto.topAnchor.constraint(equalTo: self.headerLabel.bottomAnchor, constant: 43).isActive = true
         self.profilePhoto.widthAnchor.constraint(equalToConstant: 150).isActive = true
         self.profilePhoto.heightAnchor.constraint(equalToConstant: 150).isActive = true
         self.profilePhoto.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0).isActive = true
@@ -352,12 +467,32 @@ class DynamicUserProfile : UIViewController {
         self.changeImageButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
         self.changeImageButton.layer.cornerRadius = 20
         
-        self.editProfileButton.topAnchor.constraint(equalTo: self.handleLabel.bottomAnchor, constant: 14).isActive = true
+        self.alternateButtonContainer.topAnchor.constraint(equalTo: self.handleLabel.bottomAnchor, constant: 14).isActive = true
+        self.alternateButtonContainer.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        self.alternateButtonContainer.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+        self.alternateButtonContainer.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        
+        self.editProfileButton.centerYAnchor.constraint(equalTo: self.alternateButtonContainer.centerYAnchor, constant: 0).isActive = true
         self.editProfileButton.heightAnchor.constraint(equalToConstant: 38).isActive = true
         self.editProfileButton.widthAnchor.constraint(equalToConstant: 135).isActive = true
         self.editProfileButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         
-        self.statsStack.topAnchor.constraint(equalTo: self.editProfileButton.bottomAnchor, constant: 18).isActive = true
+        self.followButton.centerYAnchor.constraint(equalTo: self.alternateButtonContainer.centerYAnchor, constant: 0).isActive = true
+        self.followButton.heightAnchor.constraint(equalToConstant: 38).isActive = true
+        self.followButton.widthAnchor.constraint(equalToConstant: 135).isActive = true
+        self.followButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        
+        self.messageFriendButton.centerYAnchor.constraint(equalTo: self.alternateButtonContainer.centerYAnchor, constant: 0).isActive = true
+        self.messageFriendButton.heightAnchor.constraint(equalToConstant: 38).isActive = true
+        self.messageFriendButton.widthAnchor.constraint(equalToConstant: 135).isActive = true
+        self.messageFriendButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: -30).isActive = true
+        
+        self.removeFriendButton.centerYAnchor.constraint(equalTo: self.messageFriendButton.centerYAnchor).isActive = true
+        self.removeFriendButton.leftAnchor.constraint(equalTo: self.messageFriendButton.rightAnchor, constant: 5).isActive = true
+        self.removeFriendButton.heightAnchor.constraint(equalToConstant: 38).isActive = true
+        self.removeFriendButton.widthAnchor.constraint(equalToConstant: 38).isActive = true
+        
+        self.statsStack.topAnchor.constraint(equalTo: self.alternateButtonContainer.bottomAnchor, constant: 18).isActive = true
         self.statsStack.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         self.statsStack.widthAnchor.constraint(equalToConstant: 250).isActive = true
         self.statsStack.heightAnchor.constraint(equalToConstant: 55).isActive = true
@@ -384,12 +519,21 @@ class DynamicUserProfile : UIViewController {
         self.customThreeSelector.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 30).isActive = true
         self.customThreeSelector.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -30).isActive = true
         self.customThreeSelector.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        
+        //pushing the collection out slightly to match the figma
+        self.dynamicProfileCollection.topAnchor.constraint(equalTo: self.customThreeSelector.bottomAnchor, constant: 10).isActive = true
+        self.dynamicProfileCollection.leftAnchor.constraint(equalTo: self.customThreeSelector.leftAnchor, constant: -5).isActive = true
+        self.dynamicProfileCollection.rightAnchor.constraint(equalTo: self.customThreeSelector.rightAnchor, constant: 5).isActive = true
+        self.dynamicProfileCollection.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
 
     }
     
-    
-    @objc func handleEllipsisTap(sender:UIButton) {
-        print(#function)
+    @objc func handleRopRightIconTap(sender:UIButton) {
+        switch self.dynamicState {
+        case .personal: print("take the user to the settings?")
+        case .follower: print("give the user the abilityt to report and flag?")
+        case .random: print("give the user the abilityt to report and flag?")
+        }
     }
     
     @objc func handleChangeImage(sender:UIButton) {
@@ -414,4 +558,12 @@ class DynamicUserProfile : UIViewController {
     @objc func handleLikedSelection() {
         print(#function)
     }
+    @objc func handleRemoveFriendButton(sender:UIButton) {
+        print(#function)
+    }
+    
+    @objc func handleFollowButton(sender:UIButton) {
+        print(#function)
+    }
 }
+
