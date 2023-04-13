@@ -330,7 +330,17 @@ class DynamicUserProfile : UIViewController {
         
         let cts = CustomThreeSelector()
         cts.dynamicUserProfile = self
+        cts.isHidden = true
         
+       return cts
+    }()
+    
+    lazy var customTwoSelector : CustomTwoSelector = {
+        
+        let cts = CustomTwoSelector()
+        cts.dynamicUserProfile = self
+        cts.isHidden = true
+
        return cts
     }()
     
@@ -352,9 +362,11 @@ class DynamicUserProfile : UIViewController {
         
     }
     
+    //MARK: - DUMMY DATA AND DECISION ENUM
     func fillDummyValues() {
         
-        self.dynamicState = DynamicState.random//this is mine or the account owners
+        //call this paramter when pushing the DynamicUserProfile Controller in
+        //self.dynamicState = DynamicState.personal//this is mine or the account owners
         
         var image = UIImage()
        
@@ -366,6 +378,8 @@ class DynamicUserProfile : UIViewController {
             self.messageFriendButton.isHidden = true
             self.removeFriendButton.isHidden = true
             self.followButton.isHidden = true
+            self.customThreeSelector.isHidden = false
+            self.customTwoSelector.isHidden = true
             
         case .follower: image = UIImage(named: "ellipsis_circle_dots")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
             self.changeImageButton.isHidden = true
@@ -373,14 +387,17 @@ class DynamicUserProfile : UIViewController {
             self.messageFriendButton.isHidden = false
             self.removeFriendButton.isHidden = false
             self.followButton.isHidden = true
-
+            self.customThreeSelector.isHidden = true
+            self.customTwoSelector.isHidden = false
+            
         case .random: image = UIImage(named: "ellipsis_circle_dots")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
             self.changeImageButton.isHidden = true
             self.editProfileButton.isHidden = true
             self.messageFriendButton.isHidden = true
             self.removeFriendButton.isHidden = true
             self.followButton.isHidden = false
-
+            self.customThreeSelector.isHidden = true
+            self.customTwoSelector.isHidden = false
         }
         
         self.settingsIcon.setImage(image, for: .normal)
@@ -426,6 +443,8 @@ class DynamicUserProfile : UIViewController {
         self.view.addSubview(self.likesLabel)
         self.view.addSubview(self.oneLineBioLabel)
         self.view.addSubview(self.customThreeSelector)
+        self.view.addSubview(self.customTwoSelector)
+
         self.view.addSubview(self.dynamicProfileCollection)
         
         self.view.addSubview(self.alternateButtonContainer)
@@ -520,6 +539,11 @@ class DynamicUserProfile : UIViewController {
         self.customThreeSelector.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -30).isActive = true
         self.customThreeSelector.heightAnchor.constraint(equalToConstant: 44).isActive = true
         
+        self.customTwoSelector.topAnchor.constraint(equalTo: self.oneLineBioLabel.bottomAnchor, constant: 38).isActive = true
+        self.customTwoSelector.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 30).isActive = true
+        self.customTwoSelector.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -30).isActive = true
+        self.customTwoSelector.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        
         //pushing the collection out slightly to match the figma
         self.dynamicProfileCollection.topAnchor.constraint(equalTo: self.customThreeSelector.bottomAnchor, constant: 10).isActive = true
         self.dynamicProfileCollection.leftAnchor.constraint(equalTo: self.customThreeSelector.leftAnchor, constant: -5).isActive = true
@@ -530,9 +554,9 @@ class DynamicUserProfile : UIViewController {
     
     @objc func handleRopRightIconTap(sender:UIButton) {
         switch self.dynamicState {
-        case .personal: print("take the user to the settings?")
-        case .follower: print("give the user the abilityt to report and flag?")
-        case .random: print("give the user the abilityt to report and flag?")
+            case .personal: print("take the user to the settings?")
+            case .follower: print("give the user the abilityt to report and flag?")
+            case .random: print("give the user the abilityt to report and flag?")
         }
     }
     
@@ -550,13 +574,25 @@ class DynamicUserProfile : UIViewController {
     
     //from custom selector
     @objc func handlePostSelection() {
-        print(#function)
+        
+        switch self.dynamicState {
+            case .personal: print("Post selection from personal")
+            case .follower: print("Post selection from follower")
+            case .random: print("Post selection from random")
+        }
     }
     @objc func handlePrivateSelection() {
-        print(#function)
+        switch self.dynamicState {
+            case .personal: print("Private selection from personal")
+            default: print("not possible")
+        }
     }
     @objc func handleLikedSelection() {
-        print(#function)
+        switch self.dynamicState {
+            case .personal: print("Liked selection from personal")
+            case .follower: print("Liked selection from follower")
+            case .random: print("Liked selection from random")
+        }
     }
     @objc func handleRemoveFriendButton(sender:UIButton) {
         print(#function)

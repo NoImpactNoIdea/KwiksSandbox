@@ -29,22 +29,6 @@ class CustomTwoSelector : UIView {
         return hfl
     }()
     
-    lazy var centerLabel : UILabel = {
-        
-        let hfl = UILabel()
-        hfl.translatesAutoresizingMaskIntoConstraints = false
-        hfl.backgroundColor = .clear
-        hfl.textColor = UIColor.kwiksMatteBlack
-        hfl.textAlignment = .center
-        hfl.font = UIFont(name: FontKit().segoeSemiBold, size: 14)
-        hfl.isUserInteractionEnabled = false
-        hfl.numberOfLines = 3
-        hfl.text = "Private"
-        hfl.isUserInteractionEnabled = true
-        hfl.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.handleTaps(sender:))))
-        return hfl
-    }()
-    
     lazy var rightLabel : UILabel = {
         
         let hfl = UILabel()
@@ -92,27 +76,21 @@ class CustomTwoSelector : UIView {
         
         self.addSubview(self.selectorView)
         self.addSubview(self.leftLabel)
-        self.addSubview(self.centerLabel)
         self.addSubview(self.rightLabel)
 
         self.leftLabel.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         self.leftLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         self.leftLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        self.leftLabel.widthAnchor.constraint(equalToConstant: myWidth / 3).isActive = true
+        self.leftLabel.widthAnchor.constraint(equalToConstant: myWidth / 2).isActive = true
         
-        self.centerLabel.leftAnchor.constraint(equalTo: self.leftLabel.rightAnchor).isActive = true
-        self.centerLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        self.centerLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        self.centerLabel.widthAnchor.constraint(equalToConstant: myWidth / 3).isActive = true
-        
-        self.rightLabel.leftAnchor.constraint(equalTo: self.centerLabel.rightAnchor).isActive = true
+        self.rightLabel.leftAnchor.constraint(equalTo: self.leftLabel.rightAnchor).isActive = true
         self.rightLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         self.rightLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        self.rightLabel.widthAnchor.constraint(equalToConstant: myWidth / 3).isActive = true
+        self.rightLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
        
         self.selectorView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         self.selectorView.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        self.selectorView.widthAnchor.constraint(equalToConstant: ((myWidth / 3) - 6)).isActive = true
+        self.selectorView.widthAnchor.constraint(equalToConstant: ((myWidth / 2) - 6)).isActive = true
         self.leftConstraint = self.selectorView.leftAnchor.constraint(equalTo: self.leftLabel.leftAnchor, constant: 3)
         self.leftConstraint?.isActive = true
         
@@ -122,7 +100,7 @@ class CustomTwoSelector : UIView {
         if let label = sender.view as? UILabel {
             UIDevice.vibrateLight()
             
-            let myWidth = (screenWidth - 60) / 3
+            let myWidth = (screenWidth - 60) / 2
            
             switch label.text {
                 case "Posts":
@@ -131,19 +109,13 @@ class CustomTwoSelector : UIView {
                     self.leftConstraint?.constant = 3
                     self.layoutIfNeeded()
                 }
-                case "Private":
-                self.dynamicUserProfile?.handlePrivateSelection()
+                case "Liked":
+                self.dynamicUserProfile?.handleLikedSelection()
 
                 UIView.animate(withDuration: 0.15) {
                     self.leftConstraint?.constant = myWidth + 3
                     self.layoutIfNeeded()
                 }
-                case "Liked":
-                self.dynamicUserProfile?.handleLikedSelection()
-                    UIView.animate(withDuration: 0.15) {
-                        self.leftConstraint?.constant = ((myWidth * 2) + 3)
-                        self.layoutIfNeeded()
-                    }
                 default: print("no show")
             }
         }
