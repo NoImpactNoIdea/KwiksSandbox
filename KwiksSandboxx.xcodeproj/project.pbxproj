@@ -130,6 +130,7 @@
 		E3CAFAE329E61E6300AEFC74 /* ChatMediaViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CAFAE229E61E6300AEFC74 /* ChatMediaViewer.swift */; };
 		E3CAFAE529E61F1900AEFC74 /* ChatMediaCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CAFAE429E61F1900AEFC74 /* ChatMediaCollection.swift */; };
 		E3D0831929D72ADB00CE82D9 /* ColorSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */; };
+		E3E125E129E85EAF00822267 /* DynamicHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E125E029E85EAF00822267 /* DynamicHeader.swift */; };
 		E3F91CAD29E7359400591F4C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E3F91CAC29E7359400591F4C /* .gitignore */; };
 		E3FD46FF29E737B80065F649 /* segoeui-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3FD46FE29E737B80065F649 /* segoeui-semibold.ttf */; };
 		E3FD470029E737BF0065F649 /* Segoe UI Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3FD46FC29E737940065F649 /* Segoe UI Bold Italic.ttf */; };
@@ -290,6 +291,7 @@
 		E3CAFAE229E61E6300AEFC74 /* ChatMediaViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMediaViewer.swift; sourceTree = "<group>"; };
 		E3CAFAE429E61F1900AEFC74 /* ChatMediaCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMediaCollection.swift; sourceTree = "<group>"; };
 		E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSheet.swift; sourceTree = "<group>"; };
+		E3E125E029E85EAF00822267 /* DynamicHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeader.swift; sourceTree = "<group>"; };
 		E3F91CAC29E7359400591F4C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E3FD46FA29E737940065F649 /* Segoe UI Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI Italic.ttf"; sourceTree = "<group>"; };
 		E3FD46FB29E737940065F649 /* Segoe UI Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI Bold.ttf"; sourceTree = "<group>"; };
@@ -623,6 +625,7 @@
 			isa = PBXGroup;
 			children = (
 				E3FD470729E75C610065F649 /* DynamicUserProfile.swift */,
+				E3E125E029E85EAF00822267 /* DynamicHeader.swift */,
 				E3FD473529E76C810065F649 /* CustomThreeSelector.swift */,
 				E3FD473B29E78DDF0065F649 /* DynamicProfileCollection.swift */,
 				E3FD473D29E798610065F649 /* CustomTwoSelector.swift */,
@@ -1022,6 +1025,7 @@
 				E3FD473E29E798610065F649 /* CustomTwoSelector.swift in Sources */,
 				E3CAFA8029E4F77500AEFC74 /* ImageMainCell.swift in Sources */,
 				E3FD473829E78D730065F649 /* FourSquareLayout.swift in Sources */,
+				E3E125E129E85EAF00822267 /* DynamicHeader.swift in Sources */,
 				E347447329DB610700E64B68 /* MessagesHeader.swift in Sources */,
 				E365516A29C7B16F00F3D37E /* Layout.swift in Sources */,
 				E39F084129E4B38300C76016 /* MessageCell.swift in Sources */,

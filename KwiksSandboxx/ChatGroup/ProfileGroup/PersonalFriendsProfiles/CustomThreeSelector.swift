@@ -12,7 +12,7 @@ import UIKit
 
 class CustomThreeSelector : UIView {
     
-    var dynamicUserProfile : DynamicUserProfile?
+    var dynamicUserProfile : DynamicHeader?
     var leftConstraint : NSLayoutConstraint?
 
     lazy var leftLabel : UILabel = {
@@ -128,20 +128,20 @@ class CustomThreeSelector : UIView {
            
             switch label.text {
                 case "Posts":
-                self.dynamicUserProfile?.handlePostSelection()
+                self.dynamicUserProfile?.dynamicUserProfile?.handlePostSelection()
                 UIView.animate(withDuration: 0.15) {
                     self.leftConstraint?.constant = 3
                     self.layoutIfNeeded()
                 }
                 case "Private":
-                self.dynamicUserProfile?.handlePrivateSelection()
+                self.dynamicUserProfile?.dynamicUserProfile?.handlePrivateSelection()
 
                 UIView.animate(withDuration: 0.15) {
                     self.leftConstraint?.constant = myWidth + 3
                     self.layoutIfNeeded()
                 }
                 case "Liked":
-                self.dynamicUserProfile?.handleLikedSelection()
+                self.dynamicUserProfile?.dynamicUserProfile?.handleLikedSelection()
                     UIView.animate(withDuration: 0.15) {
                         self.leftConstraint?.constant = ((myWidth * 2) + 3)
                         self.layoutIfNeeded()

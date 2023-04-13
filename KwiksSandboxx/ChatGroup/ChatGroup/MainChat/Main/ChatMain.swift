@@ -181,7 +181,7 @@ class ChatMain : UIViewController {
             self.chatHeader.nameLabel.text = "Charlie Arcodia"
             self.chatHeader.profilePhoto.image = stock_image
             
-            self.backdropView.loadImageGeneralUse("\(S().stockPhotoURLPattern)") { isComplete in
+            self.backdropView.loadImageGeneralUse("\(S().stockPhotoUrlBasicPattern)") { isComplete in
                 print("backdrop loaded in")
             }
         }
@@ -204,6 +204,24 @@ class ChatMain : UIViewController {
         } else {
             self.dismiss(animated: true)
         }
+    }
+        
+    func handleAlert() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let actionOne = UIAlertAction(title: "Block", style: .default) { res in
+            print("block") //handle blocking
+        }
+        let actionTwo = UIAlertAction(title: "Flag", style: .default) { res in
+            print("flagging") //handle blocking
+        }
+        let actionThree = UIAlertAction(title: "Cancel", style: .destructive) { res in
+            print("cancelled") //handle blocking
+        }
+        alertController.addAction(actionOne)
+        alertController.addAction(actionTwo)
+        alertController.addAction(actionThree)
+
+        self.present(alertController, animated: true)
     }
     
     //MARK: function calls from accessory view

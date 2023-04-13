@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         SDImageCache.shared.config.maxDiskAge = 3600 * 24 * 7
         SDImageCache.shared.config.maxMemoryCost = 1024 * 1024 * 4 * 20
-        SDImageCache.shared.config.shouldCacheImagesInMemory = false
+        SDImageCache.shared.config.shouldCacheImagesInMemory = true
         SDImageCache.shared.config.shouldUseWeakMemoryCache = false
         SDImageCache.shared.config.diskCacheReadingOptions = .mappedIfSafe
 

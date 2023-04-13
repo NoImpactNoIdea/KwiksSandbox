@@ -46,7 +46,12 @@ class IndividualCollection : UICollectionView, UICollectionViewDelegateFlowLayou
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let individualController = self.individualProfileChatController {
-            return individualController.photoArray.count
+            //we need to stop this at 8 photos
+            if individualController.photoArray.count >= 8 {
+                return 8
+            } else {
+                return individualController.photoArray.count
+            }
         } else {
             return 0
         }
@@ -95,6 +100,7 @@ class IndividualFeeder : UICollectionViewCell {
         cv.layer.cornerRadius = 10
         cv.clipsToBounds = true
         cv.layer.masksToBounds = true
+        cv.contentMode = .scaleAspectFill
         
         return cv
     }()

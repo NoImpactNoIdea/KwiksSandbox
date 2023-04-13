@@ -109,6 +109,7 @@ class ChatHeader : UIView {
         let image = UIImage(systemName: S().ellipsis, withConfiguration: config)
         cbf.setImage(image, for: UIControl.State.normal)
         cbf.tintColor = UIColor.iconBrown
+        cbf.addTarget(self, action: #selector(self.handleEllipsisButton), for: .touchUpInside)
         return cbf
         
     }()
@@ -162,6 +163,10 @@ class ChatHeader : UIView {
         
         self.ellipsisButton.transform = CGAffineTransform(rotationAngle: Double.pi/2)
         
+    }
+    
+    @objc func handleEllipsisButton() {
+        self.chatMain?.handleAlert()
     }
     
     @objc func handleProfilePhotoTaps(sender:UIGestureRecognizer) {

@@ -321,7 +321,7 @@ class IndividualProfileChatController : UIViewController {
         
         self.photoArray = globalPhotoArray
         self.nameLabel.text = "Charlie Arcodia"
-        self.profilePhoto.loadImageGeneralUse("\(S().stockPhotoURLMusician)") { isComplete in
+        self.profilePhoto.loadImageGeneralUse("\(S().manThree)") { isComplete in
             print("Profile photo loaded")
         }
         
@@ -437,7 +437,7 @@ class IndividualProfileChatController : UIViewController {
         self.individualCollection.rightAnchor.constraint(equalTo: self.infoBar.rightAnchor, constant: 10).isActive = true
         self.individualCollection.heightAnchor.constraint(equalToConstant: 180).isActive = true
         
-        self.changeBackgroundCell.topAnchor.constraint(equalTo: self.individualCollection.bottomAnchor, constant: 25).isActive = true
+        self.changeBackgroundCell.topAnchor.constraint(equalTo: self.individualCollection.bottomAnchor, constant: 15).isActive = true
         self.changeBackgroundCell.leftAnchor.constraint(equalTo: self.infoBar.leftAnchor).isActive = true
         self.changeBackgroundCell.rightAnchor.constraint(equalTo: self.infoBar.rightAnchor).isActive = true
         self.changeBackgroundCell.heightAnchor.constraint(equalToConstant: 30).isActive = true
@@ -478,10 +478,8 @@ class IndividualProfileChatController : UIViewController {
     }
     
     @objc func handlePresentPopup() {
-        print("presenting popup")
         self.changeBackgroundPopup.engagePopup()
     }
-   
     
     //make the https call to enable/disable notifications for this chat for this user
     @objc func handleToggle(sender : UISwitch) {

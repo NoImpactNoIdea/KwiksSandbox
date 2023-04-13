@@ -61,7 +61,7 @@ class ChatMediaViewer : UIViewController {
         self.view.addSubview(self.chatMediaCollection)
         self.view.addSubview(self.backLabel)
 
-        self.backButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 15).isActive = true
+        self.backButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20).isActive = true
         self.backButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 40).isActive = true
         self.backButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         self.backButton.widthAnchor.constraint(equalToConstant: 44).isActive = true

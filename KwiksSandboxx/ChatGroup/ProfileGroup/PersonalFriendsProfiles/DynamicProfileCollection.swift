@@ -25,7 +25,7 @@ class DynamicProfileCollection : UICollectionView, UICollectionViewDelegateFlowL
         
         self.isPrefetchingEnabled = false
         self.keyboardDismissMode = UIScrollView.KeyboardDismissMode.interactive
-        self.alwaysBounceVertical = false
+        self.alwaysBounceVertical = true
         self.alwaysBounceHorizontal = false
         self.showsVerticalScrollIndicator = false
         self.showsHorizontalScrollIndicator = false
@@ -33,6 +33,7 @@ class DynamicProfileCollection : UICollectionView, UICollectionViewDelegateFlowL
         self.canCancelContentTouches = false
         self.contentInsetAdjustmentBehavior = .never
         self.delaysContentTouches = true
+        self.contentInset = UIEdgeInsets(top: 615, left: 0, bottom: 35, right: 0)
         
         self.register(DynamicFeeder.self, forCellWithReuseIdentifier: self.dynamicProfileID)
         
@@ -51,7 +52,7 @@ class DynamicProfileCollection : UICollectionView, UICollectionViewDelegateFlowL
     }
     
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-        return screenWidth / 4
+        return screenWidth / 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -95,7 +96,8 @@ class DynamicFeeder : UICollectionViewCell {
         cv.layer.masksToBounds = true
         cv.layer.borderWidth = 1
         cv.layer.borderColor = UIColor .black.withAlphaComponent(0.1).cgColor
-        
+        cv.contentMode = .scaleAspectFill
+
         return cv
     }()
     
@@ -146,7 +148,7 @@ class DynamicFeeder : UICollectionViewCell {
         self.imageContainer.topAnchor.constraint(equalTo: self.topAnchor, constant: 2).isActive = true
         self.imageContainer.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         self.imageContainer.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        self.imageContainer.widthAnchor.constraint(equalToConstant: screenWidth / 4).isActive = true
+        self.imageContainer.widthAnchor.constraint(equalToConstant: screenWidth / 3.6).isActive = true
         
         self.viewCountLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -13).isActive = true
         self.viewCountLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true

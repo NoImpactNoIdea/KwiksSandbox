@@ -62,6 +62,30 @@ struct S { //S for string
     var stockPhotoURLPattern = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2Fstock_wall_paper.jpg?alt=media&token=31989698-163b-4892-b8f1-aee5be2b4c56"
     var stockPhotoURLMusician = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2Fstock_musician.jpg?alt=media&token=d4894456-fd55-4896-99c9-5c6269f38f81"
     var stockPhotoURLWoman = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2FRectangle%2076%403x.png?alt=media&token=a2db3e30-1ab7-4226-aec9-f9e7f83d771f"
+    
+    var manOne = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2Fman-g8ca04b58b_1920.jpg?alt=media&token=57e88789-73a1-409d-9606-bdb34e2834b4"
+    
+    var womanOne = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2Fwoman-gf9670cc7c_1920.jpg?alt=media&token=d06975a3-ef9b-41f6-8ea5-b0676b62dc8a"
+    
+    var womanTwo = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2Fpopart-gdc9880353_1920.jpg?alt=media&token=9537d091-f985-43b0-ba3a-3c167d40a009"
+    
+    var womanThree = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2Fgirl-gbad346c14_1920.jpg?alt=media&token=054ae85b-7e3a-4d12-b9ea-0897ad6c56df"
+    
+    var womanFour = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2Fhip-hop-g91249a87e_1280.jpg?alt=media&token=a817ed22-01a1-40ae-8d5b-725561564a0d"
+    
+    var womanFive = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2Fdrew-colins-LIEQsu5JuoM-unsplash.jpg?alt=media&token=521625a5-da23-4e0d-9eb5-101a2f284ec0"
+    
+    var womanSix = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2Fhanson-lu-PhzM4ABsTiQ-unsplash.jpg?alt=media&token=789eeca9-e8fd-4e66-b834-570e854937fb"
+    
+    var womanSeven = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2Fdance-ga83f954ca_1920.jpg?alt=media&token=a352e3ee-6e18-4df5-8cdf-833e5e7f7e52"
+    
+    var womanEight = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2Fholi-gac431fd4d_1920.jpg?alt=media&token=d3b18e74-a081-4809-b3f6-42c73fa94d9f"
+    
+    var manTwo = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2Fexpensive-ge11e5c445_1920.jpg?alt=media&token=2e7eecf1-b769-4506-9cb3-a38ddb9b81d7"
+    
+    var manThree = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2Fadult-g519c41b5b_1920.jpg?alt=media&token=6a084723-ec79-4386-b9a9-e1d42128279a"
+    
+    var manFour = "https://firebasestorage.googleapis.com/v0/b/matcher-client-prod.appspot.com/o/dummy_photos%2Frap-g8604c2bd4_1280.jpg?alt=media&token=45913266-76e5-4070-88b7-ab406f52936c"
 }
 
 extension CGFloat { //grab the status bar height
@@ -158,14 +182,19 @@ extension UIImageView {
     }
 }
 
-var globalPhotoArray : [String] = ["\(S().stockPhotoURLPattern)",
-                             "\(S().stockPhotoURLPattern)",
-                             "\(S().stockPhotoURLPattern)",
-                             "\(S().stockPhotoURLPattern)",
-                             "\(S().stockPhotoURLPattern)",
-                             "\(S().stockPhotoURLPattern)",
-                             "\(S().stockPhotoURLPattern)",
-                             "\(S().stockPhotoURLPattern)"]
+var globalPhotoArray : [String] = ["\(S().womanEight)",
+                             "\(S().manOne)",
+                             "\(S().womanOne)",
+                             "\(S().manTwo)",
+                             "\(S().womanTwo)",
+                             "\(S().manThree)",
+                             "\(S().womanFive)",
+                             "\(S().womanFour)",
+                             "\(S().manFour)",
+                             "\(S().womanSeven)",
+                             "\(S().womanThree)",
+                             "\(S().womanSix)"
+]
 
 var background_chat_deep_pink = "background_chat_deep_pink"
 var background_chat_empty = "background_chat_empty"

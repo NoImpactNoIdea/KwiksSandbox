@@ -53,7 +53,7 @@ class ChatMediaCollection : UICollectionView, UICollectionViewDelegateFlowLayout
     }
     
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-        return screenWidth / 4
+        return (screenWidth / 4) + 9
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -95,7 +95,8 @@ class ChatMediaFeeder : UICollectionViewCell {
         cv.layer.cornerRadius = 10
         cv.clipsToBounds = true
         cv.layer.masksToBounds = true
-        
+        cv.contentMode = .scaleAspectFill
+
         return cv
     }()
     
@@ -111,7 +112,7 @@ class ChatMediaFeeder : UICollectionViewCell {
         
         self.addSubview(self.containerView)
         
-        self.containerView.topAnchor.constraint(equalTo: self.topAnchor, constant: 2).isActive = true
+        self.containerView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = true
         self.containerView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         self.containerView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         self.containerView.widthAnchor.constraint(equalToConstant: screenWidth / 4).isActive = true
