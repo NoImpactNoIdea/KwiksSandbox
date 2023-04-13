@@ -245,13 +245,13 @@ func loadDummyData(completion : @escaping (_ isComplete : Bool, _ returnedBlock 
     
 let objOne = ChatModel(JSON: one),
     objTwo = ChatModel(JSON: two),
-    objThree = ChatModel(JSON: three), //this is the image for testing - on hold though
+    objThree = ChatModel(JSON: three), 
     objFour = ChatModel(JSON: four),
     objFive = ChatModel(JSON: five),
     objSix = ChatModel(JSON: six),
     objSeven = ChatModel(JSON: seven),
 
-    array = [objOne, objTwo, objFour, objFive, objSix, objSeven, objThree]
+    array = [objOne, objTwo, objFour, objFive, objSix, objSeven]
     globalChatDataSource = array
     completion(true, array)
 }
