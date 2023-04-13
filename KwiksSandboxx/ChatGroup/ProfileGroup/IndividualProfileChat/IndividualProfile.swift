@@ -14,7 +14,7 @@ class IndividualProfileChatController : UIViewController {
 
     lazy var individualCollection : IndividualCollection = {
         
-        let layout = PinterestLayoutPastMatches()
+        let layout = PinterestLayoutFourSquare()
         let pmcv = IndividualCollection(frame: .zero, collectionViewLayout: layout)
         pmcv.individualProfileChatController = self
         

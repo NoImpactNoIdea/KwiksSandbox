@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SDWebImage
 
-class ChatMediaCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate, UIGestureRecognizerDelegate, PinterestLayoutBackgroundDelegate {
+class ChatMediaCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate, UIGestureRecognizerDelegate, PinterestLayoutThreeSquareDelegate {
    
     private let chatMediaCollectionID = "chatMediaCollectionID"
     
@@ -39,7 +39,7 @@ class ChatMediaCollection : UICollectionView, UICollectionViewDelegateFlowLayout
         self.register(ChatMediaFeeder.self, forCellWithReuseIdentifier: self.chatMediaCollectionID)
         
         //MARK: - PINTEREST STYLE LAYOUT ATTRIBUTE
-        if let layout = self.collectionViewLayout as? PinterestLayoutBackground {
+        if let layout = self.collectionViewLayout as? PinterestLayoutThreeSquare {
             layout.delegate = self
         }
     }

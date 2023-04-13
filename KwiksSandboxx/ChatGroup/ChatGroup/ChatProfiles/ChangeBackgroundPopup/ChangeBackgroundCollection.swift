@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SDWebImage
 
-class ChangeBackgroundCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate, UIGestureRecognizerDelegate, PinterestLayoutDelegatePastMatches {
+class ChangeBackgroundCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate, UIGestureRecognizerDelegate, PinterestLayoutFourSquareDelegate {
    
     private let changeBackgroundID = "changeBackgroundID"
     
@@ -40,7 +40,7 @@ class ChangeBackgroundCollection : UICollectionView, UICollectionViewDelegateFlo
         self.register(ChangeBackgroundFeeder.self, forCellWithReuseIdentifier: self.changeBackgroundID)
         
         //MARK: - PINTEREST STYLE LAYOUT ATTRIBUTE
-        if let layout = self.collectionViewLayout as? PinterestLayoutPastMatches {
+        if let layout = self.collectionViewLayout as? PinterestLayoutFourSquare {
             layout.delegate = self
         }
     }

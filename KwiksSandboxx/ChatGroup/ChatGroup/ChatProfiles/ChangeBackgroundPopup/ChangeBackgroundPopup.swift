@@ -17,7 +17,7 @@ class ChangeBackgroundPopup : UIView {
     
     lazy var changeBackgroundCollection : ChangeBackgroundCollection = {
         
-        let layout = PinterestLayoutPastMatches()
+        let layout = PinterestLayoutFourSquare()
         let pmcv = ChangeBackgroundCollection(frame: .zero, collectionViewLayout: layout)
         pmcv.changeBackgroundPopup = self
         

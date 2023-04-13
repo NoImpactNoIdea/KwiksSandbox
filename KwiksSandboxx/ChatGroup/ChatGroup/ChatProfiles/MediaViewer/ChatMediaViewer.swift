@@ -38,7 +38,7 @@ class ChatMediaViewer : UIViewController {
     
     lazy var chatMediaCollection : ChatMediaCollection = {
         
-        let layout = PinterestLayoutBackground()
+        let layout = PinterestLayoutThreeSquare()
         let pmcv = ChatMediaCollection(frame: .zero, collectionViewLayout: layout)
         pmcv.chatMediaViewer = self
         

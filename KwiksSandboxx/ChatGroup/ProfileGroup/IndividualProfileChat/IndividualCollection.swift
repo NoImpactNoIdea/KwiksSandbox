@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SDWebImage
 
-class IndividualCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate, UIGestureRecognizerDelegate, PinterestLayoutDelegatePastMatches {
+class IndividualCollection : UICollectionView, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate, UIGestureRecognizerDelegate, PinterestLayoutFourSquareDelegate {
    
     private let individualCollectionID = "individualCollectionID"
     
@@ -39,7 +39,7 @@ class IndividualCollection : UICollectionView, UICollectionViewDelegateFlowLayou
         self.register(IndividualFeeder.self, forCellWithReuseIdentifier: self.individualCollectionID)
         
         //MARK: - PINTEREST STYLE LAYOUT ATTRIBUTE
-        if let layout = self.collectionViewLayout as? PinterestLayoutPastMatches {
+        if let layout = self.collectionViewLayout as? PinterestLayoutFourSquare {
             layout.delegate = self
         }
     }

@@ -215,7 +215,6 @@ class DynamicUserProfile : UIViewController {
         hfl.font = UIFont(name: FontKit().segoeBold, size: 25)
         hfl.isUserInteractionEnabled = true
         hfl.numberOfLines = 1
-        hfl.text = "450"
         
         return hfl
     }()
@@ -230,7 +229,6 @@ class DynamicUserProfile : UIViewController {
         hfl.font = UIFont(name: FontKit().segoeBold, size: 25)
         hfl.isUserInteractionEnabled = true
         hfl.numberOfLines = 1
-        hfl.text = "1123"
 
         return hfl
     }()
@@ -245,7 +243,6 @@ class DynamicUserProfile : UIViewController {
         hfl.font = UIFont(name: FontKit().segoeBold, size: 25)
         hfl.isUserInteractionEnabled = true
         hfl.numberOfLines = 1
-        hfl.text = "14.8K"
 
         return hfl
     }()
@@ -286,6 +283,10 @@ class DynamicUserProfile : UIViewController {
         
         self.nameLabel.text = "Charlie Arcodia"
         self.handleLabel.text = "@v3rnalequinox"
+        self.followingCountLabel.text = "450"
+        self.followersCountLabel.text = "1123"
+        self.likesCountLabel.text = "14.8K"
+
         self.profilePhoto.loadImageGeneralUse("\(S().stockPhotoURLMusician)") { isComplete in
             print("Profile photo loaded")
         }
