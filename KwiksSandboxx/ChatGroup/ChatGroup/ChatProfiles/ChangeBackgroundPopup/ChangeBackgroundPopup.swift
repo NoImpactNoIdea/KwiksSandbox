@@ -81,7 +81,7 @@ class ChangeBackgroundPopup : UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor .black.withAlphaComponent(0.15)
+        self.backgroundColor = UIColor .black.withAlphaComponent(0.4)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.alpha = 0.0
         self.layer.zPosition = 100
@@ -149,7 +149,7 @@ class ChangeBackgroundPopup : UIView {
         
         UIView.animate(withDuration: 0.15) {
            
-            self.backgroundColor = UIColor .black.withAlphaComponent(0.55)
+            self.backgroundColor = UIColor .black.withAlphaComponent(0.4)
             self.layoutIfNeeded()
             self.layoutSubviews()
         } completion: { complete in

@@ -437,15 +437,20 @@ class IndividualProfileChatController : UIViewController {
         self.individualCollection.rightAnchor.constraint(equalTo: self.infoBar.rightAnchor, constant: 10).isActive = true
         self.individualCollection.heightAnchor.constraint(equalToConstant: 180).isActive = true
         
-        self.changeBackgroundCell.topAnchor.constraint(equalTo: self.individualCollection.bottomAnchor, constant: 15).isActive = true
+         self.muteNotificationsCell.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -60).isActive = true
+         self.muteNotificationsCell.leftAnchor.constraint(equalTo: self.infoBar.leftAnchor).isActive = true
+         self.muteNotificationsCell.rightAnchor.constraint(equalTo: self.infoBar.rightAnchor).isActive = true
+         self.muteNotificationsCell.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+        self.changeBackgroundCell.bottomAnchor.constraint(equalTo: self.muteNotificationsCell.topAnchor, constant: -15).isActive = true
         self.changeBackgroundCell.leftAnchor.constraint(equalTo: self.infoBar.leftAnchor).isActive = true
         self.changeBackgroundCell.rightAnchor.constraint(equalTo: self.infoBar.rightAnchor).isActive = true
         self.changeBackgroundCell.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        self.muteNotificationsCell.topAnchor.constraint(equalTo: self.changeBackgroundCell.bottomAnchor, constant: 22).isActive = true
-        self.muteNotificationsCell.leftAnchor.constraint(equalTo: self.infoBar.leftAnchor).isActive = true
-        self.muteNotificationsCell.rightAnchor.constraint(equalTo: self.infoBar.rightAnchor).isActive = true
-        self.muteNotificationsCell.heightAnchor.constraint(equalToConstant: 30).isActive = true
+//
+//        self.muteNotificationsCell.topAnchor.constraint(equalTo: self.changeBackgroundCell.bottomAnchor, constant: 22).isActive = true
+//        self.muteNotificationsCell.leftAnchor.constraint(equalTo: self.infoBar.leftAnchor).isActive = true
+//        self.muteNotificationsCell.rightAnchor.constraint(equalTo: self.infoBar.rightAnchor).isActive = true
+//        self.muteNotificationsCell.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         self.changeBackgroundLabel.centerYAnchor.constraint(equalTo: self.changeBackgroundCell.centerYAnchor).isActive = true
         self.changeBackgroundLabel.leftAnchor.constraint(equalTo: self.changeBackgroundCell.leftAnchor).isActive = true

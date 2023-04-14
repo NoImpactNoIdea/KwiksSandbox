@@ -11,8 +11,10 @@ import SDWebImage
 
 //globals
 var globalChatDataSource = [ChatModel]() //chat model reference
+
 var screenWidth = UIScreen.main.bounds.width
 var screenHeight = UIScreen.main.bounds.height
+
 extension UIDevice { //haptics and vibrations
     static func vibrateLight() {
         let generator = UIImpactFeedbackGenerator(style: .light)
@@ -28,7 +30,65 @@ extension UIDevice { //haptics and vibrations
     }
 }
 
-struct S { //S for string
+extension UITextField {
+    func setupLeftImage(imageName: String){
+        let imageView = UIImageView(frame: CGRect(x: 10, y: 10, width: 20, height: 20))
+        imageView.image = UIImage(named: imageName)
+        
+        let imageContainerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 37.5, height: 40))
+        imageContainerView.addSubview(imageView)
+        
+        self.leftView = imageContainerView
+        self.leftViewMode = .always
+        self.tintColor = .black
+    }
+}
+
+extension UITextField {
+
+    enum PaddingSide {
+        case left(CGFloat)
+        case right(CGFloat)
+        case both(CGFloat)
+    }
+
+    func addPadding(_ padding: PaddingSide, _ imageName : String) {
+
+        self.leftViewMode = .always
+        self.layer.masksToBounds = true
+
+        switch padding {
+
+        case .left(let spacing):
+            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: spacing, height: self.frame.height))
+            self.leftView = paddingView
+            self.rightViewMode = .always
+
+        case .right(let spacing):
+            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: spacing, height: self.frame.height))
+            self.rightView = paddingView
+            self.rightViewMode = .always
+
+        case .both(let spacing):
+            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: spacing, height: self.frame.height))
+            // left
+            
+            let imageView = UIImageView(frame: CGRect(x: 10, y: 10, width: 20, height: 20))
+            imageView.image = UIImage(named: imageName)?.withTintColor(UIColor.chatTextGrey)
+            
+            let imageContainerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 37.5, height: 40))
+            imageContainerView.addSubview(imageView)
+            
+            self.leftView = imageContainerView
+            self.leftViewMode = .always
+            // right
+            self.rightView = paddingView
+            self.rightViewMode = .always
+        }
+    }
+}
+
+struct S { //S for string - apparently noone does this :)
     var messages = "Messages"
     var backIcon = "back_icon_final"
     var longBackIcon = "long_back_arrow"

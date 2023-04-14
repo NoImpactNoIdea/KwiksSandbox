@@ -7,7 +7,7 @@
 import Foundation
 import UIKit
 
-class MessagesHeader : UIView {
+class MessagesHeader : UIView, UITextFieldDelegate {
     
     //Selector that decides between bestie, family, archived and requests
     public enum StateSelection {
@@ -89,7 +89,7 @@ class MessagesHeader : UIView {
         let image = UIImage(named: S().magGlass)?.withRenderingMode(.alwaysOriginal)
         cbf.setImage(image, for: UIControl.State.normal)
         cbf.tintColor = UIColor .black
-        cbf.addTarget(self, action: #selector(self.handleSearchIcon(sender:)), for: .touchUpInside)
+        cbf.addTarget(self, action: #selector(self.handleSearchIconOpen(sender:)), for: .touchUpInside)
         
         return cbf
         
@@ -187,21 +187,82 @@ class MessagesHeader : UIView {
         
     }()
     
+    lazy var searchtextField: UITextField = {
+        
+        let etfc = UITextField()
+        let placeholder = NSAttributedString(string: "Search", attributes: [NSAttributedString.Key.foregroundColor: UIColor.chatTextGrey])
+        etfc.attributedPlaceholder = placeholder
+        etfc.translatesAutoresizingMaskIntoConstraints = false
+        etfc.textAlignment = .left
+        etfc.textColor = UIColor.chatTextGrey
+        etfc.font = UIFont(name: FontKit().segoeSemiBold, size: 14)
+        etfc.allowsEditingTextAttributes = false
+        etfc.autocorrectionType = .no
+        etfc.delegate = self
+        etfc.backgroundColor = UIColor.searchWhite
+        etfc.keyboardAppearance = UIKeyboardAppearance.dark
+        etfc.returnKeyType = UIReturnKeyType.done
+        etfc.keyboardType = .alphabet
+        etfc.leftViewMode = .always
+        etfc.isSecureTextEntry = false
+        etfc.layer.borderColor = UIColor .clear.cgColor
+        etfc.layer.borderWidth = 1
+        etfc.alpha = 0.0
+        etfc.addTarget(self, action: #selector(handleSearchTextFieldChange(textField:)), for: .editingChanged)
+        return etfc
+        
+    }()
+    
+    lazy var searchCancelButton : UIButton = {
+        
+        let cbf = UIButton(type: .system)
+        cbf.translatesAutoresizingMaskIntoConstraints = false
+        cbf.setTitle("Cancel", for: UIControl.State.normal)
+        cbf.titleLabel?.font = UIFont.init(name: FontKit().segoeSemiBold, size: 15)
+        cbf.titleLabel?.adjustsFontSizeToFitWidth = true
+        cbf.titleLabel?.numberOfLines = 1
+        cbf.titleLabel?.adjustsFontForContentSizeCategory = true
+        cbf.backgroundColor = .clear
+        cbf.tintColor = UIColor.kwiksMatteBlack
+        cbf.alpha = 0.0
+        cbf.addTarget(self, action: #selector(self.handleCloseSearchField), for: .touchUpInside)
+        cbf.contentHorizontalAlignment = .center
+        
+        return cbf
+        
+    }()
+    
+    lazy var toolBar : UIToolbar = {
+        
+        let bar = UIToolbar()
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.handleCloseSearchField))
+        bar.items = [space, done]
+        bar.tintColor = .kwiksGreen
+        bar.sizeToFit()
+        
+        return bar
+        
+    }()
+  
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.backgroundColor = UIColor.kwiksGreen
         self.translatesAutoresizingMaskIntoConstraints = false
         self.addViews()
+        self.dummyData()
+        self.searchtextField.addPadding(.both(25), "mag_icon_header")
         
-        self.buttonFormat(tag: 1)//manually setting besties first
-        let label = "\(S().messages) (\(32))"
-        self.headerLabel.colorFontString(text: label, coloredText: "(\(32))", color: UIColor .white, fontName: FontKit().segoeSemiBold, fontSize: 24)
-        
+        self.searchtextField.inputAccessoryView = self.toolBar
+       
     }
     
     func dummyData() {
         
+        self.buttonFormat(tag: 1)//manually setting besties first
+        let label = "\(S().messages) (\(32))"
+        self.headerLabel.colorFontString(text: label, coloredText: "(\(32))", color: UIColor .white, fontName: FontKit().segoeSemiBold, fontSize: 24)
     }
     
     func addViews() {
@@ -223,6 +284,8 @@ class MessagesHeader : UIView {
         self.headerStackSelection.addArrangedSubview(self.requestsButton)
 
         self.headerContainer.addSubview(self.headerStackSelection)
+        self.headerContainer.addSubview(self.searchtextField)
+        self.headerContainer.addSubview(self.searchCancelButton)
 
         self.timeCover.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         self.timeCover.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
@@ -274,6 +337,16 @@ class MessagesHeader : UIView {
         self.requestsButton.widthAnchor.constraint(equalToConstant: 78).isActive = true
         self.requestsButton.sizeToFit()
         
+        self.searchtextField.leftAnchor.constraint(equalTo: self.bestiesButton.leftAnchor, constant: 10).isActive = true
+        self.searchtextField.centerYAnchor.constraint(equalTo: self.backButton.centerYAnchor).isActive = true
+        self.searchtextField.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        self.searchtextField.rightAnchor.constraint(equalTo: self.searchButton.leftAnchor).isActive = true
+        self.searchtextField.layer.cornerRadius = 17.5
+        
+        self.searchCancelButton.leftAnchor.constraint(equalTo: self.searchtextField.rightAnchor, constant: 8).isActive = true
+        self.searchCancelButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
+        self.searchCancelButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        self.searchCancelButton.centerYAnchor.constraint(equalTo: self.searchtextField.centerYAnchor).isActive = true
     }
    
     //each button has a tag 1-4
@@ -370,15 +443,53 @@ class MessagesHeader : UIView {
     @objc func handleBackButton() {
         self.messagesContainer?.handleBackButton()
     }
-    
-    @objc func handleSearchIcon(sender:UIButton) {
-        print(#function)
-    }
+   
     @objc func handleNewConvoIcon(sender:UIButton) {
         print(#function)
     }
    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+///searching can be conducted down here where it's less noisy since this feature is confusing
+extension MessagesHeader {
+    
+    func textFieldControl(shouldOpen : Bool) {
+        UIDevice.vibrateLight()
+        if shouldOpen {
+            self.searchtextField.alpha = 1.0
+            self.searchCancelButton.alpha = 1.0
+            self.searchButton.isHidden = true
+            self.newConversationButton.isHidden = true
+            self.searchtextField.becomeFirstResponder()
+        } else {
+            self.searchtextField.alpha = 0.0
+            self.searchCancelButton.alpha = 0.0
+            self.searchButton.isHidden = false
+            self.newConversationButton.isHidden = false
+            self.searchtextField.text = ""
+            self.searchtextField.resignFirstResponder()
+        }
+    }
+    
+    @objc func handleSearchIconOpen(sender:UIButton) {
+        UIDevice.vibrateLight()
+        self.textFieldControl(shouldOpen: true)
+    }
+    
+    @objc func handleCloseSearchField() {
+        UIDevice.vibrateLight()
+        self.textFieldControl(shouldOpen: false)
+    }
+    
+    @objc func handleSearchTextFieldChange(textField : UITextField) {
+        guard let typedText = textField.text else {return}
+        self.filteredCount(searchText: typedText)
+    }
+    
+    func filteredCount(searchText: String) {
+        print("search text: \(searchText)")
     }
 }
