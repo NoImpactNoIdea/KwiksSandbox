@@ -11,6 +11,7 @@
 		E31D90E629E8D53000DE6425 /* wave_gradient@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D90E329E8D53000DE6425 /* wave_gradient@3x.png */; };
 		E31D90E729E8D53000DE6425 /* wave_gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D90E429E8D53000DE6425 /* wave_gradient@2x.png */; };
 		E31D90E829E8D53000DE6425 /* wave_gradient@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D90E529E8D53000DE6425 /* wave_gradient@1x.png */; };
+		E31D90EB29E8DAFA00DE6425 /* NewMessageUserSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31D90EA29E8DAFA00DE6425 /* NewMessageUserSelection.swift */; };
 		E347447329DB610700E64B68 /* MessagesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E347447229DB610700E64B68 /* MessagesHeader.swift */; };
 		E347447629DB641B00E64B68 /* Extensions+DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E347447529DB641B00E64B68 /* Extensions+DummyData.swift */; };
 		E347447929DB736A00E64B68 /* MessagesTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E347447829DB736A00E64B68 /* MessagesTable.swift */; };
@@ -170,6 +171,7 @@
 		E31D90E329E8D53000DE6425 /* wave_gradient@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wave_gradient@3x.png"; sourceTree = "<group>"; };
 		E31D90E429E8D53000DE6425 /* wave_gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wave_gradient@2x.png"; sourceTree = "<group>"; };
 		E31D90E529E8D53000DE6425 /* wave_gradient@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wave_gradient@1x.png"; sourceTree = "<group>"; };
+		E31D90EA29E8DAFA00DE6425 /* NewMessageUserSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageUserSelection.swift; sourceTree = "<group>"; };
 		E347447229DB610700E64B68 /* MessagesHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesHeader.swift; sourceTree = "<group>"; };
 		E347447529DB641B00E64B68 /* Extensions+DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+DummyData.swift"; sourceTree = "<group>"; };
 		E347447829DB736A00E64B68 /* MessagesTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTable.swift; sourceTree = "<group>"; wrapsLines = 0; };
@@ -342,6 +344,14 @@
 				857AA6706AF600D75B996DC5 /* Pods_KwiksSandboxx.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E31D90E929E8DADA00DE6425 /* NewMessage */ = {
+			isa = PBXGroup;
+			children = (
+				E31D90EA29E8DAFA00DE6425 /* NewMessageUserSelection.swift */,
+			);
+			path = NewMessage;
 			sourceTree = "<group>";
 		};
 		E347447429DB610A00E64B68 /* MessagesGroup */ = {
@@ -529,6 +539,7 @@
 		E3CAFA8C29E5E3E400AEFC74 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				E31D90E929E8DADA00DE6425 /* NewMessage */,
 				E347447229DB610700E64B68 /* MessagesHeader.swift */,
 				E35676D829AD182F003B5E9A /* MessagesContainer.swift */,
 				E347447829DB736A00E64B68 /* MessagesTable.swift */,
@@ -994,6 +1005,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E31D90EB29E8DAFA00DE6425 /* NewMessageUserSelection.swift in Sources */,
 				E35676D929AD182F003B5E9A /* MessagesContainer.swift in Sources */,
 				E3FD473629E76C810065F649 /* CustomThreeSelector.swift in Sources */,
 				E347448929DBA70B00E64B68 /* ChatCollection.swift in Sources */,

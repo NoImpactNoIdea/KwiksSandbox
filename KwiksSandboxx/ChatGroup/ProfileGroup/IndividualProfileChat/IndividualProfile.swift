@@ -134,11 +134,12 @@ class IndividualProfileChatController : UIViewController {
         cbf.setImage(image, for: UIControl.State.normal)
         cbf.backgroundColor = UIColor.buttonGreyChat
         cbf.layer.masksToBounds = true
+        cbf.addTarget(self, action: #selector(self.handleConcernedAlert), for: .touchUpInside)
         
         return cbf
         
     }()
-    
+   
     var profileLabel : UILabel = {
         
         let hfl = UILabel()
@@ -338,11 +339,11 @@ class IndividualProfileChatController : UIViewController {
         self.view.addSubview(self.nameLabel)
         
         self.buttonStack.addArrangedSubview(self.profileIcon)
-        self.buttonStack.addArrangedSubview(self.magIcon)
+//        self.buttonStack.addArrangedSubview(self.magIcon)
         self.buttonStack.addArrangedSubview(self.moreIcon)
         
         self.view.addSubview(self.profileLabel)
-        self.view.addSubview(self.searchLabel)
+//        self.view.addSubview(self.searchLabel)
         self.view.addSubview(self.moreLabel)
 
         self.view.addSubview(self.buttonStack)
@@ -365,11 +366,11 @@ class IndividualProfileChatController : UIViewController {
         self.view.addSubview(self.changeBackgroundPopup)
 
         self.backButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 15).isActive = true
-        self.backButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 40).isActive = true
+        self.backButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50).isActive = true
         self.backButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         self.backButton.widthAnchor.constraint(equalToConstant: 44).isActive = true
         
-        self.backgroundImageView.topAnchor.constraint(equalTo: self.backButton.bottomAnchor, constant: 0).isActive = true
+        self.backgroundImageView.topAnchor.constraint(equalTo: self.backButton.bottomAnchor, constant: -10).isActive = true
         self.backgroundImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         self.backgroundImageView.heightAnchor.constraint(equalToConstant: 192.5).isActive = true
         self.backgroundImageView.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
@@ -387,16 +388,16 @@ class IndividualProfileChatController : UIViewController {
         
         self.buttonStack.topAnchor.constraint(equalTo: self.nameLabel.bottomAnchor, constant: 30).isActive = true
         self.buttonStack.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        self.buttonStack.widthAnchor.constraint(equalToConstant: 210).isActive = true
+        self.buttonStack.widthAnchor.constraint(equalToConstant: 130).isActive = true
         self.buttonStack.heightAnchor.constraint(equalToConstant: 80).isActive = true
         
         self.profileIcon.heightAnchor.constraint(equalToConstant: 50).isActive = true
         self.profileIcon.widthAnchor.constraint(equalToConstant: 50).isActive = true
         self.profileIcon.layer.cornerRadius = 25
         
-        self.magIcon.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        self.magIcon.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        self.magIcon.layer.cornerRadius = 25
+//        self.magIcon.heightAnchor.constraint(equalToConstant: 50).isActive = true
+//        self.magIcon.widthAnchor.constraint(equalToConstant: 50).isActive = true
+//        self.magIcon.layer.cornerRadius = 25
         
         self.moreIcon.heightAnchor.constraint(equalToConstant: 50).isActive = true
         self.moreIcon.widthAnchor.constraint(equalToConstant: 50).isActive = true
@@ -406,9 +407,9 @@ class IndividualProfileChatController : UIViewController {
         self.profileLabel.topAnchor.constraint(equalTo: self.profileIcon.bottomAnchor, constant: 8).isActive = true
         self.profileLabel.sizeToFit()
         
-        self.searchLabel.centerXAnchor.constraint(equalTo: self.magIcon.centerXAnchor).isActive = true
-        self.searchLabel.topAnchor.constraint(equalTo: self.magIcon.bottomAnchor, constant: 8).isActive = true
-        self.searchLabel.sizeToFit()
+//        self.searchLabel.centerXAnchor.constraint(equalTo: self.magIcon.centerXAnchor).isActive = true
+//        self.searchLabel.topAnchor.constraint(equalTo: self.magIcon.bottomAnchor, constant: 8).isActive = true
+//        self.searchLabel.sizeToFit()
 
         self.moreLabel.centerXAnchor.constraint(equalTo: self.moreIcon.centerXAnchor).isActive = true
         self.moreLabel.topAnchor.constraint(equalTo: self.moreIcon.bottomAnchor, constant: 8).isActive = true
@@ -503,17 +504,18 @@ class IndividualProfileChatController : UIViewController {
         self.navigationController?.pushViewController(chatMediaViewer, animated: true)
     }
     
-    
     @objc func handleProfileButton(sender:UIButton) {
-        
         let dynamicUserProfile = DynamicUserProfile()
         dynamicUserProfile.navigationController?.navigationBar.isHidden = true
         dynamicUserProfile.dynamicState = .random
         self.navigationController?.pushViewController(dynamicUserProfile, animated: true)
-        
-        
     }
     
+    @objc func handleConcernedAlert() {
+        AlertKit().handleuserConcernedAlert { returnedAlertController in
+            self.present(returnedAlertController, animated: true)
+        }
+    }
     
     @objc func handleBackButton() {
         self.navigationController?.popViewController(animated: true)

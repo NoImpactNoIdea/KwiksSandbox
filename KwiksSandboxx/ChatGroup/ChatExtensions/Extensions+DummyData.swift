@@ -15,6 +15,32 @@ var globalChatDataSource = [ChatModel]() //chat model reference
 var screenWidth = UIScreen.main.bounds.width
 var screenHeight = UIScreen.main.bounds.height
 
+//this is user 3x - made it easily callable
+class AlertKit : NSObject {
+    
+    static let shared = AlertKit()
+    
+    //for if a user needs to run a flag on another kwiks user
+    func handleuserConcernedAlert(completion : @escaping (_ returnedAlertController : UIAlertController)->()) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let actionOne = UIAlertAction(title: "Block", style: .default) { res in
+            print("block") //handle blocking
+        }
+        let actionTwo = UIAlertAction(title: "Flag", style: .default) { res in
+            print("flagging") //handle blocking
+        }
+        let actionThree = UIAlertAction(title: "Cancel", style: .destructive) { res in
+            print("cancelled") //handle blocking
+        }
+        alertController.addAction(actionOne)
+        alertController.addAction(actionTwo)
+        alertController.addAction(actionThree)
+        
+        completion(alertController)
+    }
+}
+
+
 extension UIDevice { //haptics and vibrations
     static func vibrateLight() {
         let generator = UIImpactFeedbackGenerator(style: .light)
@@ -323,12 +349,44 @@ func loadDummyData(completion : @escaping (_ isComplete : Bool, _ returnedBlock 
                                     "messageTypeForDecision" : "message"
     ]
     
-    let seven : [String : Any] = ["message" : "Last message in the test collection 💪🏼",
+    let seven : [String : Any] = ["message" : "No emoji, number test 12345",
                                     "ownersProfilePhoto" : "\(S().stockPhotoURLMusician)",
                                     "ownersName" : "Charlie Arcodia",
                                     "timeStamp" : Date().timeIntervalSince1970,
                                     "audioClipUrl" : "url goes here",
                                     "messageTypeForDecision" : "message"
+    ]
+    
+    let eight : [String : Any] = ["message" : "Last message in the test collection 💪🏼",
+                                    "ownersProfilePhoto" : "\(S().stockPhotoURLMusician)",
+                                    "ownersName" : "Charlie Arcodia",
+                                    "timeStamp" : Date().timeIntervalSince1970,
+                                    "audioClipUrl" : "url goes here",
+                                    "messageTypeForDecision" : "message"
+    ]
+    
+    let nine : [String : Any] = ["message" : "Check me here just once 🫡",
+                                    "ownersProfilePhoto" : "\(S().stockPhotoURLMusician)",
+                                    "ownersName" : "Charlie Arcodia",
+                                    "timeStamp" : Date().timeIntervalSince1970,
+                                    "audioClipUrl" : "url goes here",
+                                    "messageTypeForDecision" : "message"
+    ]
+    
+    let ten : [String : Any] = ["message" : "Last message in the test collection 💪🏼",
+                                    "ownersProfilePhoto" : "\(S().stockPhotoURLMusician)",
+                                    "ownersName" : "Charlie Arcodia",
+                                    "timeStamp" : Date().timeIntervalSince1970,
+                                    "audioClipUrl" : "url goes here",
+                                    "messageTypeForDecision" : "message"
+    ]
+    
+    let eleven : [String : Any] = ["message" : "Last message in the test collection 💪🏼",
+                                    "ownersProfilePhoto" : "\(S().stockPhotoURLMusician)",
+                                    "ownersName" : "Charlie Arcodia",
+                                    "timeStamp" : Date().timeIntervalSince1970,
+                                    "audioClipUrl" : "url goes here",
+                                    "messageTypeForDecision" : "audio"
     ]
     
     
@@ -339,8 +397,11 @@ let objOne = ChatModel(JSON: one),
     objFive = ChatModel(JSON: five),
     objSix = ChatModel(JSON: six),
     objSeven = ChatModel(JSON: seven),
+    objEight = ChatModel(JSON: eight),
+    objNine = ChatModel(JSON: nine),
 
-    array = [objOne, objTwo, objFour, objFive, objSix, objSeven]
+
+    array = [objOne, objTwo, objFour, objFive, objSix, objSeven, objEight, objNine]
     globalChatDataSource = array
     completion(true, array)
 }

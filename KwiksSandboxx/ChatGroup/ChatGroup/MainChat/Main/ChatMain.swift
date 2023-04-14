@@ -207,21 +207,10 @@ class ChatMain : UIViewController {
     }
         
     func handleAlert() {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let actionOne = UIAlertAction(title: "Block", style: .default) { res in
-            print("block") //handle blocking
+        
+        AlertKit().handleuserConcernedAlert { returnedAlertController in
+            self.present(returnedAlertController, animated: true)
         }
-        let actionTwo = UIAlertAction(title: "Flag", style: .default) { res in
-            print("flagging") //handle blocking
-        }
-        let actionThree = UIAlertAction(title: "Cancel", style: .destructive) { res in
-            print("cancelled") //handle blocking
-        }
-        alertController.addAction(actionOne)
-        alertController.addAction(actionTwo)
-        alertController.addAction(actionThree)
-
-        self.present(alertController, animated: true)
     }
     
     //MARK: function calls from accessory view
