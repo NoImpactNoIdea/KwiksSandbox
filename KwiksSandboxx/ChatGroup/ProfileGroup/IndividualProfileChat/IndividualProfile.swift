@@ -369,12 +369,12 @@ class IndividualProfileChatController : UIViewController {
         self.backButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         self.backButton.widthAnchor.constraint(equalToConstant: 44).isActive = true
         
-        self.backgroundImageView.topAnchor.constraint(equalTo: self.backButton.bottomAnchor, constant: 25).isActive = true
+        self.backgroundImageView.topAnchor.constraint(equalTo: self.backButton.bottomAnchor, constant: 0).isActive = true
         self.backgroundImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         self.backgroundImageView.heightAnchor.constraint(equalToConstant: 192.5).isActive = true
         self.backgroundImageView.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
         
-        self.profilePhoto.topAnchor.constraint(equalTo: self.backgroundImageView.topAnchor, constant: -20).isActive = true
+        self.profilePhoto.topAnchor.constraint(equalTo: self.backgroundImageView.topAnchor, constant: 5).isActive = true
         self.profilePhoto.widthAnchor.constraint(equalToConstant: 146).isActive = true
         self.profilePhoto.heightAnchor.constraint(equalToConstant: 146).isActive = true
         self.profilePhoto.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0).isActive = true

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "wave_graphic@1x.png",
+      "filename" : "wave_gradient@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "wave_graphic@2x.png",
+      "filename" : "wave_gradient@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "wave_graphic@3x.png",
+      "filename" : "wave_gradient@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
