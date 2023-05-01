@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: sceneWindow)
         window.makeKeyAndVisible()
         
-        let messagesController = MessagesContainer() //change to chatmain to test the main chat
+        let messagesController = WalletMain() //change to chatmain to test the main chat
         let navigationController = UINavigationController(rootViewController: messagesController)
         navigationController.navigationBar.isHidden = true
         navigationController.modalPresentationStyle = .fullScreen

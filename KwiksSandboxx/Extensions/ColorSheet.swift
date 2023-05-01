@@ -90,9 +90,13 @@ extension UIColor {
     
   static let searchWhite = UIColor(hex: 0xF6F6F6)
 
+  static let walletBrown = UIColor(hex: 0x616167)
     
+  static let backgroundWhiteishGrey = UIColor(hex: 0xF9F9F9)
     
+  static let emblemBrown = UIColor(hex: 0x4F4F4F)
 
+    
 }
 
 //HEX Color value
@@ -111,8 +115,9 @@ extension UIColor {
 struct ColorKit {
     
     static let shared = ColorKit()
-    static var kwiksGreen = UIColor(hex: 0x9AE769)
-    
+           var kwiksGreen = UIColor(hex: 0x9AE769)
+           var kwiksWhite = UIColor(hex: 0xFFFFFF)
+
 }
 
 //bundled fonts

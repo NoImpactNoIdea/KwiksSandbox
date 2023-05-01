@@ -19,10 +19,9 @@ class ChatMain : UIViewController {
     
     var chatDataSource = [ChatModel]()
     
-    lazy var chatHeader : ChatHeader = {
+    let chatHeader : ChatHeader = {
         
         let ch = ChatHeader()
-        ch.chatMain = self
         return ch
     }()
     
@@ -40,32 +39,28 @@ class ChatMain : UIViewController {
        return bdv
     }()
     
-    lazy var interiorHeader : InteriorHeader = {
+    let interiorHeader : InteriorHeader = {
         let ch = InteriorHeader()
-        ch.chatMain = self
         ch.layer.zPosition = 10
         return ch
     }()
     
-    lazy var chatCollection : ChatCollection = {
+    let chatCollection : ChatCollection = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let cm = ChatCollection(frame: .zero, collectionViewLayout: layout)
-        cm.chatMain = self
         cm.layer.zPosition = 50
        return cm
     }()
     
-    lazy var requestView : RequestView = {
+    let requestView : RequestView = {
         let ch = RequestView()
-        ch.chatMain = self
         ch.alpha = 0.0
         return ch
     }()
     
-    lazy var customInputAccessoryView: AccessoryInputView = {
+    let customInputAccessoryView: AccessoryInputView = {
         let cia = AccessoryInputView()
-        cia.chatMain = self
         cia.alpha = 1.0
         return cia
     }()
@@ -85,6 +80,7 @@ class ChatMain : UIViewController {
         
         self.view.backgroundColor = UIColor .white
         self.addViews()
+        self.triggerRefs()
         
     }
     
@@ -169,6 +165,16 @@ class ChatMain : UIViewController {
         //toggle me to show the normal chat or the request view with accepts etc.
         self.toggleRequestView(shouldShow: false)
         
+    }
+    
+    func triggerRefs() {
+        
+        self.chatHeader.chatMain = self
+        self.customInputAccessoryView.chatMain = self
+        self.requestView.chatMain = self
+        self.chatCollection.chatMain = self
+        self.interiorHeader.chatMain = self
+
     }
     
     func loadDummyData() {

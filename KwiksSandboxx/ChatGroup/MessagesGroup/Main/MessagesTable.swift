@@ -140,11 +140,8 @@ class MessagesTable : UITableView, UIScrollViewDelegate, UITableViewDelegate, UI
         
         let selectedButtonCell = sender.superview as! UITableViewCell
         guard let indexPath = self.indexPath(for: selectedButtonCell) else {return}
-        //pass the datasource in here feeder style to get the real object data
-        print("Selected index path is: \(indexPath)")
         self.messagesContainer?.handleCellSelection()
         self.adjustForArchived(shouldAdjust: false) //edge case for when adjusted text is visible and someone scrolls
-        
         
     }
     

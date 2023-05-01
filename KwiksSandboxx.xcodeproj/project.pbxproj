@@ -12,6 +12,10 @@
 		E31D90E729E8D53000DE6425 /* wave_gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D90E429E8D53000DE6425 /* wave_gradient@2x.png */; };
 		E31D90E829E8D53000DE6425 /* wave_gradient@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D90E529E8D53000DE6425 /* wave_gradient@1x.png */; };
 		E31D90EB29E8DAFA00DE6425 /* NewMessageUserSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31D90EA29E8DAFA00DE6425 /* NewMessageUserSelection.swift */; };
+		E33FB5FD29F2ED4D0061ED04 /* WalletMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33FB5FC29F2ED4D0061ED04 /* WalletMain.swift */; };
+		E33FB5FF29F2ED680061ED04 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33FB5FE29F2ED680061ED04 /* BaseViewController.swift */; };
+		E33FB60229F2EEA10061ED04 /* WalletMainHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33FB60129F2EEA10061ED04 /* WalletMainHeader.swift */; };
+		E33FB60429F2EF160061ED04 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33FB60329F2EF160061ED04 /* BaseView.swift */; };
 		E347447329DB610700E64B68 /* MessagesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E347447229DB610700E64B68 /* MessagesHeader.swift */; };
 		E347447629DB641B00E64B68 /* Extensions+DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E347447529DB641B00E64B68 /* Extensions+DummyData.swift */; };
 		E347447929DB736A00E64B68 /* MessagesTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E347447829DB736A00E64B68 /* MessagesTable.swift */; };
@@ -53,6 +57,9 @@
 		E365516829C7A7D000F3D37E /* FadeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E365516729C7A7D000F3D37E /* FadeController.swift */; };
 		E365516A29C7B16F00F3D37E /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E365516929C7B16F00F3D37E /* Layout.swift */; };
 		E365516D29CB6D0500F3D37E /* KwiksAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E365516C29CB6D0500F3D37E /* KwiksAlert.swift */; };
+		E370E31429F6DB9A009BD00D /* WalletBalancePagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370E31329F6DB9A009BD00D /* WalletBalancePagination.swift */; };
+		E370E31629F6E222009BD00D /* WalletTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370E31529F6E222009BD00D /* WalletTable.swift */; };
+		E370E31829F6EA1F009BD00D /* Attributed+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370E31729F6EA1F009BD00D /* Attributed+Ext.swift */; };
 		E39F080929E4755500C76016 /* AccessoryInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39F080829E4755500C76016 /* AccessoryInputView.swift */; };
 		E39F081F29E47E9700C76016 /* wallet_cash_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E39F080A29E47E9500C76016 /* wallet_cash_button@3x.png */; };
 		E39F082029E47E9700C76016 /* kwiks_play_voice_note@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E39F080B29E47E9600C76016 /* kwiks_play_voice_note@2x.png */; };
@@ -82,6 +89,28 @@
 		E39F084129E4B38300C76016 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39F084029E4B38300C76016 /* MessageCell.swift */; };
 		E39F084429E4B60F00C76016 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39F084329E4B60F00C76016 /* ChatModel.swift */; };
 		E39F084729E4D24400C76016 /* InteriorHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39F084629E4D24400C76016 /* InteriorHeader.swift */; };
+		E39F7FCB29FC1BEE00B99FFD /* question_mark_no_shadow_kwiks_green@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E39F7FC829FC1BEE00B99FFD /* question_mark_no_shadow_kwiks_green@3x.png */; };
+		E39F7FCC29FC1BEE00B99FFD /* question_mark_no_shadow_kwiks_green@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = E39F7FC929FC1BEE00B99FFD /* question_mark_no_shadow_kwiks_green@1x.png */; };
+		E39F7FCD29FC1BEE00B99FFD /* question_mark_no_shadow_kwiks_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E39F7FCA29FC1BEE00B99FFD /* question_mark_no_shadow_kwiks_green@2x.png */; };
+		E39F7FD129FC21AA00B99FFD /* kwiks_money_dolla_sign@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E39F7FCE29FC21A900B99FFD /* kwiks_money_dolla_sign@2x.png */; };
+		E39F7FD229FC21AA00B99FFD /* kwiks_money_dolla_sign@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = E39F7FCF29FC21A900B99FFD /* kwiks_money_dolla_sign@1x.png */; };
+		E39F7FD329FC21AA00B99FFD /* kwiks_money_dolla_sign@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E39F7FD029FC21A900B99FFD /* kwiks_money_dolla_sign@3x.png */; };
+		E39F7FD729FC270800B99FFD /* kwiks_vector_arrow@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = E39F7FD429FC270700B99FFD /* kwiks_vector_arrow@1x.png */; };
+		E39F7FD829FC270800B99FFD /* kwiks_vector_arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E39F7FD529FC270800B99FFD /* kwiks_vector_arrow@3x.png */; };
+		E39F7FD929FC270800B99FFD /* kwiks_vector_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E39F7FD629FC270800B99FFD /* kwiks_vector_arrow@2x.png */; };
+		E39F7FDD29FC30FE00B99FFD /* kwiks_money_crown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E39F7FDA29FC30FE00B99FFD /* kwiks_money_crown@2x.png */; };
+		E39F7FDE29FC30FE00B99FFD /* kwiks_money_crown@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E39F7FDB29FC30FE00B99FFD /* kwiks_money_crown@3x.png */; };
+		E39F7FDF29FC30FE00B99FFD /* kwiks_money_crown@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = E39F7FDC29FC30FE00B99FFD /* kwiks_money_crown@1x.png */; };
+		E3AB412529FFEF6A00EB9AA3 /* UIScrollView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB412429FFEF6A00EB9AA3 /* UIScrollView+Ext.swift */; };
+		E3AB412929FFF36B00EB9AA3 /* kwiks_green_money_sign@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3AB412629FFF36B00EB9AA3 /* kwiks_green_money_sign@3x.png */; };
+		E3AB412A29FFF36B00EB9AA3 /* kwiks_green_money_sign@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3AB412729FFF36B00EB9AA3 /* kwiks_green_money_sign@2x.png */; };
+		E3AB412B29FFF36B00EB9AA3 /* kwiks_green_money_sign@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3AB412829FFF36B00EB9AA3 /* kwiks_green_money_sign@1x.png */; };
+		E3AB413229FFF37600EB9AA3 /* kwiks_add_money_wallet_icon@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3AB412C29FFF37600EB9AA3 /* kwiks_add_money_wallet_icon@1x.png */; };
+		E3AB413329FFF37600EB9AA3 /* kwiks_cashout_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3AB412D29FFF37600EB9AA3 /* kwiks_cashout_icon@2x.png */; };
+		E3AB413429FFF37600EB9AA3 /* kwiks_cashout_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3AB412E29FFF37600EB9AA3 /* kwiks_cashout_icon@3x.png */; };
+		E3AB413529FFF37600EB9AA3 /* kwiks_add_money_wallet_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3AB412F29FFF37600EB9AA3 /* kwiks_add_money_wallet_icon@3x.png */; };
+		E3AB413629FFF37600EB9AA3 /* kwiks_add_money_wallet_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3AB413029FFF37600EB9AA3 /* kwiks_add_money_wallet_icon@2x.png */; };
+		E3AB413729FFF37600EB9AA3 /* kwiks_cashout_icon@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3AB413129FFF37600EB9AA3 /* kwiks_cashout_icon@1x.png */; };
 		E3CAFA7A29E4E81A00AEFC74 /* record_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = E3CAFA7929E4E81A00AEFC74 /* record_anim.json */; };
 		E3CAFA7C29E4EF9300AEFC74 /* record_anim_2.json in Resources */ = {isa = PBXBuildFile; fileRef = E3CAFA7B29E4EF9300AEFC74 /* record_anim_2.json */; };
 		E3CAFA7E29E4F13700AEFC74 /* AudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CAFA7D29E4F13700AEFC74 /* AudioCell.swift */; };
@@ -172,6 +201,10 @@
 		E31D90E429E8D53000DE6425 /* wave_gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wave_gradient@2x.png"; sourceTree = "<group>"; };
 		E31D90E529E8D53000DE6425 /* wave_gradient@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wave_gradient@1x.png"; sourceTree = "<group>"; };
 		E31D90EA29E8DAFA00DE6425 /* NewMessageUserSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageUserSelection.swift; sourceTree = "<group>"; };
+		E33FB5FC29F2ED4D0061ED04 /* WalletMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletMain.swift; sourceTree = "<group>"; };
+		E33FB5FE29F2ED680061ED04 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E33FB60129F2EEA10061ED04 /* WalletMainHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletMainHeader.swift; sourceTree = "<group>"; };
+		E33FB60329F2EF160061ED04 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		E347447229DB610700E64B68 /* MessagesHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesHeader.swift; sourceTree = "<group>"; };
 		E347447529DB641B00E64B68 /* Extensions+DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+DummyData.swift"; sourceTree = "<group>"; };
 		E347447829DB736A00E64B68 /* MessagesTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTable.swift; sourceTree = "<group>"; wrapsLines = 0; };
@@ -215,6 +248,9 @@
 		E365516729C7A7D000F3D37E /* FadeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeController.swift; sourceTree = "<group>"; };
 		E365516929C7B16F00F3D37E /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		E365516C29CB6D0500F3D37E /* KwiksAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KwiksAlert.swift; sourceTree = "<group>"; };
+		E370E31329F6DB9A009BD00D /* WalletBalancePagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletBalancePagination.swift; sourceTree = "<group>"; };
+		E370E31529F6E222009BD00D /* WalletTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTable.swift; sourceTree = "<group>"; };
+		E370E31729F6EA1F009BD00D /* Attributed+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attributed+Ext.swift"; sourceTree = "<group>"; };
 		E39F080829E4755500C76016 /* AccessoryInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryInputView.swift; sourceTree = "<group>"; };
 		E39F080A29E47E9500C76016 /* wallet_cash_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wallet_cash_button@3x.png"; sourceTree = "<group>"; };
 		E39F080B29E47E9600C76016 /* kwiks_play_voice_note@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kwiks_play_voice_note@2x.png"; sourceTree = "<group>"; };
@@ -244,6 +280,28 @@
 		E39F084029E4B38300C76016 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		E39F084329E4B60F00C76016 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		E39F084629E4D24400C76016 /* InteriorHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteriorHeader.swift; sourceTree = "<group>"; };
+		E39F7FC829FC1BEE00B99FFD /* question_mark_no_shadow_kwiks_green@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_mark_no_shadow_kwiks_green@3x.png"; sourceTree = "<group>"; };
+		E39F7FC929FC1BEE00B99FFD /* question_mark_no_shadow_kwiks_green@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_mark_no_shadow_kwiks_green@1x.png"; sourceTree = "<group>"; };
+		E39F7FCA29FC1BEE00B99FFD /* question_mark_no_shadow_kwiks_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_mark_no_shadow_kwiks_green@2x.png"; sourceTree = "<group>"; };
+		E39F7FCE29FC21A900B99FFD /* kwiks_money_dolla_sign@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kwiks_money_dolla_sign@2x.png"; sourceTree = "<group>"; };
+		E39F7FCF29FC21A900B99FFD /* kwiks_money_dolla_sign@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kwiks_money_dolla_sign@1x.png"; sourceTree = "<group>"; };
+		E39F7FD029FC21A900B99FFD /* kwiks_money_dolla_sign@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kwiks_money_dolla_sign@3x.png"; sourceTree = "<group>"; };
+		E39F7FD429FC270700B99FFD /* kwiks_vector_arrow@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kwiks_vector_arrow@1x.png"; sourceTree = "<group>"; };
+		E39F7FD529FC270800B99FFD /* kwiks_vector_arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kwiks_vector_arrow@3x.png"; sourceTree = "<group>"; };
+		E39F7FD629FC270800B99FFD /* kwiks_vector_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kwiks_vector_arrow@2x.png"; sourceTree = "<group>"; };
+		E39F7FDA29FC30FE00B99FFD /* kwiks_money_crown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kwiks_money_crown@2x.png"; sourceTree = "<group>"; };
+		E39F7FDB29FC30FE00B99FFD /* kwiks_money_crown@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kwiks_money_crown@3x.png"; sourceTree = "<group>"; };
+		E39F7FDC29FC30FE00B99FFD /* kwiks_money_crown@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kwiks_money_crown@1x.png"; sourceTree = "<group>"; };
+		E3AB412429FFEF6A00EB9AA3 /* UIScrollView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Ext.swift"; sourceTree = "<group>"; };
+		E3AB412629FFF36B00EB9AA3 /* kwiks_green_money_sign@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kwiks_green_money_sign@3x.png"; sourceTree = "<group>"; };
+		E3AB412729FFF36B00EB9AA3 /* kwiks_green_money_sign@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kwiks_green_money_sign@2x.png"; sourceTree = "<group>"; };
+		E3AB412829FFF36B00EB9AA3 /* kwiks_green_money_sign@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kwiks_green_money_sign@1x.png"; sourceTree = "<group>"; };
+		E3AB412C29FFF37600EB9AA3 /* kwiks_add_money_wallet_icon@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kwiks_add_money_wallet_icon@1x.png"; sourceTree = "<group>"; };
+		E3AB412D29FFF37600EB9AA3 /* kwiks_cashout_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kwiks_cashout_icon@2x.png"; sourceTree = "<group>"; };
+		E3AB412E29FFF37600EB9AA3 /* kwiks_cashout_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kwiks_cashout_icon@3x.png"; sourceTree = "<group>"; };
+		E3AB412F29FFF37600EB9AA3 /* kwiks_add_money_wallet_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kwiks_add_money_wallet_icon@3x.png"; sourceTree = "<group>"; };
+		E3AB413029FFF37600EB9AA3 /* kwiks_add_money_wallet_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kwiks_add_money_wallet_icon@2x.png"; sourceTree = "<group>"; };
+		E3AB413129FFF37600EB9AA3 /* kwiks_cashout_icon@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kwiks_cashout_icon@1x.png"; sourceTree = "<group>"; };
 		E3CAFA7929E4E81A00AEFC74 /* record_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = record_anim.json; sourceTree = "<group>"; };
 		E3CAFA7B29E4EF9300AEFC74 /* record_anim_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = record_anim_2.json; sourceTree = "<group>"; };
 		E3CAFA7D29E4F13700AEFC74 /* AudioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCell.swift; sourceTree = "<group>"; };
@@ -354,6 +412,25 @@
 			path = NewMessage;
 			sourceTree = "<group>";
 		};
+		E33FB5FB29F2ED2F0061ED04 /* WalletGroup */ = {
+			isa = PBXGroup;
+			children = (
+				E33FB60029F2EE920061ED04 /* WalletMain */,
+			);
+			path = WalletGroup;
+			sourceTree = "<group>";
+		};
+		E33FB60029F2EE920061ED04 /* WalletMain */ = {
+			isa = PBXGroup;
+			children = (
+				E33FB5FC29F2ED4D0061ED04 /* WalletMain.swift */,
+				E33FB60129F2EEA10061ED04 /* WalletMainHeader.swift */,
+				E370E31329F6DB9A009BD00D /* WalletBalancePagination.swift */,
+				E370E31529F6E222009BD00D /* WalletTable.swift */,
+			);
+			path = WalletMain;
+			sourceTree = "<group>";
+		};
 		E347447429DB610A00E64B68 /* MessagesGroup */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +442,7 @@
 		E347447A29DB7E5900E64B68 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				E39F7FC729FC1BE400B99FFD /* WalletIcons */,
 				E3FD470A29E75DDE0065F649 /* ProfileIcons */,
 				E3FD470929E75DB50065F649 /* IconsImages */,
 			);
@@ -403,9 +481,10 @@
 		E35676D329AD182F003B5E9A /* KwiksSandboxx */ = {
 			isa = PBXGroup;
 			children = (
+				E33FB5FB29F2ED2F0061ED04 /* WalletGroup */,
 				E3F91CAB29E7357D00591F4C /* Git */,
 				E36D5ADC29E6FDA800466739 /* Admin */,
-				E36D5ADD29E6FDC000466739 /* FadingScroll */,
+				E36D5ADD29E6FDC000466739 /* FadingScrollGroup */,
 				E3D0831629D729AD00CE82D9 /* ChatGroup */,
 				E365516B29CB6CED00F3D37E /* ErrorSuccessHandling */,
 				E3D0831729D72ACB00CE82D9 /* Extensions */,
@@ -433,14 +512,14 @@
 			path = Admin;
 			sourceTree = "<group>";
 		};
-		E36D5ADD29E6FDC000466739 /* FadingScroll */ = {
+		E36D5ADD29E6FDC000466739 /* FadingScrollGroup */ = {
 			isa = PBXGroup;
 			children = (
 				E365516429C7A79B00F3D37E /* FadingCollection.swift */,
 				E365516729C7A7D000F3D37E /* FadeController.swift */,
 				E365516929C7B16F00F3D37E /* Layout.swift */,
 			);
-			path = FadingScroll;
+			path = FadingScrollGroup;
 			sourceTree = "<group>";
 		};
 		E36D5ADE29E716D400466739 /* ChatExtensions */ = {
@@ -503,6 +582,34 @@
 				E39F084629E4D24400C76016 /* InteriorHeader.swift */,
 			);
 			path = InteriorHeader;
+			sourceTree = "<group>";
+		};
+		E39F7FC729FC1BE400B99FFD /* WalletIcons */ = {
+			isa = PBXGroup;
+			children = (
+				E3AB412C29FFF37600EB9AA3 /* kwiks_add_money_wallet_icon@1x.png */,
+				E3AB413029FFF37600EB9AA3 /* kwiks_add_money_wallet_icon@2x.png */,
+				E3AB412F29FFF37600EB9AA3 /* kwiks_add_money_wallet_icon@3x.png */,
+				E3AB413129FFF37600EB9AA3 /* kwiks_cashout_icon@1x.png */,
+				E3AB412D29FFF37600EB9AA3 /* kwiks_cashout_icon@2x.png */,
+				E3AB412E29FFF37600EB9AA3 /* kwiks_cashout_icon@3x.png */,
+				E3AB412829FFF36B00EB9AA3 /* kwiks_green_money_sign@1x.png */,
+				E3AB412729FFF36B00EB9AA3 /* kwiks_green_money_sign@2x.png */,
+				E3AB412629FFF36B00EB9AA3 /* kwiks_green_money_sign@3x.png */,
+				E39F7FDC29FC30FE00B99FFD /* kwiks_money_crown@1x.png */,
+				E39F7FDA29FC30FE00B99FFD /* kwiks_money_crown@2x.png */,
+				E39F7FDB29FC30FE00B99FFD /* kwiks_money_crown@3x.png */,
+				E39F7FD429FC270700B99FFD /* kwiks_vector_arrow@1x.png */,
+				E39F7FD629FC270800B99FFD /* kwiks_vector_arrow@2x.png */,
+				E39F7FD529FC270800B99FFD /* kwiks_vector_arrow@3x.png */,
+				E39F7FCF29FC21A900B99FFD /* kwiks_money_dolla_sign@1x.png */,
+				E39F7FCE29FC21A900B99FFD /* kwiks_money_dolla_sign@2x.png */,
+				E39F7FD029FC21A900B99FFD /* kwiks_money_dolla_sign@3x.png */,
+				E39F7FC929FC1BEE00B99FFD /* question_mark_no_shadow_kwiks_green@1x.png */,
+				E39F7FCA29FC1BEE00B99FFD /* question_mark_no_shadow_kwiks_green@2x.png */,
+				E39F7FC829FC1BEE00B99FFD /* question_mark_no_shadow_kwiks_green@3x.png */,
+			);
+			path = WalletIcons;
 			sourceTree = "<group>";
 		};
 		E3CAFA7329E4E80900AEFC74 /* fonts */ = {
@@ -591,6 +698,10 @@
 				E3D0831829D72ADB00CE82D9 /* ColorSheet.swift */,
 				E3FD473729E78D730065F649 /* FourSquareLayout.swift */,
 				E3FD473929E78D7E0065F649 /* ThreeSquareLayout.swift */,
+				E33FB5FE29F2ED680061ED04 /* BaseViewController.swift */,
+				E33FB60329F2EF160061ED04 /* BaseView.swift */,
+				E370E31729F6EA1F009BD00D /* Attributed+Ext.swift */,
+				E3AB412429FFEF6A00EB9AA3 /* UIScrollView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -835,18 +946,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E39F7FDE29FC30FE00B99FFD /* kwiks_money_crown@3x.png in Resources */,
 				E39F082429E47E9700C76016 /* chat_plus_icon@3x.png in Resources */,
 				E3CAFACC29E5EC5E00AEFC74 /* background_pink_gradient@1x.png in Resources */,
 				E3FD473329E760420065F649 /* ellipsis_3_dots_no_shadow_black@1x.png in Resources */,
+				E39F7FDF29FC30FE00B99FFD /* kwiks_money_crown@1x.png in Resources */,
 				E3CAFABF29E5EC5E00AEFC74 /* background_yellow_gradient@2x.png in Resources */,
 				E347449B29DCB3C300E64B68 /* trash_icon_white@1x.png in Resources */,
 				E34744B329DCB49F00E64B68 /* back_icon_final@3x.png in Resources */,
 				E3CAFA7A29E4E81A00AEFC74 /* record_anim.json in Resources */,
 				E3CAFAD229E5EC5E00AEFC74 /* background_orange_gradient@1x.png in Resources */,
+				E3AB413229FFF37600EB9AA3 /* kwiks_add_money_wallet_icon@1x.png in Resources */,
 				E3FD472729E75EA10065F649 /* friend_delete_removal@3x.png in Resources */,
 				E3CAFAC229E5EC5E00AEFC74 /* add_photo_icon_camera@3x.png in Resources */,
+				E39F7FCD29FC1BEE00B99FFD /* question_mark_no_shadow_kwiks_green@2x.png in Resources */,
 				E34744AE29DCB3D800E64B68 /* message_pin_icon@1x.png in Resources */,
 				E39F082229E47E9700C76016 /* kwiks_play_voice_note@1x.png in Resources */,
+				E39F7FD129FC21AA00B99FFD /* kwiks_money_dolla_sign@2x.png in Resources */,
 				E3CAFAB829E5EC5E00AEFC74 /* background_deep_pink_gradient@1x.png in Resources */,
 				E3FD471D29E75EA10065F649 /* settings_icon_profile_no_shadow@1x.png in Resources */,
 				E3FD470229E737C30065F649 /* Segoe UI Italic.ttf in Resources */,
@@ -859,6 +975,7 @@
 				E39F082F29E47E9700C76016 /* mini_microphone@2x.png in Resources */,
 				E31D90E629E8D53000DE6425 /* wave_gradient@3x.png in Resources */,
 				E34744A929DCB3D100E64B68 /* three_dots_horizontal@2x.png in Resources */,
+				E3AB412929FFF36B00EB9AA3 /* kwiks_green_money_sign@3x.png in Resources */,
 				E35676E129AD1831003B5E9A /* LaunchScreen.storyboard in Resources */,
 				E34744A729DCB3D100E64B68 /* three_dots_horizontal@3x.png in Resources */,
 				E347449529DCB3BC00E64B68 /* mag_icon_header@3x.png in Resources */,
@@ -871,19 +988,26 @@
 				E3CAFAC929E5EC5E00AEFC74 /* empty_background_icon@1x.png in Resources */,
 				E347447C29DB7E6000E64B68 /* woman_stock.jpg in Resources */,
 				E3FD472C29E75EA10065F649 /* friend_delete_removal@2x.png in Resources */,
+				E3AB413729FFF37600EB9AA3 /* kwiks_cashout_icon@1x.png in Resources */,
+				E3AB413529FFF37600EB9AA3 /* kwiks_add_money_wallet_icon@3x.png in Resources */,
 				E3FD472829E75EA10065F649 /* photo_selection_icon@1x.png in Resources */,
 				E39F082829E47E9700C76016 /* kwiks_audio_pause_button@3x.png in Resources */,
+				E3AB413629FFF37600EB9AA3 /* kwiks_add_money_wallet_icon@2x.png in Resources */,
 				E39F081F29E47E9700C76016 /* wallet_cash_button@3x.png in Resources */,
 				E3FD472B29E75EA10065F649 /* back_arrow@2x.png in Resources */,
 				E347449C29DCB3C300E64B68 /* trash_icon_white@2x.png in Resources */,
 				E3CAFACA29E5EC5E00AEFC74 /* person_icon_chat@2x.png in Resources */,
 				E3CAFAC129E5EC5E00AEFC74 /* person_icon_chat@1x.png in Resources */,
+				E39F7FDD29FC30FE00B99FFD /* kwiks_money_crown@2x.png in Resources */,
 				E3FD472529E75EA10065F649 /* photo_selection_icon@3x.png in Resources */,
+				E3AB413329FFF37600EB9AA3 /* kwiks_cashout_icon@2x.png in Resources */,
+				E39F7FD829FC270800B99FFD /* kwiks_vector_arrow@3x.png in Resources */,
 				E34744B429DCB49F00E64B68 /* back_icon_final@1x.png in Resources */,
 				E39F082B29E47E9700C76016 /* chat_send_button@3x.png in Resources */,
 				E39F082A29E47E9700C76016 /* chat_send_button@2x.png in Resources */,
 				E3CAFACB29E5EC5E00AEFC74 /* background_purple_gradient@3x.png in Resources */,
 				E3FD471E29E75EA10065F649 /* settings_icon_profile_no_shadow@3x.png in Resources */,
+				E39F7FD929FC270800B99FFD /* kwiks_vector_arrow@2x.png in Resources */,
 				E3FD472E29E75EA10065F649 /* play_icon_white@3x.png in Resources */,
 				E347449629DCB3BC00E64B68 /* mag_icon_header@1x.png in Resources */,
 				E347449029DCB3B400E64B68 /* new_convo_icon@2x.png in Resources */,
@@ -895,6 +1019,8 @@
 				E39F082929E47E9700C76016 /* chat_plus_icon@1x.png in Resources */,
 				E3CAFAC529E5EC5E00AEFC74 /* mag_icon_chat@1x.png in Resources */,
 				E39F082D29E47E9700C76016 /* mini_microphone@1x.png in Resources */,
+				E3AB413429FFF37600EB9AA3 /* kwiks_cashout_icon@3x.png in Resources */,
+				E39F7FD329FC21AA00B99FFD /* kwiks_money_dolla_sign@3x.png in Resources */,
 				E3CAFAC029E5EC5E00AEFC74 /* background_purple_gradient@2x.png in Resources */,
 				E3CAFAC629E5EC5E00AEFC74 /* background_deep_pink_gradient@2x.png in Resources */,
 				E3CAFAD129E5EC5E00AEFC74 /* background_orange_gradient@3x.png in Resources */,
@@ -908,6 +1034,7 @@
 				E3CAFAC429E5EC5E00AEFC74 /* background_yellow_gradient@1x.png in Resources */,
 				E34744AF29DCB3D800E64B68 /* message_pin_icon@2x.png in Resources */,
 				E3CAFAB729E5EC5E00AEFC74 /* background_light_blue_gradient@1x.png in Resources */,
+				E39F7FCC29FC1BEE00B99FFD /* question_mark_no_shadow_kwiks_green@1x.png in Resources */,
 				E3FD470329E737C50065F649 /* Segoe UI.ttf in Resources */,
 				E3FD472429E75EA10065F649 /* back_arrow@3x.png in Resources */,
 				E3F91CAD29E7359400591F4C /* .gitignore in Resources */,
@@ -927,7 +1054,9 @@
 				E3CAFAD329E5EC5E00AEFC74 /* add_photo_icon_camera@1x.png in Resources */,
 				E39F082E29E47E9700C76016 /* chat_send_button@1x.png in Resources */,
 				E3CAFA8A29E5CE4500AEFC74 /* stock_musician.jpg in Resources */,
+				E39F7FD729FC270800B99FFD /* kwiks_vector_arrow@1x.png in Resources */,
 				E3CAFA7C29E4EF9300AEFC74 /* record_anim_2.json in Resources */,
+				E39F7FCB29FC1BEE00B99FFD /* question_mark_no_shadow_kwiks_green@3x.png in Resources */,
 				E34744A329DCB3CA00E64B68 /* white_pin_large_tableview@1x.png in Resources */,
 				E34744A129DCB3CA00E64B68 /* white_pin_large_tableview@3x.png in Resources */,
 				E3CAFAD529E5EC5E00AEFC74 /* ellipsisIconChat@3x.png in Resources */,
@@ -938,13 +1067,16 @@
 				E3CAFAD029E5EC5E00AEFC74 /* background_yellow_gradient@3x.png in Resources */,
 				E347448129DB8E0500E64B68 /* Group 1000007151@1x.png in Resources */,
 				E39F083A29E49DD600C76016 /* trashcan_icon_group@1x.png in Resources */,
+				E3AB412B29FFF36B00EB9AA3 /* kwiks_green_money_sign@1x.png in Resources */,
 				E3CAFABE29E5EC5E00AEFC74 /* background_pink_gradient@2x.png in Resources */,
 				E39F083129E47E9700C76016 /* happyTypingFace@1x.png in Resources */,
 				E347449729DCB3BC00E64B68 /* mag_icon_header@2x.png in Resources */,
+				E3AB412A29FFF36B00EB9AA3 /* kwiks_green_money_sign@2x.png in Resources */,
 				E3FD471F29E75EA10065F649 /* settings_icon_profile_no_shadow@2x.png in Resources */,
 				E34744A829DCB3D100E64B68 /* three_dots_horizontal@1x.png in Resources */,
 				E347448F29DCB3B400E64B68 /* new_convo_icon@1x.png in Resources */,
 				E3FD472029E75EA10065F649 /* photo_selection_icon@2x.png in Resources */,
+				E39F7FD229FC21AA00B99FFD /* kwiks_money_dolla_sign@1x.png in Resources */,
 				E347449129DCB3B400E64B68 /* new_convo_icon@3x.png in Resources */,
 				E3CAFACF29E5EC5E00AEFC74 /* background_light_blue_gradient@2x.png in Resources */,
 				E3CAFABB29E5EC5E00AEFC74 /* empty_background_icon@3x.png in Resources */,
@@ -1010,8 +1142,10 @@
 				E3FD473629E76C810065F649 /* CustomThreeSelector.swift in Sources */,
 				E347448929DBA70B00E64B68 /* ChatCollection.swift in Sources */,
 				E39F084429E4B60F00C76016 /* ChatModel.swift in Sources */,
+				E3AB412529FFEF6A00EB9AA3 /* UIScrollView+Ext.swift in Sources */,
 				E3FD473C29E78DDF0065F649 /* DynamicProfileCollection.swift in Sources */,
 				E347447629DB641B00E64B68 /* Extensions+DummyData.swift in Sources */,
+				E33FB60429F2EF160061ED04 /* BaseView.swift in Sources */,
 				E39F084729E4D24400C76016 /* InteriorHeader.swift in Sources */,
 				E347448529DB9BDF00E64B68 /* ChatMain.swift in Sources */,
 				E3CAFAE329E61E6300AEFC74 /* ChatMediaViewer.swift in Sources */,
@@ -1019,6 +1153,7 @@
 				E3CAFAE029E60D8A00AEFC74 /* ChangeBackgroundCollection.swift in Sources */,
 				E3CAFA8F29E5E83800AEFC74 /* IndividualProfile.swift in Sources */,
 				E3CAFADD29E603E500AEFC74 /* ChangeBackgroundPopup.swift in Sources */,
+				E370E31429F6DB9A009BD00D /* WalletBalancePagination.swift in Sources */,
 				E347448B29DBAA4000E64B68 /* RequestView.swift in Sources */,
 				E35676D529AD182F003B5E9A /* AppDelegate.swift in Sources */,
 				E3D0831929D72ADB00CE82D9 /* ColorSheet.swift in Sources */,
@@ -1028,6 +1163,7 @@
 				E3CAFA7E29E4F13700AEFC74 /* AudioCell.swift in Sources */,
 				E3CAFAE529E61F1900AEFC74 /* ChatMediaCollection.swift in Sources */,
 				E347447929DB736A00E64B68 /* MessagesTable.swift in Sources */,
+				E33FB5FF29F2ED680061ED04 /* BaseViewController.swift in Sources */,
 				E39F083529E496A000C76016 /* RecordBar.swift in Sources */,
 				E39F080929E4755500C76016 /* AccessoryInputView.swift in Sources */,
 				E347448729DB9EA500E64B68 /* ChatHeader.swift in Sources */,
@@ -1035,12 +1171,16 @@
 				E3CAFAD929E5F8ED00AEFC74 /* IndividualCollection.swift in Sources */,
 				E35676D729AD182F003B5E9A /* SceneDelegate.swift in Sources */,
 				E3FD473E29E798610065F649 /* CustomTwoSelector.swift in Sources */,
+				E370E31629F6E222009BD00D /* WalletTable.swift in Sources */,
 				E3CAFA8029E4F77500AEFC74 /* ImageMainCell.swift in Sources */,
+				E370E31829F6EA1F009BD00D /* Attributed+Ext.swift in Sources */,
 				E3FD473829E78D730065F649 /* FourSquareLayout.swift in Sources */,
 				E3E125E129E85EAF00822267 /* DynamicHeader.swift in Sources */,
+				E33FB5FD29F2ED4D0061ED04 /* WalletMain.swift in Sources */,
 				E347447329DB610700E64B68 /* MessagesHeader.swift in Sources */,
 				E365516A29C7B16F00F3D37E /* Layout.swift in Sources */,
 				E39F084129E4B38300C76016 /* MessageCell.swift in Sources */,
+				E33FB60229F2EEA10061ED04 /* WalletMainHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

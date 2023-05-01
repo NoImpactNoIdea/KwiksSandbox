@@ -507,7 +507,7 @@ class IndividualProfileChatController : UIViewController {
     @objc func handleProfileButton(sender:UIButton) {
         let dynamicUserProfile = DynamicUserProfile()
         dynamicUserProfile.navigationController?.navigationBar.isHidden = true
-        dynamicUserProfile.dynamicState = .random
+        dynamicUserProfile.dynamicState = .personal
         self.navigationController?.pushViewController(dynamicUserProfile, animated: true)
     }
     
